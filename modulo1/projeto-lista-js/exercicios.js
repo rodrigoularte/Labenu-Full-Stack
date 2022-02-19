@@ -141,10 +141,29 @@ function checaRenovacaoRG() {
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
 
+  ehMultiplo400 = ano % 400 === 0
+  ehMultiplo4 = (ano % 4 === 0) &&  (ano % 100 !== 0)
+
+  ehBissexto = ehMultiplo400 || ehMultiplo4
+
+  console.log(ehMultiplo400, ehMultiplo4)
+  
+  return ehBissexto
+
 }
+
+
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
+  const idade = prompt("Você tem mais de 18 anos?")
+  const ensinoMedio = prompt("Você possui ensino médio completo?")
+  const disponibilidade = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
 
+  checa1 = idade === "sim"
+  checa2 = ensinoMedio === "sim"
+  checa3 = disponibilidade === "sim"
+
+  console.log(checa1 && checa2 && checa3)
 }
