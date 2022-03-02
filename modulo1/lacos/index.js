@@ -141,3 +141,79 @@
 // }
 
 // console.log(`O maior número é ${valorMaximo} e o menor é ${valorMinimo}`)
+
+
+//Desafios
+
+//1.
+
+// const numeroParaAdivinhar = Number(prompt("Vamos jogar!"))
+// let chute = 0
+// let numerosDeChute = 0
+
+// while (chute !== numeroParaAdivinhar){
+//     chute = Number(prompt("Tente acertar o número do seu adversário!"))
+
+//     console.log("O número chutado foi", chute)
+
+//     if (chute > numeroParaAdivinhar){
+//         console.log("Errrrrrrrouuuu!!! O número é menor")
+//     }
+//     else if (chute < numeroParaAdivinhar) {
+//         console.log("Errrrrrrrouuuu!!! O número é maior")
+//     }
+//     else {
+//         console.log("Acertouuuu!!!")
+//     }
+
+//     numerosDeChute++
+// }
+
+// if (numerosDeChute === 1){
+//     console.log("Caraca, tu é bom mesmo, hein!! Acertou de primeira!!")
+// }
+// else if (numerosDeChute < 5){
+// console.log("Foi rápido! O número de tentativas foi", numerosDeChute)
+// }
+// else {
+// console.log("Sofreu, mas conseguiu! O número de tentativas foi", numerosDeChute)
+// }
+
+
+//2.
+
+// let numeroParaAdivinhar = Math.floor((Math.random() * 100) + 1)
+// let chute = 0
+// let numerosDeChute = 0
+
+// while (chute !== numeroParaAdivinhar){
+//     chute = Number(prompt("Tente acertar o número do seu adversário!"))
+
+//     console.log("O número chutado foi", chute)
+
+//     if (chute > numeroParaAdivinhar){
+//         console.log("Errrrrrrrouuuu!!! O número é menor")
+//     }
+//     else if (chute < numeroParaAdivinhar) {
+//         console.log("Errrrrrrrouuuu!!! O número é maior")
+//     }
+//     else {
+//         console.log("Acertouuuu!!!")
+//     }
+
+//     numerosDeChute++
+// }
+
+// if (numerosDeChute === 1){
+//     console.log("Caraca, tu é bom mesmo hein!! Acertou de primeira!!")
+// }
+// else if (numerosDeChute <= 5){
+// console.log("Foi rápido! O número de tentativas foi", numerosDeChute)
+// }
+// else {
+// console.log("Sofreu, mas conseguiu! O número de tentativas foi", numerosDeChute)
+// }
+
+// Quando eu entendi como era pra usar o Math.random(), eu vi que era
+// só substituir a linha com o prompt que pedia para o usuário digitar o número
+// a ser adivinhado. Alterei e deu certo!
