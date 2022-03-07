@@ -81,7 +81,7 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
     }
 
     let divisivel = (a, b) => {
-        if (maior(a, b) % menor(a, b) === 0){
+        if (maior(a, b) % menor(a, b) === 0) {
             return true
         }
         else {
@@ -89,18 +89,18 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
         }
     }
 
-    let imprimeDiferenca = (a,b) => {
+    let imprimeDiferenca = (a, b) => {
         if (a > b) {
             return a - b
         } else {
             return b - a
         }
     }
-    
+
     let objeto = {
         maiorNumero: maior(num1, num2),
         maiorDivisivelPorMenor: divisivel(num1, num2),
-        diferenca: imprimeDiferenca(num1,num2)
+        diferenca: imprimeDiferenca(num1, num2)
     }
 
     return objeto
@@ -113,7 +113,15 @@ function retornaNPrimeirosPares(n) {
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC) {
+        return "Equilátero"
+    }
+    else if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC)  {
+        return "Escaleno"
+    }
+    else {
+        return "Isósceles"
+    }
 }
 
 // EXERCÍCIO 10
