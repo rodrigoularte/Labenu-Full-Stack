@@ -116,7 +116,7 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
     if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC) {
         return "Equilátero"
     }
-    else if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC)  {
+    else if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC) {
         return "Escaleno"
     }
     else {
@@ -138,7 +138,12 @@ function retornaSegundoMaiorESegundoMenor(array) {
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
+    let nomeDoFilme = filme.nome
+    let anoDoFilme = filme.ano
+    let diretorDoFilme = filme.diretor
+    let atoresDoFilme = `${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}`
 
+    return `Venha assistir ao filme ${nomeDoFilme}, de ${anoDoFilme}, dirigido por ${diretorDoFilme} e estrelado por ${atoresDoFilme}.`
 }
 
 // EXERCÍCIO 12
