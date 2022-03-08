@@ -159,11 +159,21 @@ function retornaPessoaAnonimizada(pessoa) {
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
 
+    let clientesPermitidos = pessoas.filter((cliente) => {
+        return cliente.idade > 14 && cliente.idade < 60 && cliente.altura >= 1.5
+    })
+
+    return clientesPermitidos
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
 
+    let clientesProibidos = pessoas.filter((cliente) => {
+        return cliente.idade <= 14 || cliente.idade > 60 || cliente.altura < 1.5
+    })
+
+    return clientesProibidos
 }
 
 // EXERCÍCIO 14
