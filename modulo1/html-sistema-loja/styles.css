@@ -1,0 +1,46 @@
+header{
+    background-color: rgb(10, 113, 216); 
+    color: rgb(255, 242, 227);
+    padding: 10px;
+    font-size: large;
+}
+
+footer{
+    display: inline;
+}
+
+#barra-navegacao{
+    background-color: cornflowerblue;
+    padding: 5px;
+}
+
+a{
+    color: rgb(255, 242, 227);
+    margin: 5px;
+}
+
+a:hover{
+    color:aqua;
+}
+
+.deixar-inline{
+    background-color: aqua;
+    display: inline;
+}
+
+th{
+    color:rgb(10, 113, 216);
+}
+
+tr{
+    text-align: center;
+}
+
+/* table{
+    background-color: aqua;
+    border-color: blue;
+} */
+
+#sumir{
+    display: none;
+}
