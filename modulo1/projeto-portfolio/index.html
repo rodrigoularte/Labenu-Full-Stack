@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,35 @@
     <title>Rodrigo Goularte | Portfólio</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
     <header>
         Rodrigo
-        <a href="index.html" class="header-link">Home</a>
+        <table class="table-header">
+            <tr>
+                <td><a href="index.html">Home</a></td>
+                <td><a href="projetos.html">Projetos</a></td>
+            </tr>
+        </table>
     </header>
     <div>
         <h1>Estudante Full Stack</h1>
         <p class="descricao-inicial">
-        Olá! Meu nome é Rodrigo. Estou iniciando Front-End
-        <br>e meu objetivo é ser um desenvolvedor Full Stack.
-        <br>Fique à vontade para conhecer mais sobre mim.
+            Olá! Meu nome é Rodrigo. Estou iniciando Front-End
+            <br>e meu objetivo é ser um desenvolvedor Full Stack.
+            <br>Fique à vontade para conhecer mais sobre mim.
         </p>
     </div>
 
     <div class="background-verde">
         <h2>Onde estudei</h2>
-        <ul class="tabela-estudei">
+        <ul>
             <li>Colégio Apollo 12</li>
             <p>Informática industrial</p>
             <li>Universidade Estácio de Sá</li>
             <p>Engenharia Elétrica</p>
             <li>Labenu</li>
-            <p>Full Stack</p>
+            <p>Web Full Stack</p>
         </ul>
     </div>
 
@@ -54,12 +61,21 @@
     <div>
         <h2>Entre em contato</h2>
         <form action="#">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome">
-            <label for="email">E-mail</label>
-            <input type="text" name="email" id="email">
-            <label for="comentario">Comentário</label>
-            <input type="text" name="comentario" id="comentario">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div>
+                <label for="comentario">Comentário:</label>
+                <input type="text" name="comentario" id="comentario">
+            </div>
+            <div class="botao-form">
+                <button type="submit">Enviar</button>
+            </div>
         </form>
     </div>
 
@@ -67,4 +83,5 @@
         Redes Sociais
     </footer>
 </body>
+
 </html>
