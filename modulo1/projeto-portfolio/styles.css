@@ -48,3 +48,22 @@ table {
     width: 800px;
     border-radius: 20px;
 }
+
+button {
+    color: #556d55;
+    background-color: #F7F7F7;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 3px solid #90AB90;
+    text-align: right;
+}
+
+button:hover {
+    color: #F7F7F7;
+    background-color: #556d55;
+    border: 3px solid #556d55;
+    transition-duration: 0.4s;
+    cursor:pointer;
+}
