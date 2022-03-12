@@ -43,3 +43,8 @@ h2 {
 table {
     text-align: center;
 }
+
+.img-projetos {
+    width: 800px;
+    border-radius: 20px;
+}
