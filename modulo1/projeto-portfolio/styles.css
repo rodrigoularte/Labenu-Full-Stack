@@ -14,19 +14,29 @@ header{
     color: #535E53;
 }
 
-.table-header {
+#nome-header {
     display: inline;
-    padding-left: 80vh;
+    padding: 0;
+    position: relative;
+    left: -50vh;
 }
 
-td a{
+#links {
+    display: inline;
+    padding: 0px 50px;
+    text-decoration: none;
+    position: relative;
+    left: 60vh;
+}
+
+header div a{
     font-size: 20px;
     color: #90AB90;
-    padding: 0px 20px;
+    padding: 0px 30px;
     text-decoration: none;
 }
 
-td a:hover {
+header div a:hover {
     color: #535E53;
 }
 
@@ -38,7 +48,7 @@ body {
     color: #5a5864;
 }
 
-div {
+body div {
     padding: 100px;
 }
 
@@ -80,6 +90,9 @@ ul li {
     font-weight: bold;
 }
 
+ul div {
+    padding: 20px;
+}
 
 
 .background-verde {
