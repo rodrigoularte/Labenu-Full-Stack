@@ -12,11 +12,11 @@
 
 header {
     background-color: mediumvioletred;
-    height: 10vh;
+    height: 8vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 20px;
 }
 
 .header-logo-nome {
@@ -42,19 +42,18 @@ header {
 
 #corpo {
     display: flex;
-    height: 80vh;
+    flex-grow: 1;
 }
 
 nav {
     background-color: #f2d0e0;
-    width: 20vw;
+    width: 25vw;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
 .link {
-    /* border: 1px solid black; */
     height: 5vh;
     display: flex;
     align-items: stretch;
@@ -63,8 +62,7 @@ nav {
 }
 
 .img-nome {
-    /* border: 1px solid black; */
-    width: 18vw;
+    width: 20vw;
     display: flex;
 }
 
@@ -86,43 +84,39 @@ nav {
 }
 
 main {
-    border: 1px solid black;
     width: 80vw;
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 10px;
-    column-gap: 10px;
-    padding: 10px;
+    row-gap: 15px;
+    column-gap: 15px;
+    padding: 15px;
     
 }
 
 .cartao{
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
     box-shadow: 2px 2px 3px darkgrey;
 }
 
-.div-bolo {
-    background-color: #f2d0e0;
-    flex-grow: 1;
+.cartao img {
+    width: 100%;
 }
 
 .container-descricao {
-    /* background-color: aqua; */
-    flex-grow: 0;
     text-align: center;
 }
 
 footer {
     background-color: mediumvioletred;
-    height: 10vh;
+    height: 8vh;
     width: 100%;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    padding: 20px;
 }
 
 #texto-footer {
