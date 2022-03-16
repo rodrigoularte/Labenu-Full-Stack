@@ -11,17 +11,29 @@
 }
 
 header {
-    background-color: darkslategray;
+    background-color: #46535B;
     color: aliceblue;
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0px 10px;
+}
+
+header h2 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+form input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 12px 20px 12px 20px;
 }
 
 #tela-principal {
-    background-color: bisque;
+    background-color: #F6AE57;
     flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -37,10 +49,11 @@ a {
 }
 
 .card {
-    border: 1px solid black;
+    background-color: bisque;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 16px;
 }
 
 .card img {
@@ -52,25 +65,35 @@ a {
     display: flex;
     flex-grow: 1;
     align-items: center;
-
+    color: #FD7C00;
 }
 
 footer {
-    background-color: darkslategray;
+    background-color: #46535B;
     color: aliceblue;
     height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    align-self: center;
+    font-family: 'Fredoka', sans-serif;
 }
 
 /* Tela de video */
 
 #tela-de-video {
-    background-color: bisque;
+    background-color: #F6AE57;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
+}
+div h1 {
+    color: #46535B;
 }
 
 .container-titulo {
@@ -96,4 +119,9 @@ footer {
 button {
     cursor: pointer;
     align-self: center;
+    background-color: bisque;
+    width: 60px;
+    border-radius: 5px;
+    color: #FD7C00;
 }
+
