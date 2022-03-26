@@ -8,6 +8,23 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-items: center;
+  padding: 10px;
+
+  input {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    display: flex;
+  }
+`
 
 class App extends React.Component {
 
@@ -54,7 +71,17 @@ class App extends React.Component {
     })
   }
 
-  //parei aqui
+  onChangeInputNome = (event) => {
+    this.setState({valorInputNome: event.target.value})
+  }
+
+  onChangeInputFotoUsuario = (event) => {
+    this.setState({valorInputFotoUsuario: event.target.value})
+  }
+
+  onChangeInputFotoPost = (event) => {
+    this.setState({valorInputFotoPost: event.target.value})
+  }
 
   render() {
     const listaDePosts = this.state.posts.map((post) => {
@@ -72,24 +99,24 @@ class App extends React.Component {
         <div>
           {listaDePosts}
         </div>
-        <div>
+        <FormContainer>
           <input
           value={this.state.valorInputNome}
-          onChange={}
-          placeholder={"Nome"}
+          onChange={this.onChangeInputNome}
+          placeholder={"Nome do usuário"}
           />
           <input
           value={this.state.valorInputFotoUsuario}
-          onChange={}
-          placeholder={"Foto do usuário"}
+          onChange={this.onChangeInputFotoUsuario}
+          placeholder={"Link da foto do usuário"}
           />
           <input
           value={this.state.valorInputFotoPost}
-          onChange={}
-          placeholder={"Foto do post"}
+          onChange={this.onChangeInputFotoPost}
+          placeholder={"Link da foto do post"}
           />
-          <button>Enviar</button>
-        </div>
+          <button onClick={this.adicionaPost}>Enviar</button>
+        </FormContainer>
       </MainContainer>
     );
   }
