@@ -29,22 +29,23 @@ class ListaDeUsuarios extends React.Component {
       })
       .catch((error) => {
         console.log(error.message)
-      });
-  };
+      })
+  }
 
-  deleteUser = () => {
-    // console.log(this.state.usuarios.id)
-    // axios
-    //   .delete(
-    //     `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${this.state.usuarios.id}`,
-    //     headers
-    //   )
-    //   .then((response) => {
-    //     console.log(response.data)
-    //   })
-    //   .catch((error) => {
-    //     alert(error.response.data.message)
-    //   })
+  deleteUser = (id) => {
+    // console.log(id)
+    axios
+      .delete(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+        headers
+      )
+      .then(() => {
+        this.getAllUsers()
+        alert("Usuário deletado com sucesso!")
+      })
+      .catch((error) => {
+        alert(error.response.data.message)
+      })
   }
 
   render() {
@@ -55,8 +56,8 @@ class ListaDeUsuarios extends React.Component {
           {usuario.name}
           <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button>
         </li>
-      );
-    });
+      )
+    })
 
     return (
       <div>

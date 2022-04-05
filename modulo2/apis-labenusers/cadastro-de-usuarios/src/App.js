@@ -22,7 +22,6 @@ class App extends React.Component {
     })
   }
 
-
   render() {
     let secao
     switch (this.state.pagina) {

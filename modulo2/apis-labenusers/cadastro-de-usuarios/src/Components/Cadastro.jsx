@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react';
+import React from 'react'
 
 const headers = {
   headers: {
@@ -49,16 +49,7 @@ class Cadastro extends React.Component {
     })
   }
 
-//   irParaLista = () => {
-//     this.setState({
-//       pagina: "lista"
-//     })
-//   }
-
   render() {
-    // console.log(this.state.inputNome)
-    // console.log(this.state.inputEmail)
-    // console.log(this.state.usuarios)
 
     return (
       <div>
