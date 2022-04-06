@@ -2,6 +2,7 @@ import axios from "axios"
 import React from "react"
 import styled from "styled-components"
 import DetalhesUsuario from "./DetalhesUsuario"
+import trashCan from "../Img/bin.png"
 
 const ContainerPrincipal = styled.div`
   display: flex;
@@ -148,7 +149,7 @@ class ListaDeUsuarios extends React.Component {
 
           <Botoes>
             <p onClick={() => this.verUsuario()}>+ info</p>
-            <img src="https://cdn-user-icons.flaticon.com/66505/66505191/1649284355464.svg?token=exp=1649285273~hmac=97ba25494f59942c844581f6d379ae04" alt="deletar" onClick={() => this.deleteUser(usuario.id)}/>
+            <img src={trashCan} alt="deletar" onClick={() => this.deleteUser(usuario.id)}/>
             {/* <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button> */}
           </Botoes>
         </Usuario>
