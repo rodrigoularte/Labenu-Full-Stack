@@ -33,19 +33,23 @@ class ListaDeUsuarios extends React.Component {
   }
 
   deleteUser = (id) => {
-    // console.log(id)
-    axios
-      .delete(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
-        headers
-      )
-      .then(() => {
-        this.getAllUsers()
-        alert("Usuário deletado com sucesso!")
-      })
-      .catch((error) => {
-        alert(error.response.data.message)
-      })
+    if (window.confirm("Tem certeza de que deseja deletar?")) {
+      axios
+        .delete(
+          `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+          headers
+        )
+        .then(() => {
+          this.getAllUsers()
+          alert("Usuário deletado com sucesso!")
+        })
+        .catch((error) => {
+          alert(error.response.data.message)
+        })
+    }
+    else {
+      alert("Operação cancelada")
+    }
   }
 
   render() {
