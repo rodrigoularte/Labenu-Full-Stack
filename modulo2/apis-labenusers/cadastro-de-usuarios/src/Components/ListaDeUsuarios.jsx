@@ -1,5 +1,87 @@
-import axios from "axios";
-import React from "react";
+import axios from "axios"
+import React from "react"
+import styled from "styled-components"
+import DetalhesUsuario from "./DetalhesUsuario"
+
+const ContainerPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  min-height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  background-color: #243754;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+`
+const Topo = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  button {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 12px;
+    background-color: #a03a3a;
+    border: 2px solid white;
+  }
+
+  button:hover {
+    background-color: #9e1414;
+  }
+`
+
+
+const ContainerLista = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+`
+
+const Usuario = styled.div`
+  display: flex;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #344867;
+  align-items: center;
+
+  :hover {
+    background-color: #0f213b;
+  }
+`
+
+const Botoes = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  img {
+    display: flex;
+    height: 30px;
+    padding: 3px;
+    border-radius: 50%;
+  }
+
+  img:hover {
+    background-color: #344867;
+  }
+`
 
 const headers = {
   headers: {
@@ -9,7 +91,8 @@ const headers = {
 
 class ListaDeUsuarios extends React.Component {
   state = {
-    usuarios: []
+    usuarios: [],
+    lista: true
   }
 
   componentDidMount = () => {
@@ -52,28 +135,49 @@ class ListaDeUsuarios extends React.Component {
     }
   }
 
-  render() {
+  verUsuario = () => {
+    this.state.lista ? (this.setState({ lista: false })) :
+      (this.setState({ lista: true }))
+  }
 
+  render() {
     const listaDeUsuarios = this.state.usuarios.map((usuario) => {
       return (
-        <li key={usuario.id}>
-          {usuario.name}
-          <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button>
-        </li>
+        <Usuario key={usuario.id}>
+          <p>{usuario.name}</p>
+
+          <Botoes>
+            <p onClick={() => this.verUsuario()}>+ info</p>
+            <img src="https://cdn-user-icons.flaticon.com/66505/66505191/1649284355464.svg?token=exp=1649285273~hmac=97ba25494f59942c844581f6d379ae04" alt="deletar" onClick={() => this.deleteUser(usuario.id)}/>
+            {/* <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button> */}
+          </Botoes>
+        </Usuario>
       )
     })
 
     return (
-      <div>
-        <div>
-          <h2>Lista de usuários</h2>
-          <ul>{listaDeUsuarios}</ul>
-        </div>
+      <>
+        {
+          this.state.lista ? (
+            <ContainerPrincipal>
+              <Topo>
+                <h2>Lista de usuários</h2>
+                <button onClick={this.props.irParaCadastro}>X</button>
+              </Topo>
 
-        <button onClick={this.props.irParaCadastro}>
-          Voltar para cadastro
-        </button>
-      </div>
+              <ContainerLista>{listaDeUsuarios}</ContainerLista>
+
+            </ContainerPrincipal>
+          ) : (
+            <ContainerPrincipal>
+              <DetalhesUsuario
+                verUsuario={this.verUsuario}
+              // id={this.usuario.id}
+              />
+            </ContainerPrincipal>
+          )
+        }
+      </>
     );
   }
 }
