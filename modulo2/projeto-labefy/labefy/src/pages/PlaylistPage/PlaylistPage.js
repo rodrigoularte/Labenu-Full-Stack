@@ -1,5 +1,8 @@
 import React from "react"
 import axios from "axios"
+import { urlBase } from "../../constants/urls.js"
+import { NomePlaylist } from "./styled.js"
+import CriePlaylist from "../../components/CriePlaylist.js"
 
 const headers = {
   headers: {
@@ -8,29 +11,42 @@ const headers = {
 }
 
 export default class PlaylistPage extends React.Component {
-    state = {
-        playlists: []
-    }
+  state = {
+    playlists: []
+  }
 
-    getAllPlaylists = () => {
-      const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
+  componentDidMount() {
+    this.getAllPlaylists()
+  }
 
-      axios
-      .get(url,headers)
-    }
+  getAllPlaylists = () => {
+    axios
+      .get(`${urlBase}`, headers)
+      .then((res) =>
+        this.setState({
+          playlists: res.data.result.list
+        })
+      )
+      .catch((err) => console.log(err.response))
+  }
 
-    render() {
+  render() {
 
-        return (
-            <div>
-                <h2>Crie uma playlist agora mesmo!</h2>
-                <input placeholder="Digite o nome da sua playlist..."></input>
-                <button>Criar!</button>
+    const listaDePlaylists = this.state.playlists.map((playlist) => {
+      return <NomePlaylist key={playlist.id}>{playlist.name}</NomePlaylist>
+    })
 
-                <div>
-                    <h3>Playlists:</h3>
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <CriePlaylist
+          getAllPlaylists={this.getAllPlaylists()}
+        />
+
+        <div>
+          <h3>Playlists:</h3>
+          {listaDePlaylists}
+        </div>
+      </div>
+    )
+  }
 }

@@ -1,13 +1,12 @@
 import React from "react"
 
 export default class DetalhesPlaylistPage extends React.Component {
+  render() {
 
-    render() {
-
-        return (
-            <div>
-                Detalhes da Playlist
-            </div>
-        )
-    }
+    return (
+      <div>
+        Detalhes da Playlist
+      </div>
+    )
+  }
 }

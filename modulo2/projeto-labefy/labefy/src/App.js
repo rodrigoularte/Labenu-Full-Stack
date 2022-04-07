@@ -14,11 +14,11 @@ export default class App extends React.Component {
   selecionaPagina = () => {
     switch (this.state.paginaAtual) {
       case "playlists":
-        return <PlaylistPage/>
+        return <PlaylistPage />
       case "detalhes":
-        return <DetalhesPlaylistPage/>
+        return <DetalhesPlaylistPage />
       default:
-        return <PlaylistPage/>
+        return <PlaylistPage />
     }
   }
 
