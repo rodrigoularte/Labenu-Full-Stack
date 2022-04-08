@@ -21,19 +21,27 @@ export default class PlaylistPage extends React.Component {
 
   getAllPlaylists = () => {
     axios
-      .get(`${urlBase}`, headers)
-      .then((res) =>
-        this.setState({
-          playlists: res.data.result.list
-        })
-      )
-      .catch((err) => console.log(err.response))
+    .get(`${urlBase}`, headers)
+    .then((res) =>
+      this.setState({
+        playlists: res.data.result.list
+      })
+    )
+    .catch((err) => console.log(err.response))
   }
 
   render() {
 
     const listaDePlaylists = this.state.playlists.map((playlist) => {
-      return <NomePlaylist key={playlist.id}>{playlist.name}</NomePlaylist>
+      return (
+        <NomePlaylist
+          key={playlist.id}
+          // onClick={() => this.props.irParaDetalhesPlaylist(playlist.id)}
+          onClick={() => this.props.irParaDetalhesPlaylist(playlist.id, playlist.name)}
+        >
+          {playlist.name}
+        </NomePlaylist>
+      )
     })
 
     return (
