@@ -1,10 +1,16 @@
 import React from "react"
 import DetalhesPlaylistPage from "./pages/DetalhePlaylistPage/DetalhesPlaylistPage"
 import PlaylistPage from "./pages/PlaylistPage/PlaylistPage"
+import styled from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
-// font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-//     sans-serif;
+const GlobalStyle = createGlobalStyle`
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`
 
 export default class App extends React.Component {
   state = {
@@ -13,7 +19,6 @@ export default class App extends React.Component {
     playlistNome: ""
   }
 
-  // irParaDetalhesPlaylist = (id) => {
   irParaDetalhesPlaylist = (id, nome) => {
     this.setState({
       paginaAtual: "detalhes",
@@ -51,6 +56,7 @@ export default class App extends React.Component {
 
     return (
       <div>
+        <GlobalStyle />
         {this.selecionaPagina()}
       </div>
     )

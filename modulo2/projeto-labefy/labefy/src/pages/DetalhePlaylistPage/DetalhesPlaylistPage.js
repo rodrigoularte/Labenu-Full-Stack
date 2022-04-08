@@ -2,6 +2,7 @@ import React from "react"
 import axios from "axios"
 import { urlBase } from "../../constants/urls"
 import { ContainerMusica } from "./styled"
+import AdicioneMusica from "../../components/AdicioneMusica"
 
 const headers = {
   headers: {
@@ -21,13 +22,13 @@ export default class DetalhesPlaylistPage extends React.Component {
 
   getPlaylistTracks = () => {
     axios
-    .get(`${urlBase}/${this.props.id}/tracks`, headers)
-    .then((res) => {
-      this.setState({
-        musicas: res.data.result.tracks
+      .get(`${urlBase}/${this.props.id}/tracks`, headers)
+      .then((res) => {
+        this.setState({
+          musicas: res.data.result.tracks
+        })
       })
-    })
-    .catch((err) => console.log(err.response))
+      .catch((err) => console.log(err.response))
   }
 
   render() {
@@ -35,8 +36,13 @@ export default class DetalhesPlaylistPage extends React.Component {
     const listaDeMusicas = this.state.musicas.map((musica) => {
       return (
         <ContainerMusica key={musica.id}>
+          <audio controls>
+            <source src={musica.url} type="audio/mpeg" />
+          </audio>
+
           <p>{musica.name}</p>
           <p>{musica.artist}</p>
+
         </ContainerMusica>
       )
     })
@@ -44,6 +50,11 @@ export default class DetalhesPlaylistPage extends React.Component {
     return (
       <div>
         <h2>{this.props.nome}</h2>
+
+        <AdicioneMusica
+          id={this.props.id}
+          getPlaylistTracks={this.getPlaylistTracks}
+        />
 
         <p>{listaDeMusicas}</p>
 
