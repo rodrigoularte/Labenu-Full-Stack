@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { urlBase } from "../../constants/urls"
-import { ContainerMusica } from "./styled"
+import { AdicioneOff, BotaoVoltar, ContainerMusica, ContainerMusicas, ContainerPrincipal, Descricao, Musica } from "./styled"
 import AdicioneMusica from "../../components/AdicioneMusica"
 
 const headers = {
@@ -13,7 +13,8 @@ const headers = {
 export default class DetalhesPlaylistPage extends React.Component {
 
   state = {
-    musicas: []
+    musicas: [],
+    adicionar: false
   }
 
   componentDidMount() {
@@ -31,35 +32,53 @@ export default class DetalhesPlaylistPage extends React.Component {
       .catch((err) => console.log(err.response))
   }
 
+  mostrarAdicionar = () => {
+    this.setState({
+      adicionar: !this.state.adicionar
+    })
+  }
+
   render() {
 
     const listaDeMusicas = this.state.musicas.map((musica) => {
       return (
-        <ContainerMusica key={musica.id}>
+        <Musica key={musica.id}>
           <audio controls>
             <source src={musica.url} type="audio/mpeg" />
           </audio>
 
-          <p>{musica.name}</p>
-          <p>{musica.artist}</p>
+          <Descricao>
+            <p>{musica.name}</p>
+            <p><b>{musica.artist}</b></p>
+          </Descricao>
 
-        </ContainerMusica>
+        </Musica>
       )
     })
 
     return (
-      <div>
-        <h2>{this.props.nome}</h2>
+      <ContainerPrincipal>
+        <h1>{this.props.nome}</h1>
 
-        <AdicioneMusica
+        {this.state.adicionar ?
+          (<AdicioneMusica
+            id={this.props.id}
+            getPlaylistTracks={this.getPlaylistTracks}
+            mostrarAdicionar={this.mostrarAdicionar}
+          />) :
+          (<AdicioneOff onClick={this.mostrarAdicionar}><h3>Adicione uma música</h3></AdicioneOff>)
+        }
+        
+
+        {/* <AdicioneMusica
           id={this.props.id}
           getPlaylistTracks={this.getPlaylistTracks}
-        />
+        /> */}
 
-        <p>{listaDeMusicas}</p>
+        <ContainerMusicas>{listaDeMusicas}</ContainerMusicas>
 
-        <button onClick={this.props.irParaPlaylistPage}>Voltar</button>
-      </div>
+        <BotaoVoltar onClick={this.props.irParaPlaylistPage}>Voltar</BotaoVoltar>
+      </ContainerPrincipal>
     )
   }
 }

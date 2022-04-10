@@ -1,8 +1,9 @@
 import React from "react"
 import axios from "axios"
 import { urlBase } from "../../constants/urls.js"
-import { ContainerPrincipal, NomePlaylist } from "./styled.js"
+import { ContainerPlaylists, ContainerPrincipal, CardPlaylist, Playlists, Botoes } from "./styled.js"
 import CriePlaylist from "../../components/CriePlaylist.js"
+import trashCan from "../../constants/bin.png"
 
 const headers = {
   headers: {
@@ -55,14 +56,17 @@ export default class PlaylistPage extends React.Component {
 
     const listaDePlaylists = this.state.playlists.map((playlist) => {
       return (
-        <NomePlaylist>
-          <div
+        <CardPlaylist>
+          <h3
             key={playlist.id}
-            onClick={() => this.props.irParaDetalhesPlaylist(playlist.id, playlist.name)}
-          >{playlist.name}</div>
+            // onClick={() => this.props.irParaDetalhesPlaylist(playlist.id, playlist.name)}
+          >{playlist.name}</h3>
 
-          <button onClick={() => this.deletePlaylist(playlist.id)}>Deletar</button>
-        </NomePlaylist>
+          <Botoes>
+            <button onClick={() => this.props.irParaDetalhesPlaylist(playlist.id, playlist.name)}>Abrir</button>
+            <img src={trashCan} alt="deletar" onClick={() => this.deletePlaylist(playlist.id)}/>
+          </Botoes>
+        </CardPlaylist>
       )
     })
 
@@ -75,10 +79,12 @@ export default class PlaylistPage extends React.Component {
           getAllPlaylists={this.getAllPlaylists()}
         />
 
-        <div>
-          <h3>{this.state.quantidade} playlists</h3>
-          {listaDePlaylists}
-        </div>
+        <ContainerPlaylists>
+          <h2>{this.state.quantidade} playlists</h2>
+          <Playlists>
+            {listaDePlaylists}
+          </Playlists>
+        </ContainerPlaylists>
         
       </ContainerPrincipal>
     )
