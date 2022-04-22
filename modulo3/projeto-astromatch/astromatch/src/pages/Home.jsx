@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { urlBase } from "../constants/variaveis"
+import Escolhas from "../components/Escolhas"
 
 function Home() {
 
@@ -8,27 +9,25 @@ function Home() {
 
   const mostraPerfil = () => {
     axios
-    .get(`${urlBase}/person`)
-    .then((res) => {
-      setPerfil(res.data.profile)
-    })
-    .catch(err => {console.log(err)})
+      .get(`${urlBase}/person`)
+      .then((res) => {
+        setPerfil(res.data.profile)
+      })
+      .catch(err => { console.log(err) })
   }
 
-  useEffect(() => {mostraPerfil()}, [])
+  useEffect(() => { mostraPerfil() }, [])
 
-  console.log(perfil)
-
-  return(
+  return (
     <div>
       <img src={perfil.photo} alt={perfil.name} />
       <h2>{perfil.name}, {perfil.age}</h2>
       <p>{perfil.bio}</p>
-      
-      <button onClick={mostraPerfil}>Descartar</button>
-      <button>Like</button>
+
+      <Escolhas mostraPerfil={mostraPerfil} id={perfil.id}/>
+
     </div>
   )
 }
 
-export default Home
+  export default Home
