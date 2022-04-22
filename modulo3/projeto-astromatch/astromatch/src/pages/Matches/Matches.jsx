@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { urlBase } from "../constants/variaveis"
+import { urlBase } from "../../constants/variaveis"
+import Header from "../../components/Header"
+import { PerfilImg } from "./styles"
 
-function Matches() {
+function Matches(props) {
 
   const [matches, setMatches] = useState([])
 
@@ -20,7 +22,7 @@ function Matches() {
   const listaDeMatches = matches.map((match) => {
     return(
       <div>
-        <img src="" alt="" />
+        <PerfilImg src={match.photo} alt="" />
         <p>{match.name}</p>
       </div>
     )
@@ -28,6 +30,7 @@ function Matches() {
 
   return(
     <div>
+      <Header irParaHome={props.irParaHome}/>
       Matches
       {listaDeMatches}
     </div>
