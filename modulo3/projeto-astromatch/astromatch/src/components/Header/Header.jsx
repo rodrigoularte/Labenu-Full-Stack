@@ -1,20 +1,15 @@
 import React from "react"
-import styled from "styled-components"
+import {ContainerHeader, Titulo1, Titulo2} from "./styled"
 
-const ContainerHeader = styled.div`
-  display: flex;
-  height: 50px;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid black;
-`
 
 function Header(props) {
 
   return (
     <ContainerHeader>
       <button onClick={props.irParaHome}>Voltar</button>
-      Astromatch
+      <h1>
+        <Titulo1>Astro</Titulo1><Titulo2>match</Titulo2>
+      </h1>
       <button onClick={props.irParaMatches}>Ver Matches</button>
     </ContainerHeader>
   )

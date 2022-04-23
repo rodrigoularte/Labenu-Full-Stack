@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { urlBase } from "../../constants/variaveis"
-import Escolhas from "../../components/Escolhas"
-import Header from "../../components/Header"
+import Escolhas from "../../components/Escolhas/Escolhas"
+import Header from "../../components/Header/Header"
 import { ContainerDescricao, ContainerHome, ContainerFoto, FotoBlur, Foto, Perfil } from "./styled"
 
 function Home(props) {

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Header from "./components/Header"
+// import Header from "./components/Header"
 import Home from "./pages/Home/Home"
 import Matches from "./pages/Matches/Matches"
 import styled, { createGlobalStyle } from 'styled-components'

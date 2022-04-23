@@ -8,8 +8,8 @@ export const ContainerHome = styled.div`
   width: 400px;
   height: 90vh;
   margin-top: 5vh;
-  border: 1px solid black;
-  background-color: #C5D9D9;
+  border: 3px solid #2d3a3a;
+  background-color: white;
   border-radius: 10px;
 `
 
@@ -24,6 +24,7 @@ export const ContainerFoto = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  background-color: #2d3a3a;
   flex-grow: 1;
   max-width: 100%;
   height: 400px;

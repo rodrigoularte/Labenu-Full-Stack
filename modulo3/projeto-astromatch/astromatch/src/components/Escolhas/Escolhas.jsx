@@ -1,15 +1,9 @@
 import axios from "axios"
 import React from "react"
-import { urlBase } from "../constants/variaveis"
-import styled from "styled-components"
-
-const ContainerBotoes = styled.div`
-  display: flex;
-  height: 100px;
-  align-items: center;
-  justify-content: space-around;
-  border: 1px solid black;
-`
+import { urlBase } from "../../constants/variaveis"
+import {BsFillHeartFill} from "react-icons/bs"
+import {ImCross} from "react-icons/im"
+import {ContainerBotoes, BotaoMatch, BotaoRejeitar} from "./styled"
 
 
 function Escolhas(props) {
@@ -25,8 +19,8 @@ function Escolhas(props) {
 
   return(
     <ContainerBotoes>
-      <button onClick={props.mostraPerfil}>Descartar</button>
-      <button onClick={() => matchPerfil(props.id, props.mostraPerfil)}>Like</button>
+      <BotaoRejeitar onClick={props.mostraPerfil}><ImCross/></BotaoRejeitar>
+      <BotaoMatch onClick={() => matchPerfil(props.id, props.mostraPerfil)}><BsFillHeartFill/></BotaoMatch>
     </ContainerBotoes>
   )
 }

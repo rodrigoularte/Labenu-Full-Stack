@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-// styled Matchesg
+// styled Matches
 
 export const ContainerPagina = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const ContainerPagina = styled.div`
   height: 90vh;
   margin-top: 5vh;
   border: 1px solid black;
-  background-color: #C5D9D9;
+  background-color: white;
   border-radius: 10px;
 `
 
@@ -25,7 +25,7 @@ export const ContainerMatch = styled.div`
   display: flex;
   align-items: center;
   background-color: #cd4651;
-  color: #C5D9D9;
+  color: white;
   padding: 10px;
   margin-bottom: 15px;
   gap: 15px;
