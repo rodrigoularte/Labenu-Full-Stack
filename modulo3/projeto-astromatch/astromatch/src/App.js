@@ -17,7 +17,11 @@ const ContainerApp = styled.div`
   flex-direction: column;
   max-width: 100vw;
   min-height: 100vh;
+  background-color: #517373;
   align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 `
 
 function App() {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { urlBase } from "../../constants/variaveis"
 import Header from "../../components/Header"
-import { PerfilImg } from "./styles"
+import { ContainerLista, ContainerMatch, ContainerPagina, PerfilImg } from "./styles"
 
 function Matches(props) {
 
@@ -21,19 +21,18 @@ function Matches(props) {
 
   const listaDeMatches = matches.map((match) => {
     return(
-      <div>
+      <ContainerMatch>
         <PerfilImg src={match.photo} alt="" />
-        <p>{match.name}</p>
-      </div>
+        <h2>{match.name}</h2>
+      </ContainerMatch>
     )
   })
 
   return(
-    <div>
+    <ContainerPagina>
       <Header irParaHome={props.irParaHome}/>
-      Matches
-      {listaDeMatches}
-    </div>
+      <ContainerLista>{listaDeMatches}</ContainerLista>
+    </ContainerPagina>
   )
 }
 

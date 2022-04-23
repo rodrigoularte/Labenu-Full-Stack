@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+// styled Home
+
 export const ContainerHome = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,6 +9,7 @@ export const ContainerHome = styled.div`
   height: 90vh;
   margin-top: 5vh;
   border: 1px solid black;
+  background-color: #C5D9D9;
   border-radius: 10px;
 `
 
