@@ -27,7 +27,7 @@ function Home(props) {
       <Perfil>
 
         <ContainerFoto>
-          {/* <FotoBlur src={perfil.photo} alt={perfil.name} /> */}
+          <FotoBlur src={perfil.photo} alt={perfil.name} />
           <Foto src={perfil.photo} alt={perfil.name} />
 
           <ContainerDescricao>

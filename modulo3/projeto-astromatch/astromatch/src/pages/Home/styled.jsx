@@ -23,6 +23,7 @@ export const Perfil = styled.div`
 export const ContainerFoto = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   background-color: #2d3a3a;
   flex-grow: 1;
@@ -33,9 +34,9 @@ export const ContainerFoto = styled.div`
 `
 
 export const FotoBlur = styled.img`
-  /* position: absolute; */
+  position: absolute;
   width: 100%;
-  height: 400px;
+  height: 95%;
   filter: blur(10px);
   border-radius: 10px;
 `
@@ -44,7 +45,8 @@ export const Foto = styled.img`
   position: absolute;
   max-width: 100%;
   height: 100%;
-  transform: scaleY(0.9);
+  border-radius: 10px;
+  transform: scaleY(1);
 `
 
 export const ContainerDescricao = styled.div`

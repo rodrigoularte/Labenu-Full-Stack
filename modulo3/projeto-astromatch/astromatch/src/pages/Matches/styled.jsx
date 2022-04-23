@@ -34,13 +34,39 @@ export const ContainerMatch = styled.div`
 
   :hover {
     background-color: #BF1717;
+    color: white;
   }
 `
-
 
 export const PerfilImg = styled.img`
   height: 50px;
   width: 50px;
   /* margin-right: 10px; */
   border-radius: 50%;
+`
+
+export const ContainerBotao = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+
+export const BotaoRemover = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid #BF1717;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
+
+
+  color: #BF1717;
+  font-weight: bold;
+
+  :hover {
+    
+  }
 `

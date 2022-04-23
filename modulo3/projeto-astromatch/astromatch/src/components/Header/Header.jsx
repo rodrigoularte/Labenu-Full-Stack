@@ -1,16 +1,18 @@
 import React from "react"
-import {ContainerHeader, Titulo1, Titulo2} from "./styled"
+import {ContainerHeader, Matches, Titulo1, Titulo2, Voltar} from "./styled"
+import {BsArrow90DegLeft} from "react-icons/bs"
+import {RiUserHeartFill} from "react-icons/ri"
 
 
 function Header(props) {
 
   return (
     <ContainerHeader>
-      <button onClick={props.irParaHome}>Voltar</button>
+      <Voltar onClick={props.irParaHome}><BsArrow90DegLeft/></Voltar>
       <h1>
-        <Titulo1>Astro</Titulo1><Titulo2>match</Titulo2>
+        <Titulo1>astro</Titulo1><Titulo2>match</Titulo2>
       </h1>
-      <button onClick={props.irParaMatches}>Ver Matches</button>
+      <Matches onClick={props.irParaMatches}><RiUserHeartFill/></Matches>
     </ContainerHeader>
   )
 }

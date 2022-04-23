@@ -25,6 +25,8 @@ export const BotaoMatch = styled.button`
   :hover {
     background-color: #3ead5c;
     transform: scale(1.2);
+    cursor: pointer;
+    border: none;
 
     color: white;
   }
@@ -46,6 +48,9 @@ export const BotaoRejeitar = styled.button`
   :hover {
     background-color: #BF1717;
     transform: scale(1.2);
+    cursor: pointer;
+    border: none;
+
 
     color: white;
   }
