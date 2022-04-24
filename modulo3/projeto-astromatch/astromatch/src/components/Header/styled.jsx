@@ -7,14 +7,9 @@ export const ContainerHeader = styled.div`
   height: 50px;
   position: relative;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid black;
   padding: 0 10px;
-`
-
-export const Logo = styled.h1`
-  position: absolute;
-  left: 110px;
 `
 
 export const Titulo1 = styled.span`

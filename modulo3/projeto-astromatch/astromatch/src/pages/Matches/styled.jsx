@@ -12,6 +12,10 @@ export const ContainerPagina = styled.div`
   border: 1px solid black;
   background-color: white;
   border-radius: 10px;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 480px) {
+    width: 90vw;
+  }
 `
 
 export const ContainerLista = styled.div`

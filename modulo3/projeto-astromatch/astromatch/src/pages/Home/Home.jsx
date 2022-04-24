@@ -3,7 +3,7 @@ import axios from "axios"
 import { urlBase } from "../../constants/variaveis"
 import Escolhas from "../../components/Escolhas/Escolhas"
 import Header from "../../components/Header/Header"
-import { ContainerDescricao, ContainerHome, ContainerFoto, FotoBlur, Foto, Perfil } from "./styled"
+import { ContainerDescricao, ContainerHome, ContainerFoto, FotoBlur, Foto, Perfil, Descricao, NomeIdade } from "./styled"
 
 function Home(props) {
 
@@ -22,6 +22,7 @@ function Home(props) {
 
   return (
     <ContainerHome>
+
       <Header irParaMatches={props.irParaMatches} telaAtual={props.telaAtual}/>
 
       <Perfil>
@@ -31,8 +32,11 @@ function Home(props) {
           <Foto src={perfil.photo} alt={perfil.name} />
 
           <ContainerDescricao>
-            <h2>{perfil.name}, {perfil.age}</h2>
-            <p>{perfil.bio}</p>
+            <NomeIdade>
+              <h2>{perfil.name},</h2>
+              <h3>{perfil.age}</h3>
+            </NomeIdade>
+            <Descricao>{perfil.bio}</Descricao>
           </ContainerDescricao>
         </ContainerFoto>
 

@@ -11,6 +11,10 @@ export const ContainerHome = styled.div`
   border: 3px solid #2d3a3a;
   background-color: white;
   border-radius: 10px;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 480px) {
+    width: 90vw;
+  }
 `
 
 export const Perfil = styled.div`
@@ -52,16 +56,27 @@ export const Foto = styled.img`
 export const ContainerDescricao = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px 10px;
+  padding: 10px 10px;
   gap: 10px;
   position: absolute;
-  left: 0;
   bottom: 0;
   width: 100%;
-  height: 120px;
+  max-height: 130px;
   color: white;
   text-shadow: 1px 1px 2px black;
   background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+`
+export const NomeIdade = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+
+  h2{
+    font-size: 1.5em;
+  }
+`
+export const Descricao = styled.p`
+  max-height: 70px;
 `
