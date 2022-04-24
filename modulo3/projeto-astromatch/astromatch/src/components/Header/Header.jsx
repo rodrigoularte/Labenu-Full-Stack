@@ -39,14 +39,6 @@ function Header(props) {
   }
 
   return (
-    // <ContainerHeader>
-    //   <Voltar onClick={props.irParaHome}><BsArrow90DegLeft /></Voltar>
-    //   <Logo>
-    //     <Titulo1>astro</Titulo1><Titulo2>match</Titulo2>
-    //   </Logo>
-    //   <Matches onClick={props.irParaMatches}><RiUserHeartFill /></Matches>
-    // </ContainerHeader>
-    
     <div>
       { mudaHeader() }
     </div>

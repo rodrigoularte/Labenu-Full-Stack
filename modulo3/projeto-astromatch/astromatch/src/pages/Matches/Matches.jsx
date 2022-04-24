@@ -8,7 +8,6 @@ import {ImHeartBroken} from "react-icons/im"
 function Matches(props) {
 
   const [matches, setMatches] = useState([])
-  const [remove, setRemove] = useState(false)
 
   const mostraMatches = () => {
     axios
@@ -37,27 +36,19 @@ function Matches(props) {
     )
   })
 
-  // const mudaRemove = () => {
-  //   if (matches.length === 0) {
-  //     setRemove(!remove)
-  //   } else {
-  //     return(
-  //       <div><button onClick={removeMatches}>Remover todos os matches</button></div>
-  //     )
-  //   }
-  // }
 
   return(
     <ContainerPagina>
+
       <Header irParaHome={props.irParaHome} telaAtual={props.telaAtual}/>
+
       <ContainerLista>{listaDeMatches}</ContainerLista>
 
-      <ContainerBotao><BotaoRemover onClick={removeMatches}>Remover todos os matches  <ImHeartBroken/></BotaoRemover></ContainerBotao>
-
-      {/* {remove ? (<div><button onClick={removeMatches}>Remover todos os matches</button></div>) :
-      (<p>Nenhum Match</p>)
-      } */}
-
+      <ContainerBotao>
+        <BotaoRemover onClick={removeMatches}>
+          Remover todos os matches  <ImHeartBroken/>
+        </BotaoRemover>
+      </ContainerBotao>
 
     </ContainerPagina>
   )

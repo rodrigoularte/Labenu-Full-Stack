@@ -9,7 +9,6 @@ import {ContainerBotoes, BotaoMatch, BotaoRejeitar} from "./styled"
 function Escolhas(props) {
   
   const matchPerfil = (id, mostraPerfil) => {
-    console.log("clicou")
     const body = {id: id, choice: true}
     axios
     .post(`${urlBase}/choose-person`, body)

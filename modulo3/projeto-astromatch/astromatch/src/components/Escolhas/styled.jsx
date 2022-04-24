@@ -51,7 +51,6 @@ export const BotaoRejeitar = styled.button`
     cursor: pointer;
     border: none;
 
-
     color: white;
   }
 `

@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-// import Header from "./components/Header"
 import Home from "./pages/Home/Home"
 import Matches from "./pages/Matches/Matches"
 import styled, { createGlobalStyle } from 'styled-components'
@@ -50,7 +49,6 @@ function App() {
   return (
     <ContainerApp>
       <GlobalStyle/>
-      {/* <Header irParaMatches={irParaMatches} irParaHome={irParaHome} /> */}
       {mudaTela()}
     </ContainerApp>
   )

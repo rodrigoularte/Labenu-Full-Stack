@@ -5,6 +5,7 @@ import styled from "styled-components"
 export const ContainerPagina = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 400px;
   height: 90vh;
   margin-top: 5vh;
@@ -17,7 +18,6 @@ export const ContainerLista = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* height: 90vh; */
   padding: 15px;
 `
 
@@ -41,7 +41,6 @@ export const ContainerMatch = styled.div`
 export const PerfilImg = styled.img`
   height: 50px;
   width: 50px;
-  /* margin-right: 10px; */
   border-radius: 50%;
 `
 
@@ -54,6 +53,8 @@ export const ContainerBotao = styled.div`
 export const BotaoRemover = styled.button`
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 10px;
   gap: 5px;
   height: 30px;
   padding: 5px;
@@ -61,12 +62,14 @@ export const BotaoRemover = styled.button`
   background-color: white;
   border: 2px solid #BF1717;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
-
+  transition-duration: 0.4s;
 
   color: #BF1717;
   font-weight: bold;
 
   :hover {
-    
+    background-color: #BF1717;
+    color: white;
+    cursor: pointer;
   }
 `
