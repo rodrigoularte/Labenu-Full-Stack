@@ -49,7 +49,7 @@ function Matches(props) {
 
   return(
     <ContainerPagina>
-      <Header irParaHome={props.irParaHome}/>
+      <Header irParaHome={props.irParaHome} telaAtual={props.telaAtual}/>
       <ContainerLista>{listaDeMatches}</ContainerLista>
 
       <ContainerBotao><BotaoRemover onClick={removeMatches}>Remover todos os matches  <ImHeartBroken/></BotaoRemover></ContainerBotao>

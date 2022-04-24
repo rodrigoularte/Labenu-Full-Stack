@@ -39,9 +39,9 @@ function App() {
   const mudaTela = () => {
     switch (telaAtual) {
       case "home":
-        return <Home irParaMatches={irParaMatches}/>
+        return <Home irParaMatches={irParaMatches} telaAtual={telaAtual}/>
       case "matches":
-        return <Matches irParaHome={irParaHome}/>
+        return <Matches irParaHome={irParaHome} telaAtual={telaAtual}/>
       default:
         return <Home irParaMatches={irParaMatches}/>
     }

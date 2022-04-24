@@ -5,10 +5,16 @@ import styled from "styled-components"
 export const ContainerHeader = styled.div`
   display: flex;
   height: 50px;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid black;
   padding: 0 10px;
+`
+
+export const Logo = styled.h1`
+  position: absolute;
+  left: 110px;
 `
 
 export const Titulo1 = styled.span`
@@ -23,6 +29,8 @@ export const Voltar = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  left: 20px;
   background-color: white;
   border: none;
   height: 30px;
@@ -45,6 +53,8 @@ export const Matches = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  right: 20px;
   background-color: white;
   border: none;
   height: 30px;

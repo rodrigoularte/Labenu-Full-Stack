@@ -22,7 +22,7 @@ function Home(props) {
 
   return (
     <ContainerHome>
-      <Header irParaMatches={props.irParaMatches}/>
+      <Header irParaMatches={props.irParaMatches} telaAtual={props.telaAtual}/>
 
       <Perfil>
 
