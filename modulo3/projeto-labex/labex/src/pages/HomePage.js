@@ -1,11 +1,11 @@
 import React from "react"
 
-function App() {
+function HomePage() {
   return (
     <div>
-      LabeX
+      HomePage
     </div>
   )
 }
 
-export default App
+export default HomePage
