@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { goToHomePage, goToLoginPage } from "../routes/coordinator"
+import { goToAdminHomePage, goToHomePage } from "../routes/coordinator"
 import styled from "styled-components"
 
 const MainContainer = styled.div`
@@ -19,7 +19,7 @@ const Header = () => {
   return(
     <MainContainer>
       <div onClick={() => goToHomePage(navigate)}>LabeX</div>
-      <button onClick={() => goToLoginPage(navigate)}>Admin</button>
+      <button onClick={() => goToAdminHomePage(navigate)}>Admin</button>
     </MainContainer>
   )
 }

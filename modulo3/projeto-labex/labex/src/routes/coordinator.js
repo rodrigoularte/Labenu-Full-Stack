@@ -13,3 +13,16 @@ export const goToHomePage = (navigate) => {
 export const goToLoginPage = (navigate) => {
   navigate("/login")
 }
+
+export const goToAdminHomePage = (navigate) => {
+  navigate("/admin/trips/list")
+}
+
+export const goToTripDetailsPage = (navigate, id) => {
+  console.log(id)
+  navigate(`/admin/trips/${id}`)
+}
+
+export const goToCreateTripPage = (navigate) => {
+  navigate("/admin/trips/create")
+}
