@@ -7,30 +7,21 @@ import { goToAdminHomePage } from "../routes/coordinator"
 
 const LoginPage = () => {
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [form, setForm] = useState({email: "", password: ""})
 
   const navigate = useNavigate()
 
-  const onChangeEmail = (event) => {
-    setEmail(event.target.value)
-  }
-
-  const onChangePassword = (event) => {
-    setPassword(event.target.value)
+  const onChange = (event) => {
+    const {name, value} = event.target
+    setForm({...form, [name]: value})
   }
 
   const onSubmitLogin = (event) => {
     //bloqueia o comportamento padrão do form
     event.preventDefault()
-
-    const body = {
-      email: email,
-      password: password
-    }
-    
+  
     axios
-    .post(`${urlBase}/login`, body)
+    .post(`${urlBase}/login`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token)
       goToAdminHomePage(navigate)
@@ -47,18 +38,20 @@ const LoginPage = () => {
           <form onSubmit={onSubmitLogin}>
             <h2>Login</h2>
             <input
-              value={email}
+              name="email"
+              value={form.email}
               type="email"
-              onChange={onChangeEmail}
+              onChange={onChange}
               placeholder="E-mail"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               title="exemplo@exemplo.com"
               required
             />
             <input
-              value={password}
+              name="password"
+              value={form.password}
               type="password"
-              onChange={onChangePassword}
+              onChange={onChange}
               placeholder="Senha"
               required
             />

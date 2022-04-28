@@ -1,7 +1,11 @@
 import React from "react"
 import Header from "../../components/Header"
 
-function ApplicationFormPage() {
+const ApplicationFormPage = () => {
+
+  const onSubmitApplication = (event) => {
+
+  }
 
   return (
     <div>
@@ -12,7 +16,6 @@ function ApplicationFormPage() {
           <select name="SelectTrip" id="" >
             <option value="Escolha uma viagem">Escolha uma viagem</option>
           </select>
-          <input placeholder="Escolha uma viagem" />
           <input placeholder="Nome" />
           <input placeholder="Idade" />
           <input placeholder="Texto de candidatura" />
