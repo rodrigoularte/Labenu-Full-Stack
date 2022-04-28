@@ -4,17 +4,14 @@ import Header from "../components/Header"
 import { urlBase } from "../constants/constants"
 import { useNavigate } from "react-router-dom"
 import { goToAdminHomePage } from "../routes/coordinator"
+import useForm from "../hooks/useForm"
 
 const LoginPage = () => {
 
-  const [form, setForm] = useState({email: "", password: ""})
-
   const navigate = useNavigate()
 
-  const onChange = (event) => {
-    const {name, value} = event.target
-    setForm({...form, [name]: value})
-  }
+  // custom hook useForm
+  const {form, onChange} = useForm({email: "", password: ""})
 
   const onSubmitLogin = (event) => {
     //bloqueia o comportamento padrão do form
