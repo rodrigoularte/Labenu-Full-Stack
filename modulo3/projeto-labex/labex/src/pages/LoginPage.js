@@ -20,31 +20,50 @@ const LoginPage = () => {
     setPassword(event.target.value)
   }
 
-  const onSubmitLogin = () => {
+  const onSubmitLogin = (event) => {
+    //bloqueia o comportamento padrão do form
+    event.preventDefault()
+
     const body = {
       email: email,
       password: password
     }
-
+    
     axios
     .post(`${urlBase}/login`, body)
     .then((res) => {
-      console.log('deu certo', res.data.token)
       localStorage.setItem("token", res.data.token)
       goToAdminHomePage(navigate)
     })
-    .catch((err) => {console.log('erro', err.response)})
+    .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
   }
+
 
   return (
     <div>
       <Header />
       <div> 
         <div>
-          <h2>Login</h2>
-          <input value={email} onChange={onChangeEmail} type="email" placeholder="E-mail" />
-          <input value={password} onChange={onChangePassword} type="password" placeholder="Senha" />
-          <button onClick={onSubmitLogin}>Entrar</button>
+          <form onSubmit={onSubmitLogin}>
+            <h2>Login</h2>
+            <input
+              value={email}
+              type="email"
+              onChange={onChangeEmail}
+              placeholder="E-mail"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              title="exemplo@exemplo.com"
+              required
+            />
+            <input
+              value={password}
+              type="password"
+              onChange={onChangePassword}
+              placeholder="Senha"
+              required
+            />
+            <button>Entrar</button>
+          </form>
         </div>
       </div>
     </div>
