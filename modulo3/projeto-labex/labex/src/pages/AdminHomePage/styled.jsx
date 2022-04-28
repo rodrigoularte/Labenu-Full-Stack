@@ -25,6 +25,7 @@ export const CardTripName = styled.div`
   border: 1px solid black;
   height: 70px;
   align-items: center;
+  justify-content: space-between;
 
   :hover {
     cursor: pointer;

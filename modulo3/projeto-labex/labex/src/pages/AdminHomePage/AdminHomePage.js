@@ -5,7 +5,7 @@ import { urlBase} from "../../constants/constants"
 import { useProtectedPage } from "../../components/useProtectedPage"
 import { CardTripName, MainContainer, PageContainer, TripListContainer } from "./styled"
 import { useNavigate } from "react-router-dom"
-import { goToApplicationFormPage, goToCreateTripPage, goToLoginPage, goToTripDetailsPage } from "../../routes/coordinator"
+import { goToCreateTripPage, goToTripDetailsPage } from "../../routes/coordinator"
 
 
 function AdminHomePage() {
@@ -27,13 +27,6 @@ function AdminHomePage() {
 
   useEffect(() => {getTrips()}, [])
 
-  //função para ir para a pag de detalhes da viagem
-
-  // const goToTripDetailsPage = (navigate, id) => {
-  //   console.log(id)
-  //   navigate(`admin/trips/${id}`)
-  // }
-
   const tripName = trips.map((trip) => {
 
     return(
@@ -42,6 +35,7 @@ function AdminHomePage() {
         onClick={() => goToTripDetailsPage(navigate, trip.id)}
       >
         <p>{trip.name}</p>
+        <button>deletar</button>
       </CardTripName>
     )
   })

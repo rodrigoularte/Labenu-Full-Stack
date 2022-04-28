@@ -1,42 +1,43 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Header from "../components/Header"
 import { useProtectedPage } from "../components/useProtectedPage"
 import { urlBase } from "../constants/constants"
-import { goToAdminHomePage, goToLoginPage } from "../routes/coordinator"
 
-function TripDetailsPage() {
+const TripDetailsPage = () => {
 
   useProtectedPage()
 
-  const pathParams = useParams()
-
   //estado
   const [trip, setTrip] = useState({})
+  const [candidates, setCandidates] = useState([])
 
-  // const navigate = useNavigate()
+  const pathParams = useParams()
 
-  const getTripDetail = () => {
+  console.log(trip)
+
+  //API
+  const getTripDetail = async () => {
     const token = localStorage.getItem("token")
-
     const headers = { headers: { auth: token } }
 
-    axios
-      .get(`${urlBase}/trip/${pathParams.id}`, headers)
-      .then((res) => {
-        console.log(res.data.trip)
+    try {
+      const res = await axios.get(`${urlBase}/trip/${pathParams.id}`, headers)
         setTrip(res.data.trip)
-      })
-      .catch((err) => { console.log(err) })
+        setCandidates(res.data.trip.candidates)
+    } catch(err) {
+      console.log(err)
+    }
   }
 
-  useEffect(() => { getTripDetail() }, [])
+  useEffect(() => {getTripDetail()}, [])
 
   //candidatos
-  const listaDeCandidatos = trip.candidates.map((candidate) => {
+  const listaDeCandidatos = candidates.map((candidate) => {
     return (
-      <div>
+      <div key={candidate.id}>
+
         <div>
           <p>Nome: {candidate.name}</p>
           <p>Profissão: {candidate.profession}</p>
@@ -62,11 +63,11 @@ function TripDetailsPage() {
       <p>Planeta: {trip.planet}</p>
       <p>Duração: {trip.durationInDays} dias</p>
       <p>Partida: {trip.date}</p>
-      <p>Id: {pathParams.id}</p>
 
       <div>
         <h2>Candidatos pendentes</h2>
         <div>
+          {/* {(trip.candidates.length > 0) ? listaDeCandidatos : "Sem candidatos pendentes"} */}
           {listaDeCandidatos}
         </div>
       </div>
