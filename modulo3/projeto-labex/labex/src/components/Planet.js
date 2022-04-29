@@ -13,7 +13,7 @@ const Planet = (props) => {
 
   return(
     <select name="planet" id="planet" onChange={props.onChange}>
-      <option value="Planeta" id="Planeta">Planeta</option>
+      <option value="" id="Planeta">Planeta</option>
       {planetsList}
     </select>
   )

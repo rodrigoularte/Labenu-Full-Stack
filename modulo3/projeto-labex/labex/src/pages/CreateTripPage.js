@@ -1,13 +1,18 @@
 import React from "react"
+import axios from "axios"
 import Header from "../components/Header"
+import { urlBase } from "../constants/constants"
+import { useNavigate } from "react-router-dom"
 import Planet from "../components/Planet"
 import { useProtectedPage } from "../components/useProtectedPage"
 import useForm from "../hooks/useForm"
 import { FormContainer } from "../styled/FormContainer"
 import { ContentContainer, MainContainer } from "../styled/PageStyled"
+import { goToAdminHomePage } from "../routes/coordinator"
 
 const CreateTripPage = () => {
 
+  const navigate = useNavigate()
   useProtectedPage()
 
   const { form, onChange } = useForm(
@@ -20,33 +25,53 @@ const CreateTripPage = () => {
     }
   )
 
+  const onSubmitApplication = (event) => {
+    const token = localStorage.getItem("token")
+    const headers = { headers: { auth: token } }
+
+    //bloqueia o comportamento padrão do form
+    event.preventDefault()
+  
+    axios
+    .post(`${urlBase}/trips`, form, headers)
+    .then((res) => {
+      alert("Viagem adicionada com sucesso.")
+      goToAdminHomePage(navigate)
+    })
+    .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
+  }
+
   return (
     <div>
       <Header />
       <MainContainer>
         <ContentContainer>
-          <FormContainer>
+          <FormContainer onSubmit={onSubmitApplication}>
             <input
               name="name"
               value={form.name}
               onChange={onChange}
               placeholder="Nome da viagem"
-              pattern="^.{3,}"
+              pattern="^.{5,}"
               title="O nome deve ter no mínimo 3 letras"
               required
             />
-            <Planet onChange={onChange}/>
+            <Planet onChange={onChange} required/>
             <input
               name="description"
               value={form.description}
               onChange={onChange}
               placeholder="Descrição"
-              pattern="^.{3,}"
-              title="O nome deve ter no mínimo 3 letras"
+              pattern="^.{30,}"
+              title="A descrição deve ter no mínimo 30 letras"
               required
             />
             <input
+              name="date"
               type="date"
+              onChange={onChange}
+              placeholder="Data"
+              required
             />
             <input
               name="durationInDays"
@@ -54,10 +79,10 @@ const CreateTripPage = () => {
               onChange={onChange}
               placeholder="Duração em dias"
               type="number"
-              pattern="^.{3,}"
-              title="O nome deve ter no mínimo 3 letras"
+              min={50}
               required
             />
+            <button>Criar</button>
           </FormContainer>
         </ContentContainer>
       </MainContainer>
