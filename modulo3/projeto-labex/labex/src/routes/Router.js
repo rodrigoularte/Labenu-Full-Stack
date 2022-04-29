@@ -5,7 +5,7 @@ import ApplicationFormPage from "../pages/ApplicationFormPage/ApplicationFormPag
 import CreateTripPage from "../pages/CreateTripPage"
 import HomePage from "../pages/HomePage"
 import ListTripsPage from "../pages/ListTripsPage"
-import LoginPage from "../pages/LoginPage"
+import LoginPage from "../pages/LoginPage/LoginPage"
 import TripDetailsPage from "../pages/TripDetailsPage"
 
 const Router = () => {

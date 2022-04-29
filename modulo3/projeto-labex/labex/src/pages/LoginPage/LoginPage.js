@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import axios from "axios"
-import Header from "../components/Header"
-import { urlBase } from "../constants/constants"
+import Header from "../../components/Header"
+import { urlBase } from "../../constants/constants"
 import { useNavigate } from "react-router-dom"
-import { goToAdminHomePage } from "../routes/coordinator"
-import useForm from "../hooks/useForm"
+import { goToAdminHomePage } from "../../routes/coordinator"
+import useForm from "../../hooks/useForm"
+import { ContentContainer, MainContainer } from "../../styled/PageStyled"
+import { FormContainer } from "../../styled/FormContainer"
 
 const LoginPage = () => {
 
@@ -30,9 +32,9 @@ const LoginPage = () => {
   return (
     <div>
       <Header />
-      <div> 
-        <div>
-          <form onSubmit={onSubmitLogin}>
+      <MainContainer> 
+        <ContentContainer>
+          <FormContainer onSubmit={onSubmitLogin}>
             <h2>Login</h2>
             <input
               name="email"
@@ -53,9 +55,9 @@ const LoginPage = () => {
               required
             />
             <button>Entrar</button>
-          </form>
-        </div>
-      </div>
+          </FormContainer>
+        </ContentContainer>
+      </MainContainer>
     </div>
   )
 }
