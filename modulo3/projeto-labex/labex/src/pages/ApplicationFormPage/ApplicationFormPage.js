@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState} from "react"
 import axios from "axios"
 import Header from "../../components/Header"
 import { urlBase } from "../../constants/constants"
+import { useNavigate } from "react-router-dom"
 import { FormContainer } from "../../styled/FormContainer"
 import { ContentContainer, MainContainer } from "../../styled/PageStyled"
 import useForm from "../../hooks/useForm"
+import Country from "../../components/Country"
+import { goToHomePage } from "../../routes/coordinator"
 
 const ApplicationFormPage = () => {
 
+  const navigate = useNavigate()
+
   const [trips, setTrips] = useState([])
-  // const [id, setId] = useState("")
 
   const { form, onChange } = useForm(
     {
@@ -17,8 +21,7 @@ const ApplicationFormPage = () => {
       age: "",
       applicationText: "",
       profession: "",
-      country: "Brasil",
-      trip: ""
+      country: ""
     }
   )
 
@@ -40,27 +43,15 @@ const ApplicationFormPage = () => {
   const onSubmitApplication = (event) => {
     //bloqueia o comportamento padrão do form
     event.preventDefault()
-
-    console.log(form)
   
-    // axios
-    // .post(`${urlBase}/login`, form)
-    // .then((res) => {
-    //   localStorage.setItem("token", res.data.token)
-    //   goToAdminHomePage(navigate)
-    // })
-    // .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
+    axios
+    .post(`${urlBase}/trips/${form.SelectTrip}/apply`, form)
+    .then((res) => {
+      alert("Cadastro realizado com sucesso! Aguarde o nosso contato.")
+      goToHomePage(navigate)
+    })
+    .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
   }
-
-
-
-  // const onChangeId = (event) => {
-  //   setId(event.target.value)
-  // }
-
-  // console.log(id)
-
-
 
   const tripList = trips.map((trip) => {
 
@@ -74,6 +65,8 @@ const ApplicationFormPage = () => {
       </option>
     )
   })
+
+  
 
   return (
     <div>
@@ -90,11 +83,11 @@ const ApplicationFormPage = () => {
             <input
               name="name"
               value={form.name}
-              type="text"
               onChange={onChange}
               placeholder="Nome"
+              pattern="^.{3,}"
+              title="O nome deve ter no mínimo 3 letras"
               required
-
             />
             <input
               name="age"
@@ -102,24 +95,27 @@ const ApplicationFormPage = () => {
               type="number"
               onChange={onChange}
               placeholder="Idade"
+              required
             />
             <input
               name="applicationText"
               value={form.applicationText}
-              type="text"
               onChange={onChange}
               placeholder="Texto de candidatura"
+              pattern="^.{30,}"
+              title="O texto deve conter no mínimo 30 caracteres"
+              required
             />
             <input
               name="profession"
               value={form.profession}
-              type="text"
               onChange={onChange}
               placeholder="Profissão"
+              pattern="^.{10,}"
+              title="O texto deve conter no mínimo 10 caracteres"
+              required
             />
-            <select name="Country" id="" >
-              <option value="País">País</option>
-            </select>
+            <Country onChange={onChange}/>
             <button>Enviar</button>
           </FormContainer>
         </ContentContainer>
