@@ -26,6 +26,15 @@ export const CardTripName = styled.div`
   height: 70px;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
+
+  h3 {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
   :hover {
     cursor: pointer;
