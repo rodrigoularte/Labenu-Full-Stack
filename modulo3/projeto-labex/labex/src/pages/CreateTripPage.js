@@ -8,7 +8,8 @@ import { useProtectedPage } from "../components/useProtectedPage"
 import useForm from "../hooks/useForm"
 import { FormContainer } from "../styled/FormContainer"
 import { ContentContainer, MainContainer } from "../styled/PageStyled"
-import { goToAdminHomePage } from "../routes/coordinator"
+import { goBack, goToAdminHomePage } from "../routes/coordinator"
+import { Button2, Button3 } from "../styled/Button"
 
 const CreateTripPage = () => {
 
@@ -47,6 +48,7 @@ const CreateTripPage = () => {
       <MainContainer>
         <ContentContainer>
           <FormContainer onSubmit={onSubmitApplication}>
+            <h2>Criar uma viagem</h2>
             <input
               name="name"
               value={form.name}
@@ -82,8 +84,9 @@ const CreateTripPage = () => {
               min={50}
               required
             />
-            <button>Criar</button>
+            <Button2>Criar</Button2>
           </FormContainer>
+          <Button3 onClick={() => goBack(navigate)}>Voltar</Button3>
         </ContentContainer>
       </MainContainer>
     </div>

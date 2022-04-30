@@ -44,7 +44,6 @@ export const Button2 = styled.button`
 
 export const Button3 = styled.button`
   padding: 5px 20px;
-  margin-top: 20px;
   border: 2px solid #1A75AE;
   border-radius: 25px;
   background-color: white;

@@ -1,14 +1,16 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Header from "../../components/Header/Header"
 import { useProtectedPage } from "../../components/useProtectedPage"
 import { urlBase } from "../../constants/constants"
+import { goBack } from "../../routes/coordinator"
+import { Button3 } from "../../styled/Button"
 import { ContentContainer, MainContainer } from "../../styled/PageStyled"
-import { PendingCandidates } from "./styled"
+import { ApprovedCandidates, Candidates, PendingCandidates, Title } from "./styled"
 
 const TripDetailsPage = () => {
-
+  const navigate = useNavigate()
   useProtectedPage()
 
   //estado
@@ -91,7 +93,7 @@ const TripDetailsPage = () => {
       <Header />
       <MainContainer>
         <ContentContainer>
-          <h1>{trip.name}</h1>
+          <Title>{trip.name}</Title>
           
           <div>
             <p>{trip.description}</p>
@@ -100,19 +102,21 @@ const TripDetailsPage = () => {
             <p>Partida: {trip.date}</p>
           </div>
 
-          <div>
+          <Button3 onClick={() => goBack(navigate)}>Voltar</Button3>
+
+          <Candidates>
             <h2>Candidatos pendentes</h2>
             <div>
               {(candidates.length > 0) ? candidatesList : "Sem candidatos pendentes"}
             </div>
-          </div>
+          </Candidates>
 
-          <div>
+          <Candidates>
             <h2>Candidatos aprovados</h2>
-            <ul>
+            <ApprovedCandidates>
               {(approved.length > 0) ? approvedCandidate : "Sem candidatos aprovados"}
-            </ul>
-          </div>
+            </ApprovedCandidates>
+          </Candidates>
         </ContentContainer>
       </MainContainer>
     </div>

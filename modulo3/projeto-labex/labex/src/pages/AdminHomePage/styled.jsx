@@ -1,17 +1,11 @@
 import styled from "styled-components"
 
-export const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 640px;
-  padding: 30px 0;
-  align-items: center;
-  gap: 30px;
-`
+//AdminHomePage
+
 export const Title = styled.h1`
   color: #1A75AE;
+  text-align: center;
 `
-
 
 export const TripListContainer = styled.div`
   display: flex;

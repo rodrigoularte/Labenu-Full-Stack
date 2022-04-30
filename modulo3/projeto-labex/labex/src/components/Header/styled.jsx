@@ -39,7 +39,7 @@ export const AdminButton = styled.button`
   border-radius: 5px;
   border: none;
   transition-duration: 0.4s;
-  font-weight: lighter;
+  font-size: 1em;
 
   :hover {
     cursor: pointer;
