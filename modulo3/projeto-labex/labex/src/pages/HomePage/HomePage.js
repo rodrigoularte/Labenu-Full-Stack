@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header"
 import {goToListTripsPage} from "../../routes/coordinator"
 import { Content1, HomeContent, HomeImg } from "./styled"
 import homeImg from "../../images/home-img.png"
-import { ButtonHome } from "../../styled/Button"
+import { Button1 } from "../../styled/Button"
 
 function HomePage() {
 
@@ -17,7 +17,7 @@ function HomePage() {
         <HomeImg src={homeImg}></HomeImg>
         <Content1>
           <h1>Aqui, oferecemos as melhores viagens espaciais</h1>
-          <ButtonHome onClick={() => goToListTripsPage(navigate)}>Encontre o destino ideal</ButtonHome>
+          <Button1 onClick={() => goToListTripsPage(navigate)}>Encontre o destino ideal</Button1>
         </Content1>
       </HomeContent>
     </div>

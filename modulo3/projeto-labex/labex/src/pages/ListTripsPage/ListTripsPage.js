@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
-import Header from "../components/Header/Header"
-import {goToApplicationFormPage} from "../routes/coordinator"
-import { urlBase } from "../constants/constants"
-import TripCard from "../components/TripCard"
+import Header from "../../components/Header/Header"
+import {goToApplicationFormPage} from "../../routes/coordinator"
+import { urlBase } from "../../constants/constants"
+import TripCard from "../../components/TripCard/TripCard"
+import { MainContainer } from "../../styled/PageStyled"
+import { Button1 } from "../../styled/Button"
+import { ContentContainer, List, Title } from "./styled"
 
 
 function ListTripsPage() {
@@ -40,11 +43,17 @@ function ListTripsPage() {
   return (
     <div>
       <Header />
-      <button onClick={() => goToApplicationFormPage(navigate)}>Quero me inscrever</button>
-      <h2>As melhores viagens!</h2>
-      <div>
-        {tripList}
-      </div>
+      <MainContainer>
+        <ContentContainer>
+          <Button1 onClick={() => goToApplicationFormPage(navigate)}>Quero me inscrever</Button1>
+          <Title>
+            <h2>As melhores viagens!</h2>
+          </Title>
+          <List>
+            {tripList}
+          </List>
+        </ContentContainer>
+      </MainContainer>
     </div>
   )
 }

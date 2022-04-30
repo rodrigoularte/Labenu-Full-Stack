@@ -10,6 +10,7 @@ export const MainContainer = styled.div`
   justify-content: space-between;
   background-color: #52A5D9;
   padding: 0 100px;
+  box-shadow: 0px -7px 14px 3px;
 
   @media screen and (min-device-width : 300px) and (max-device-width : 480px) {
     padding: 20px;
