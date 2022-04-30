@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 import Header from "../../components/Header/Header"
 import { urlBase } from "../../constants/constants"
@@ -7,7 +7,8 @@ import { FormContainer } from "../../styled/FormContainer"
 import { ContentContainer, MainContainer } from "../../styled/PageStyled"
 import useForm from "../../hooks/useForm"
 import Country from "../../components/Country"
-import { goToHomePage } from "../../routes/coordinator"
+import { goToHomePage, goBack } from "../../routes/coordinator"
+import { Button2, Button3 } from "../../styled/Button"
 
 const ApplicationFormPage = () => {
 
@@ -25,7 +26,7 @@ const ApplicationFormPage = () => {
     }
   )
 
-  
+
   const getTrips = () => {
     axios
       .get(`${urlBase}/trips`)
@@ -43,14 +44,14 @@ const ApplicationFormPage = () => {
   const onSubmitApplication = (event) => {
     //bloqueia o comportamento padrão do form
     event.preventDefault()
-  
+
     axios
-    .post(`${urlBase}/trips/${form.SelectTrip}/apply`, form)
-    .then((res) => {
-      alert("Cadastro realizado com sucesso! Aguarde o nosso contato.")
-      goToHomePage(navigate)
-    })
-    .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
+      .post(`${urlBase}/trips/${form.SelectTrip}/apply`, form)
+      .then((res) => {
+        alert("Cadastro realizado com sucesso! Aguarde o nosso contato.")
+        goToHomePage(navigate)
+      })
+      .catch((err) => { alert(`ERRO! ${err.response.data.message}`) })
   }
 
   const tripList = trips.map((trip) => {
@@ -66,7 +67,7 @@ const ApplicationFormPage = () => {
     )
   })
 
-  
+
 
   return (
     <div>
@@ -95,15 +96,7 @@ const ApplicationFormPage = () => {
               type="number"
               onChange={onChange}
               placeholder="Idade"
-              required
-            />
-            <input
-              name="applicationText"
-              value={form.applicationText}
-              onChange={onChange}
-              placeholder="Texto de candidatura"
-              pattern="^.{30,}"
-              title="O texto deve conter no mínimo 30 caracteres"
+              min={19}
               required
             />
             <input
@@ -115,9 +108,19 @@ const ApplicationFormPage = () => {
               title="O texto deve conter no mínimo 10 caracteres"
               required
             />
-            <Country onChange={onChange}/>
-            <button>Enviar</button>
+            <input
+              name="applicationText"
+              value={form.applicationText}
+              onChange={onChange}
+              placeholder="Texto de candidatura"
+              pattern="^.{30,}"
+              title="O texto deve conter no mínimo 30 caracteres"
+              required
+            />
+            <Country onChange={onChange} />
+            <Button2>Enviar</Button2>
           </FormContainer>
+          <Button3 onClick={() => goBack(navigate)}>Voltar</Button3>
         </ContentContainer>
       </MainContainer>
     </div>

@@ -25,3 +25,7 @@ export const goToTripDetailsPage = (navigate, id) => {
 export const goToCreateTripPage = (navigate) => {
   navigate("/admin/trips/create")
 }
+
+export const goBack = (navigate) => {
+  navigate(-1)
+}
