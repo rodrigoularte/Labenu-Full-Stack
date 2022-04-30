@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const MainContainer = styled.div`
   display: flex;
@@ -10,4 +10,5 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   width: 640px;
   padding-top: 30px;
+  align-items: center;
 `
