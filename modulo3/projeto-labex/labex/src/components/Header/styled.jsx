@@ -10,6 +10,10 @@ export const MainContainer = styled.div`
   justify-content: space-between;
   background-color: #52A5D9;
   padding: 0 100px;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 480px) {
+    padding: 20px;
+  }
 `
 export const Logo = styled.div`
   display: flex;

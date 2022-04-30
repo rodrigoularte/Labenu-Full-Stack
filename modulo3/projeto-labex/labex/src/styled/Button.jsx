@@ -15,4 +15,8 @@ export const ButtonHome = styled.button`
     background-color: #1A75AE;
     color: white;
   }
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 480px) {
+    font-size: 1em;
+  }
 `
