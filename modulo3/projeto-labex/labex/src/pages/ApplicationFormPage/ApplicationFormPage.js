@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react"
 import axios from "axios"
-import Header from "../../components/Header"
+import Header from "../../components/Header/Header"
 import { urlBase } from "../../constants/constants"
 import { useNavigate } from "react-router-dom"
 import { FormContainer } from "../../styled/FormContainer"

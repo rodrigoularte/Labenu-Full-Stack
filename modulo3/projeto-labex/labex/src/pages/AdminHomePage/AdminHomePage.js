@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import Header from "../../components/Header"
 import axios from "axios"
+import Header from "../../components/Header/Header"
 import { urlBase} from "../../constants/constants"
 import { useProtectedPage } from "../../components/useProtectedPage"
 import { CardTripName, MainContainer, PageContainer, TripListContainer } from "./styled"

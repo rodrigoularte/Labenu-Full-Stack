@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import Header from "../../components/Header"
+import Header from "../../components/Header/Header"
 import { useProtectedPage } from "../../components/useProtectedPage"
 import { urlBase } from "../../constants/constants"
 import { ContentContainer, MainContainer } from "../../styled/PageStyled"

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
-import Header from "../components/Header"
+import Header from "../components/Header/Header"
 import {goToApplicationFormPage} from "../routes/coordinator"
 import { urlBase } from "../constants/constants"
 import TripCard from "../components/TripCard"
