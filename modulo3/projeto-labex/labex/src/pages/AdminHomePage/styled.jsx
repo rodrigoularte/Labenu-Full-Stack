@@ -48,7 +48,7 @@ export const DeleteButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #840101;
+  color: #ad0000;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -56,6 +56,6 @@ export const DeleteButton = styled.div`
 
   :hover {
     cursor: pointer;
-    background-color:#8401014e;
+    background-color:#ad000047;
   }
 `

@@ -7,7 +7,7 @@ import { urlBase } from "../../constants/constants"
 import { goBack } from "../../routes/coordinator"
 import { Button3 } from "../../styled/Button"
 import { ContentContainer, MainContainer } from "../../styled/PageStyled"
-import { ApprovedCandidates, Candidates, PendingCandidates, Title } from "./styled"
+import { ApproveButton, ApprovedCandidates, ButtonContainer, Candidates, Description, PendingCandidates, RejectButton, Title, TripInfo } from "./styled"
 
 const TripDetailsPage = () => {
   const navigate = useNavigate()
@@ -56,7 +56,6 @@ const TripDetailsPage = () => {
         
       })
       .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
-
   }
 
   //candidatos
@@ -65,17 +64,17 @@ const TripDetailsPage = () => {
       <PendingCandidates key={candidate.id}>
 
         <div>
-          <p>Nome: {candidate.name}</p>
-          <p>Profissão: {candidate.profession}</p>
-          <p>Idade: {candidate.age}</p>
-          <p>País: {candidate.country}</p>
-          <p>Texto de candidatura: {candidate.applicationText}</p>
+          <p><strong>Nome:</strong> {candidate.name}</p>
+          <p><strong>Profissão:</strong> {candidate.profession}</p>
+          <p><strong>Idade:</strong> {candidate.age}</p>
+          <p><strong>País:</strong> {candidate.country}</p>
+          <p><strong>Texto de candidatura:</strong> {candidate.applicationText}</p>
         </div>
 
-        <div>
-          <button onClick={() => decideCandidate(trip.id, candidate.id, false)}>Reprovar</button>
-          <button onClick={() => decideCandidate(trip.id, candidate.id, true)}>Aprovar</button>
-        </div>
+        <ButtonContainer>
+          <RejectButton onClick={() => decideCandidate(trip.id, candidate.id, false)}>Reprovar</RejectButton>
+          <ApproveButton onClick={() => decideCandidate(trip.id, candidate.id, true)}>Aprovar</ApproveButton>
+        </ButtonContainer>
 
       </PendingCandidates>
     )
@@ -88,27 +87,37 @@ const TripDetailsPage = () => {
     )
   })
 
+  //data
+  // const date = `${trip.date.slice(8, 10)}/${trip.date.slice(5, 7)}/${trip.date.slice(0, 4)}`
+  // const date = `${trip.date.slice(8, 10)}`
+  // console.log(date)
+
   return (
     <div>
       <Header />
       <MainContainer>
         <ContentContainer>
-          <Title>{trip.name}</Title>
-          
-          <div>
-            <p>{trip.description}</p>
-            <p>Planeta: {trip.planet}</p>
-            <p>Duração: {trip.durationInDays} dias</p>
-            <p>Partida: {trip.date}</p>
-          </div>
+          <TripInfo>
+            <Title>{trip.name}</Title>
+            
+            <Description>{trip.description}</Description>
+            <div>
+              <p><strong>Planeta:</strong> {trip.planet}</p>
+              <p><strong>Duração:</strong> {trip.durationInDays} dias</p>
+              {/* <p><strong>Partida:</strong> {date}</p> */}
+              <p><strong>Partida:</strong> {trip.date}</p>
+            </div>
+          </TripInfo>
 
           <Button3 onClick={() => goBack(navigate)}>Voltar</Button3>
 
           <Candidates>
             <h2>Candidatos pendentes</h2>
-            <div>
-              {(candidates.length > 0) ? candidatesList : "Sem candidatos pendentes"}
-            </div>
+            {(candidates.length > 0) ?
+            candidatesList :
+            <PendingCandidates>
+              Sem candidatos pendentes
+            </PendingCandidates>}
           </Candidates>
 
           <Candidates>
