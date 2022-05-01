@@ -55,10 +55,6 @@ export const Button3 = styled.button`
     cursor: pointer;
     background-color: #f1f1f1;
   }
-
-  @media screen and (min-device-width : 300px) and (max-device-width : 480px) {
-    /* font-size: 1em; */
-  }
 `
 
 export const Button4 = styled.button`

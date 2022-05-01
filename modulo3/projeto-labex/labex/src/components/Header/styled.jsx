@@ -33,17 +33,18 @@ export const Logo = styled.div`
 `
 
 export const AdminButton = styled.button`
-  background-color: #7EB6D9;
+  display: flex;
+  background-color: #52A5D9;
   color: white;
   padding: 8px 30px;
-  border-radius: 5px;
+  border-radius: 25px;
   border: none;
   transition-duration: 0.4s;
   font-size: 1em;
+  gap: 5px;
 
   :hover {
     cursor: pointer;
     background-color: #1A75AE;
-    border: 2px solid white;
   }
 `

@@ -38,9 +38,6 @@ const ApplicationFormPage = () => {
 
   useEffect(() => { getTrips() }, [])
 
-
-
-
   const onSubmitApplication = (event) => {
     //bloqueia o comportamento padrão do form
     event.preventDefault()
@@ -66,8 +63,6 @@ const ApplicationFormPage = () => {
       </option>
     )
   })
-
-
 
   return (
     <div>

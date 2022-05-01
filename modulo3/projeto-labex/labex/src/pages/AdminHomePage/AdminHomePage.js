@@ -3,12 +3,12 @@ import axios from "axios"
 import Header from "../../components/Header/Header"
 import { urlBase } from "../../constants/constants"
 import { useProtectedPage } from "../../components/useProtectedPage"
-import { CardTripName, DeleteButton, Title, TripListContainer } from "./styled"
+import { CardTripName, DeleteButton, LogoutButton, Title, TripListContainer } from "./styled"
 import { useNavigate } from "react-router-dom"
-import { goToCreateTripPage, goToTripDetailsPage } from "../../routes/coordinator"
-import { ContentContainer, MainContainer } from "../../styled/PageStyled"
+import { goToCreateTripPage, goToLoginPage, goToTripDetailsPage } from "../../routes/coordinator"
+import { ContentContainer, Loading, MainContainer } from "../../styled/PageStyled"
 import { Button4 } from "../../styled/Button"
-import {VscTrash} from "react-icons/vsc"
+import { VscTrash } from "react-icons/vsc"
 
 
 function AdminHomePage() {
@@ -17,6 +17,7 @@ function AdminHomePage() {
 
   const navigate = useNavigate()
 
+  //estados
   const [trips, setTrips] = useState([])
 
   const getTrips = () => {
@@ -25,7 +26,9 @@ function AdminHomePage() {
       .then((res) => {
         setTrips(res.data.trips)
       })
-      .catch((err) => { console.log(err) })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   useEffect(() => { getTrips() }, [])
@@ -47,23 +50,32 @@ function AdminHomePage() {
     }
   }
 
-  const tripName = trips.map((trip) => {
+  const tripName = ((trips.length > 0) ?
+    trips.map((trip) => {
 
-    return (
-      <CardTripName key={trip.id}>
-        <h3 onClick={() => goToTripDetailsPage(navigate, trip.id)}>{trip.name}</h3>
-        <DeleteButton onClick={() => deleteTrip(trip.id)}><VscTrash/></DeleteButton>
-      </CardTripName>
-    )
-  })
-
+      return (
+        <CardTripName key={trip.id}>
+          <h3 onClick={() => goToTripDetailsPage(navigate, trip.id)}>{trip.name}</h3>
+          <DeleteButton onClick={() => deleteTrip(trip.id)}><VscTrash /></DeleteButton>
+        </CardTripName>
+      )
+    }) : <Loading src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-9.jpg" />
+  )
   useEffect(() => { getTrips() }, [])
+
+  const clearToken = () => {
+    window.localStorage.clear("token")
+    goToLoginPage(navigate)
+  }
 
   return (
     <div>
       <Header />
       <MainContainer>
         <ContentContainer>
+          <LogoutButton>
+            <button onClick={clearToken}>Logout</button>
+          </LogoutButton>
           <Title>Painel Administrativo</Title>
           <Button4 onClick={() => goToCreateTripPage(navigate)}>Criar viagem</Button4>
           <TripListContainer>

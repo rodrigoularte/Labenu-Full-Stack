@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import axios from "axios"
 import Header from "../../components/Header/Header"
 import { urlBase } from "../../constants/constants"
@@ -7,32 +7,33 @@ import { goToAdminHomePage } from "../../routes/coordinator"
 import useForm from "../../hooks/useForm"
 import { ContentContainer, MainContainer } from "../../styled/PageStyled"
 import { FormContainer } from "../../styled/FormContainer"
+import { Button2 } from "../../styled/Button"
 
 const LoginPage = () => {
 
   const navigate = useNavigate()
 
   // custom hook useForm
-  const {form, onChange} = useForm({email: "", password: ""})
+  const { form, onChange } = useForm({ email: "", password: "" })
 
   const onSubmitLogin = (event) => {
     //bloqueia o comportamento padrão do form
     event.preventDefault()
-  
+
     axios
-    .post(`${urlBase}/login`, form)
-    .then((res) => {
-      localStorage.setItem("token", res.data.token)
-      goToAdminHomePage(navigate)
-    })
-    .catch((err) => {alert(`ERRO! ${err.response.data.message}`)})
+      .post(`${urlBase}/login`, form)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token)
+        goToAdminHomePage(navigate)
+      })
+      .catch((err) => { alert(`ERRO! ${err.response.data.message}`) })
   }
 
 
   return (
     <div>
       <Header />
-      <MainContainer> 
+      <MainContainer>
         <ContentContainer>
           <FormContainer onSubmit={onSubmitLogin}>
             <h2>Login</h2>
@@ -54,7 +55,7 @@ const LoginPage = () => {
               placeholder="Senha"
               required
             />
-            <button>Entrar</button>
+            <Button2>Entrar</Button2>
           </FormContainer>
         </ContentContainer>
       </MainContainer>

@@ -49,7 +49,6 @@ export const Title = styled.h3 `
 
 export const Description = styled.p`
   color: #378abd;
-  /* height: 50px; */
 `
 
 export const Data = styled.p`

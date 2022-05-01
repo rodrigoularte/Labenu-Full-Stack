@@ -59,3 +59,24 @@ export const DeleteButton = styled.div`
     background-color:#ad000047;
   }
 `
+
+export const LogoutButton = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+
+  button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #52A5D9;
+    color: #ffffff;
+    font-weight: bold;
+    transition-duration: 0.4s;
+  
+    :hover {
+      cursor: pointer;
+      background-color: #1A75AE;
+    }
+  }
+`

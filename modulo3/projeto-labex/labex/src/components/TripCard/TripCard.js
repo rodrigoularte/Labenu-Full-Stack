@@ -37,18 +37,18 @@ function TripCard(props) {
     }
   }
 
-  return(
+  return (
     <CardContainer>
-        {planetPhoto(props.planet)}
-        <CardContent>
-          <Title>{props.name}</Title>
-          <Description>{props.description}</Description>
-          <Data>
-            <p>Planeta: {props.planet}</p>
-            <p>Duração: {props.durationInDays} dias</p>
-            <p>Partida: {props.date}</p>
-          </Data>
-        </CardContent>
+      {planetPhoto(props.planet)}
+      <CardContent>
+        <Title>{props.name}</Title>
+        <Description>{props.description}</Description>
+        <Data>
+          <p>Planeta: {props.planet}</p>
+          <p>Duração: {props.durationInDays} dias</p>
+          <p>Partida: {props.date}</p>
+        </Data>
+      </CardContent>
     </CardContainer>
   )
 }

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
 import Header from "../../components/Header/Header"
-import {goToApplicationFormPage} from "../../routes/coordinator"
+import { goToApplicationFormPage } from "../../routes/coordinator"
 import { urlBase } from "../../constants/constants"
 import TripCard from "../../components/TripCard/TripCard"
-import { MainContainer } from "../../styled/PageStyled"
+import { Loading, MainContainer } from "../../styled/PageStyled"
 import { Button1 } from "../../styled/Button"
 import { ContentContainer, List, Title } from "./styled"
 
@@ -18,27 +18,28 @@ function ListTripsPage() {
 
   const getTrips = () => {
     axios
-    .get(`${urlBase}/trips`)
-    .then((res) => {
-      setTrips(res.data.trips)
-    })
-    .catch((err) => {console.log(err)})
+      .get(`${urlBase}/trips`)
+      .then((res) => {
+        setTrips(res.data.trips)
+      })
+      .catch((err) => { console.log(err) })
   }
 
-  useEffect(() => {getTrips()}, [])
+  useEffect(() => { getTrips() }, [])
 
-  const tripList = trips.map((trip) => {
+  const tripList = (trips.length > 0) ?
+    trips.map((trip) => {
 
-    return(
-      <TripCard key={trip.id}
-        name={trip.name}
-        description={trip.description}
-        planet={trip.planet}
-        durationInDays={trip.durationInDays}
-        date={trip.date}
-      />
-    )
-  })
+      return (
+        <TripCard key={trip.id}
+          name={trip.name}
+          description={trip.description}
+          planet={trip.planet}
+          durationInDays={trip.durationInDays}
+          date={trip.date}
+        />
+      )
+    }) : <Loading src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-9.jpg" />
 
   return (
     <div>
