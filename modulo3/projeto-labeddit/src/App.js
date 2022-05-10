@@ -1,12 +1,13 @@
 import React from "react"
 import Router from "./routes/Router"
+import { AppContainer, GlobalStyle } from "./styled"
 
 const App = () => {
   return (
-    <div>
-      LabEddit
+    <AppContainer>
+      <GlobalStyle/>
       <Router/>
-    </div>
+    </AppContainer>
   )
 }
 
