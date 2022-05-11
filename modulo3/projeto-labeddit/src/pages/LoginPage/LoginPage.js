@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom"
 import logoLabeddit from "../../assets/logo-labeddit.png"
 import { goToSignUpPage } from "../../routes/coordinator"
 
-import { ContentContainer, CreateAccountButton, Line, Logo, LogoContainer } from "./styled"
+import { Logo, LogoContainer } from "./styled"
+import { ContentContainer, CreateAccountButton, Line } from "../../styles/styledDefault"
 import LoginForm from "./LoginForm"
 
 const LoginPage = () => {

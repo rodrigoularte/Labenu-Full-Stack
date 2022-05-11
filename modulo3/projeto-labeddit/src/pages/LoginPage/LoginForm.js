@@ -5,8 +5,8 @@ import axios from "axios"
 import useForm from "../../hooks/useForm"
 import { BASE_URL } from "../../constants/urls"
 import { goToFeedPage} from "../../routes/coordinator"
+import { GradientButton1, InputField } from "../../styles/styledDefault"
 
-import { GradientButton1, InputField } from "./styled"
 
 const LoginForm = () => {
 
@@ -14,11 +14,8 @@ const LoginForm = () => {
 
   const { form, onChange } = useForm({ email: "", password: "" })
 
-  
-
   const onSubmitLogin = (event) => {
     event.preventDefault()
-    console.log(form)
 
     axios
       .post(`${BASE_URL}/users/login`, form)
