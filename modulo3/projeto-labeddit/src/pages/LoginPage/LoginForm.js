@@ -6,6 +6,7 @@ import useForm from "../../hooks/useForm"
 import { BASE_URL } from "../../constants/urls"
 import { goToFeedPage} from "../../routes/coordinator"
 import { GradientButton1, InputField } from "../../styles/styledDefault"
+import { login } from "../../services/users"
 
 
 const LoginForm = () => {
@@ -17,13 +18,7 @@ const LoginForm = () => {
   const onSubmitLogin = (event) => {
     event.preventDefault()
 
-    axios
-      .post(`${BASE_URL}/users/login`, form)
-      .then((res) => {
-        localStorage.setItem("token", res.data.token)
-        goToFeedPage(navigate)
-      })
-      .catch((err) => { alert("Cadastro não encontrado, tente novamente.") })
+    login(form, navigate)
   }
 
   return (

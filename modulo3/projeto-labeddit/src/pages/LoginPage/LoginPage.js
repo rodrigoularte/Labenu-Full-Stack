@@ -7,9 +7,11 @@ import { goToSignUpPage } from "../../routes/coordinator"
 import { Logo, LogoContainer } from "./styled"
 import { ContentContainer, CreateAccountButton, Line } from "../../styles/styledDefault"
 import LoginForm from "./LoginForm"
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage"
 
 const LoginPage = () => {
 
+  useUnprotectedPage()
   const navigate = useNavigate()
 
   return (
