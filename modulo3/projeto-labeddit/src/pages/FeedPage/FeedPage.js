@@ -6,12 +6,12 @@ import PostCard from "../../components/PostCard/PostCard"
 import { BASE_URL } from "../../constants/urls"
 import { useProtectedPage } from "../../hooks/useProtectedPage "
 import { ContentContainer, GradientButton2, Line } from "../../styles/styledDefault"
-import { PostContainer, Post } from "./styled"
+import PostForm from "./PostForm"
 
 const FeedPage = () => {
 
   useProtectedPage()
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [posts, setPosts] = useState([])
 
@@ -22,13 +22,12 @@ const FeedPage = () => {
     axios
       .get(`${BASE_URL}/posts`, headers)
       .then((res) => {
-        console.log(res.data)
         setPosts(res.data)
       })
       .catch((err) => { console.log(err.response) })
   }
 
-  useEffect(() => { getPosts() }, [])
+  useEffect(() => { getPosts() }, [navigate])
 
   const postList = posts.map((post) => {
     return (
@@ -47,12 +46,7 @@ const FeedPage = () => {
   return (
     <ContentContainer>
 
-      <PostContainer>
-        <form>
-          <Post placeholder="Escreva seu post..."/>
-          <GradientButton2>Postar</GradientButton2>
-        </form>
-      </PostContainer>
+      <PostForm getPosts={getPosts}/>
 
       <Line/>
 
