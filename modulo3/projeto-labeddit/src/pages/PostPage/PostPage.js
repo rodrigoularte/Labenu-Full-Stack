@@ -6,9 +6,10 @@ import { useParams } from "react-router-dom"
 import { BASE_URL } from "../../constants/urls"
 import { useProtectedPage } from "../../hooks/useProtectedPage "
 import PostCard from "../../components/PostCard/PostCard"
-import { Post, PostContainer } from "./styled"
+import { Post, CommentContainer } from "./styled"
 import { ContentContainer, GradientButton2, Line } from "../../styles/styledDefault"
 import CommentCard from "../../components/CommentCard/CommentCard"
+import CommentForm from "./CommentForm"
 
 const PostPage = () => {
 
@@ -65,12 +66,11 @@ const PostPage = () => {
           />
         )
       })}
-      <PostContainer>
-        <form>
-          <Post placeholder="Adicionar comentário" />
-          <GradientButton2>Postar</GradientButton2>
-        </form>
-      </PostContainer>
+
+      <CommentForm
+        id={pathParams.id}
+        getPostComments={getPostComments}
+      />
 
       <Line />
 
