@@ -26,7 +26,6 @@ const PostPage = () => {
     axios
       .get(`${BASE_URL}/posts`, headers)
       .then((res) => {
-        // console.log(res.data)
         setPosts(res.data)
       })
       .catch((err) => { console.log(err.response) })
@@ -37,6 +36,18 @@ const PostPage = () => {
   const filterPost = posts.filter((post) => {
     return post.id === pathParams.id
   })
+
+  // const filterPost = () =>{
+  //   for (const post of posts){
+  //     if(post.id === pathParams.id) {
+  //       setPosts(post)
+  //       break
+  //     }
+  //   }
+  // }
+
+  // useEffect(() => { filterPost() }, [])
+
 
   const getPostComments = () => {
     const token = localStorage.getItem("token")

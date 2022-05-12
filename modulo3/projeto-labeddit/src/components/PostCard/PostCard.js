@@ -11,19 +11,22 @@ const PostCard = (props) => {
   return (
     <PostListContainer
       key={props.id}
-      onClick={() => goToPostPage(navigate, props.id)}
-      // onClick={() => console.log(props.id)}
+      // onClick={() => goToPostPage(navigate, props.id)}
     >
-      <p>Enviado por: {props.username}</p>
+      <div onClick={() => goToPostPage(navigate, props.id)}>
+        <p>Enviado por: {props.username}</p>
 
-      <div>
-        <h3>{props.title}</h3>
-        <p>{props.body}</p>
+        <div>
+          <h3>{props.title}</h3>
+          <p>{props.body}</p>
+        </div>
       </div>
 
       <BottomContainer>
         <VoteContainer>
-        {props.voteSum === null ? "0" : props.voteSum}
+          <button>A</button>
+          {props.voteSum === null ? "0" : props.voteSum}
+          <button>B</button>
         </VoteContainer>
         <CommentContainer>
           {props.commentCount === null ? "0" : props.commentCount}

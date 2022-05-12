@@ -11,12 +11,12 @@ const Router = () => {
 
   return(
     <BrowserRouter>
-      <Header/>
+      {/* <Header/> */}
       <Routes>
-        <Route index element={<FeedPage/>} />
+        <Route index element={<div><Header/> <FeedPage/></div>} />
         <Route path="login" element={<LoginPage/>} />
-        <Route path="post/:id" element={<PostPage/>} />
-        <Route path="cadastro" element={<SignUpPage/>} />
+        <Route path="post/:id" element={<div><Header/> <PostPage/></div>} />
+        <Route path="cadastro" element={<div><Header/> <SignUpPage/></div>} />
       </Routes>
     </BrowserRouter>
   )

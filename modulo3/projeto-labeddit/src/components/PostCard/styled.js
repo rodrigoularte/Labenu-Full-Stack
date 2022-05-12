@@ -25,7 +25,7 @@ export const BottomContainer = styled.div`
 
 export const VoteContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 
   width: 100px;
 

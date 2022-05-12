@@ -13,3 +13,7 @@ export const goToPostPage = (navigate, id) => {
 export const goToSignUpPage = (navigate) => {
   navigate("/cadastro")
 }
+
+export const goBack = (navigate) => {
+  navigate(-1)
+}

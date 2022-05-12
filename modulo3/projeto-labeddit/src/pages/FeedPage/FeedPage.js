@@ -1,12 +1,12 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import PostCard from "../../components/PostCard/PostCard"
 
-import { BASE_URL } from "../../constants/urls"
 import { useProtectedPage } from "../../hooks/useProtectedPage "
-import { ContentContainer, GradientButton2, Line } from "../../styles/styledDefault"
+import { BASE_URL } from "../../constants/urls"
+import { ContentContainer, Line } from "../../styles/styledDefault"
 import PostForm from "./PostForm"
+import PostCard from "../../components/PostCard/PostCard"
 
 const FeedPage = () => {
 
@@ -29,28 +29,26 @@ const FeedPage = () => {
 
   useEffect(() => { getPosts() }, [navigate])
 
-  const postList = posts.map((post) => {
-    return (
-      <PostCard
-        key={post.id}
-        id={post.id}
-        username={post.username}
-        title={post.title}
-        body={post.body}
-        voteSum={post.voteSum}
-        commentCount={post.commentCount}
-      />
-    )
-  })
-
   return (
     <ContentContainer>
 
-      <PostForm getPosts={getPosts}/>
+      <PostForm getPosts={getPosts} />
 
-      <Line/>
+      <Line />
 
-      {postList}
+      {posts.map((post) => {
+        return (
+          <PostCard
+            key={post.id}
+            id={post.id}
+            username={post.username}
+            title={post.title}
+            body={post.body}
+            voteSum={post.voteSum}
+            commentCount={post.commentCount}
+          />
+        )
+      })}
 
     </ContentContainer>
   )
