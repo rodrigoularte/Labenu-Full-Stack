@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import { useProtectedPage } from "../../hooks/useProtectedPage "
 import { BASE_URL } from "../../constants/urls"
-import { ContentContainer, Line } from "../../styles/styledDefault"
+import { BodyContainer, ContentContainer, Line } from "../../styles/styledDefault"
 import PostForm from "./PostForm"
 import PostCard from "../../components/PostCard/PostCard"
 
@@ -31,28 +31,30 @@ const FeedPage = () => {
   useEffect(() => { getPosts() }, [getPosts])
 
   return (
-    <ContentContainer>
+    <BodyContainer>
+      <ContentContainer>
 
-      <PostForm getPosts={getPosts} />
+        <PostForm getPosts={getPosts} />
 
-      <Line />
+        <Line />
 
-      {posts.map((post) => {
-        return (
-          <PostCard
-            key={post.id}
-            id={post.id}
-            username={post.username}
-            title={post.title}
-            body={post.body}
-            voteSum={post.voteSum}
-            commentCount={post.commentCount}
-            userVote={post.userVote}
-          />
-        )
-      })}
+        {posts.map((post) => {
+          return (
+            <PostCard
+              key={post.id}
+              id={post.id}
+              username={post.username}
+              title={post.title}
+              body={post.body}
+              voteSum={post.voteSum}
+              commentCount={post.commentCount}
+              userVote={post.userVote}
+            />
+          )
+        })}
 
-    </ContentContainer>
+      </ContentContainer>
+    </BodyContainer>
   )
 }
 

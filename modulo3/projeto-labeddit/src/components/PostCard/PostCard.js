@@ -14,7 +14,7 @@ const PostCard = (props) => {
 
   const UpVote = (id, userVote) => {
 
-    if(userVote) {
+    if(userVote) {{
       const token = localStorage.getItem("token")
       const headers = { headers: { Authorization: token } }
 
@@ -24,7 +24,19 @@ const PostCard = (props) => {
         console.log("Voto retirado")
       })
       .catch((err) => { console.log(err.response) })
-    } else {
+    } {
+      const token = localStorage.getItem("token")
+      const headers = { headers: { Authorization: token } }
+      const body = {"direction": 1}
+  
+      axios
+        .post(`${BASE_URL}/posts/${id}/votes`, body, headers)
+        .then((res) => {
+          console.log(res.data)
+        })
+        .catch((err) => { console.log(err.response) })
+    }}
+    else {
       const token = localStorage.getItem("token")
       const headers = { headers: { Authorization: token } }
       const body = {"direction": 1}
@@ -40,7 +52,7 @@ const PostCard = (props) => {
 
   const DownVote = (id, userVote) => {
 
-    if(userVote) {
+    if(userVote) {{
       const token = localStorage.getItem("token")
       const headers = { headers: { Authorization: token } }
 
@@ -50,7 +62,19 @@ const PostCard = (props) => {
         console.log("Voto retirado")
       })
       .catch((err) => { console.log(err.response) })
-    } else {
+    } {
+      const token = localStorage.getItem("token")
+      const headers = { headers: { Authorization: token } }
+      const body = {"direction": -1}
+
+      axios
+        .post(`${BASE_URL}/posts/${id}/votes`, body, headers)
+        .then((res) => {
+          console.log(res.data)
+        })
+        .catch((err) => { console.log(err.response) })
+    }}
+    else if(userVote === null){
       const token = localStorage.getItem("token")
       const headers = { headers: { Authorization: token } }
       const body = {"direction": -1}

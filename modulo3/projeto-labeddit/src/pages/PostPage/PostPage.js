@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import { BASE_URL } from "../../constants/urls"
 import { useProtectedPage } from "../../hooks/useProtectedPage "
 import PostCard from "../../components/PostCard/PostCard"
-import { ContentContainer, Line } from "../../styles/styledDefault"
+import { BodyContainer, ContentContainer, Line } from "../../styles/styledDefault"
 import CommentCard from "../../components/CommentCard/CommentCard"
 import CommentForm from "./CommentForm"
 
@@ -18,7 +18,7 @@ const PostPage = () => {
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
 
-  
+
   const getPosts = () => {
     const token = localStorage.getItem("token")
     const headers = { headers: { Authorization: token } }
@@ -49,46 +49,50 @@ const PostPage = () => {
       .catch((err) => { console.log(err.response) })
   }
 
-  useEffect(() => { getPostComments() }, [])
+  useEffect(() => { getPostComments() }, [getPostComments])
 
 
   return (
-    <ContentContainer>
-      {filterPost.map((post) => {
-        return (
-          <PostCard
-            key={post.id}
-            id={post.id}
-            username={post.username}
-            title={post.title}
-            body={post.body}
-            voteSum={post.voteSum}
-            commentCount={post.commentCount}
-          />
-        )
-      })}
+    <BodyContainer>
+      <ContentContainer>
+        {filterPost.map((post) => {
+          return (
+            <PostCard
+              key={post.id}
+              id={post.id}
+              username={post.username}
+              title={post.title}
+              body={post.body}
+              voteSum={post.voteSum}
+              commentCount={post.commentCount}
+              userVote={post.userVote}
+            />
+          )
+        })}
 
-      <CommentForm
-        id={pathParams.id}
-        getPostComments={getPostComments}
-      />
+        <CommentForm
+          id={pathParams.id}
+          getPostComments={getPostComments}
+        />
 
-      <Line />
+        <Line />
 
-      {comments.map((comment) => {
-        return (
-          <CommentCard
-            key={comment.id}
-            id={comment.id}
-            username={comment.username}
-            title={comment.title}
-            body={comment.body}
-            voteSum={comment.voteSum}
-            commentCount={comment.commentCount}
-          />
-        )
-      })}
-    </ContentContainer>
+        {comments.map((comment) => {
+          return (
+            <CommentCard
+              key={comment.id}
+              id={comment.id}
+              username={comment.username}
+              title={comment.title}
+              body={comment.body}
+              voteSum={comment.voteSum}
+              commentCount={comment.commentCount}
+              userVote={comment.userVote}
+            />
+          )
+        })}
+      </ContentContainer>
+    </BodyContainer>
   )
 }
 

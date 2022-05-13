@@ -1,21 +1,23 @@
 import React from "react"
 
 import { useUnprotectedPage } from "../../hooks/useUnprotectedPage"
-import { ContentContainer } from "../../styles/styledDefault"
+import { BodyContainer, ContentContainer } from "../../styles/styledDefault"
 import SignUpForm from "./SignUpForm"
 import { WelcomeTitle } from "./styled"
 
 const SignUpPage = () => {
 
   useUnprotectedPage()
-  
-  return(
-    <ContentContainer>
-      <WelcomeTitle>Olá, boas vindas ao LabEddit ;)</WelcomeTitle>
 
-      <SignUpForm/>
+  return (
+    <BodyContainer>
+      <ContentContainer>
+        <WelcomeTitle>Olá, boas vindas ao LabEddit ;)</WelcomeTitle>
 
-    </ContentContainer>
+        <SignUpForm />
+
+      </ContentContainer>
+    </BodyContainer>
   )
 }
 

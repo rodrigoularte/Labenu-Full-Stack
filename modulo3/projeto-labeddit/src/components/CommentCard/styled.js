@@ -67,6 +67,10 @@ export const VoteUp = styled.button`
   font-size: 18px;
   border: none;
   background-color: #FBFBFB;
+
+  :hover {
+    cursor: pointer;
+  }
 `
 
 export const VoteDown = styled.button`
@@ -79,4 +83,8 @@ export const VoteDown = styled.button`
   border: none;
   background-color: #FBFBFB;
   transform: rotate(180deg);
+
+  :hover {
+    cursor: pointer;
+  }
 `

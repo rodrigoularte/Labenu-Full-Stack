@@ -5,7 +5,7 @@ import logoLabeddit from "../../assets/logo-labeddit.png"
 import { goToSignUpPage } from "../../routes/coordinator"
 
 import { Logo, LogoContainer } from "./styled"
-import { ContentContainer, CreateAccountButton, Line } from "../../styles/styledDefault"
+import { BodyContainer, ContentContainer, CreateAccountButton, Line } from "../../styles/styledDefault"
 import LoginForm from "./LoginForm"
 import { useUnprotectedPage } from "../../hooks/useUnprotectedPage"
 
@@ -15,23 +15,25 @@ const LoginPage = () => {
   const navigate = useNavigate()
 
   return (
-    <ContentContainer>
-      <LogoContainer>
-        <Logo src={logoLabeddit} alt="logo-labeddit" />
-        <h1>LabEddit</h1>
-        <p>O projeto de rede social da Labenu</p>
-      </LogoContainer>
+    <BodyContainer>
+      <ContentContainer>
+        <LogoContainer>
+          <Logo src={logoLabeddit} alt="logo-labeddit" />
+          <h1>LabEddit</h1>
+          <p>O projeto de rede social da Labenu</p>
+        </LogoContainer>
 
-      <LoginForm />
+        <LoginForm />
 
-      <Line />
+        <Line />
 
-      <CreateAccountButton
-        onClick={() => goToSignUpPage(navigate)}
-      >
-        Crie uma conta!
-      </CreateAccountButton>
-    </ContentContainer>
+        <CreateAccountButton
+          onClick={() => goToSignUpPage(navigate)}
+        >
+          Crie uma conta!
+        </CreateAccountButton>
+      </ContentContainer>
+    </BodyContainer>
   )
 }
 

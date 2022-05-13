@@ -1,11 +1,18 @@
 import styled from "styled-components"
 
 // page
+export const BodyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
+
+  width: 500px;
 `
 
 export const Line = styled.hr`
