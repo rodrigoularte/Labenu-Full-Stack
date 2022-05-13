@@ -4,6 +4,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { HeaderContainer, Logo, RightButton, LeftButton } from "./styled"
 import logoLabeddit from "../../assets/logo-labeddit.png"
 import {goBack, goToLoginPage} from "../../routes/coordinator"
+import {VscChromeClose} from "react-icons/vsc"
 
 const Header = () => {
 
@@ -31,7 +32,7 @@ const Header = () => {
   return(
     <HeaderContainer>
       {location.pathname === `/post/${pathParams.id}` &&
-      <LeftButton onClick={() => goBack(navigate)}>Voltar</LeftButton>}
+      <LeftButton onClick={() => goBack(navigate)}><VscChromeClose/></LeftButton>}
       <Logo src={logoLabeddit} alt="logo-labeddit" />
       <RightButton onClick={rightButtonAction}>{rightButtonText}</RightButton>
     </HeaderContainer>

@@ -28,14 +28,16 @@ export const RightButton = styled.p`
     cursor: pointer;
   }
 `
-export const LeftButton = styled.p`
+export const LeftButton = styled.div`
+  display: flex;
   position: absolute;
   left: 30px;
 
-  font-size: 18px;
-  font-weight: 600;
-  font-family: 'Noto Sans';
-  color: #4088CB;
+  /* height: 100%; */
+
+  font-size: 32px;
+  /*font-family: 'Noto Sans'; */
+  color: #A3A3A3;
 
   :hover {
     cursor: pointer;
