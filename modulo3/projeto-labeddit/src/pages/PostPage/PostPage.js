@@ -6,8 +6,7 @@ import { useParams } from "react-router-dom"
 import { BASE_URL } from "../../constants/urls"
 import { useProtectedPage } from "../../hooks/useProtectedPage "
 import PostCard from "../../components/PostCard/PostCard"
-import { Post, CommentContainer } from "./styled"
-import { ContentContainer, GradientButton2, Line } from "../../styles/styledDefault"
+import { ContentContainer, Line } from "../../styles/styledDefault"
 import CommentCard from "../../components/CommentCard/CommentCard"
 import CommentForm from "./CommentForm"
 
@@ -19,6 +18,7 @@ const PostPage = () => {
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
 
+  
   const getPosts = () => {
     const token = localStorage.getItem("token")
     const headers = { headers: { Authorization: token } }
@@ -33,20 +33,10 @@ const PostPage = () => {
 
   useEffect(() => { getPosts() }, [])
 
+
   const filterPost = posts.filter((post) => {
     return post.id === pathParams.id
   })
-
-  // const filterPost = () =>{
-  //   for (const post of posts){
-  //     if(post.id === pathParams.id) {
-  //       setPosts(post)
-  //       break
-  //     }
-  //   }
-  // }
-
-  // useEffect(() => { filterPost() }, [])
 
 
   const getPostComments = () => {

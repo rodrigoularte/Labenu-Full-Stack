@@ -21,11 +21,14 @@ export const PostListContainer = styled.div`
 export const BottomContainer = styled.div`
   display: flex;
   gap: 16px;
+
+  height: 30px;
 `
 
 export const VoteContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 
   width: 100px;
 
@@ -36,9 +39,34 @@ export const VoteContainer = styled.div`
 export const CommentContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 8px;
 
   width: 70px;
 
   border: 1px solid #ECECEC;
   border-radius: 28px;
+`
+
+export const VoteUp = styled.button`
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 18px;
+  border: none;
+  background-color: #FBFBFB;
+`
+
+export const VoteDown = styled.button`
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 18px;
+  border: none;
+  background-color: #FBFBFB;
+  transform: rotate(180deg);
 `

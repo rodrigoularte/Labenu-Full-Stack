@@ -15,6 +15,7 @@ const FeedPage = () => {
 
   const [posts, setPosts] = useState([])
 
+
   const getPosts = () => {
     const token = localStorage.getItem("token")
     const headers = { headers: { Authorization: token } }
@@ -27,7 +28,7 @@ const FeedPage = () => {
       .catch((err) => { console.log(err.response) })
   }
 
-  useEffect(() => { getPosts() }, [navigate])
+  useEffect(() => { getPosts() }, [getPosts])
 
   return (
     <ContentContainer>
@@ -46,6 +47,7 @@ const FeedPage = () => {
             body={post.body}
             voteSum={post.voteSum}
             commentCount={post.commentCount}
+            userVote={post.userVote}
           />
         )
       })}
