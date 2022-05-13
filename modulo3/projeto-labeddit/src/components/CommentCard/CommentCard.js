@@ -1,22 +1,82 @@
 import React from "react"
 
-import { PostListContainer, BottomContainer, VoteContainer} from "./styled"
+import { PostListContainer, CommentUserName, CommentText, BottomContainer, VoteContainer, CommentCount, VoteUp, VoteDown} from "./styled"
+import {BsShift, BsShiftFill} from "react-icons/bs"
+
 
 const CommentCard = (props) => {
+
+  // const UpVote = (id, userVote) => {
+
+  //   if(userVote) {
+  //     const token = localStorage.getItem("token")
+  //     const headers = { headers: { Authorization: token } }
+
+  //     axios
+  //     .delete(`${BASE_URL}/posts/${id}/votes`, headers)
+  //     .then(() => {
+  //       console.log("Voto retirado")
+  //     })
+  //     .catch((err) => { console.log(err.response) })
+  //   } else {
+  //     const token = localStorage.getItem("token")
+  //     const headers = { headers: { Authorization: token } }
+  //     const body = {"direction": 1}
+  
+  //     axios
+  //       .post(`${BASE_URL}/posts/${id}/votes`, body, headers)
+  //       .then((res) => {
+  //         console.log(res.data)
+  //       })
+  //       .catch((err) => { console.log(err.response) })
+  //   }
+  // }
+
+  // const DownVote = (id, userVote) => {
+
+  //   if(userVote) {
+  //     const token = localStorage.getItem("token")
+  //     const headers = { headers: { Authorization: token } }
+
+  //     axios
+  //     .delete(`${BASE_URL}/posts/${id}/votes`, headers)
+  //     .then(() => {
+  //       console.log("Voto retirado")
+  //     })
+  //     .catch((err) => { console.log(err.response) })
+  //   } else {
+  //     const token = localStorage.getItem("token")
+  //     const headers = { headers: { Authorization: token } }
+  //     const body = {"direction": -1}
+
+  //     axios
+  //       .post(`${BASE_URL}/posts/${id}/votes`, body, headers)
+  //       .then((res) => {
+  //         console.log(res.data)
+  //       })
+  //       .catch((err) => { console.log(err.response) })
+  //   }
+  // }
 
   return (
     <PostListContainer
       key={props.id}
     >
-      <p>Enviado por: {props.username}</p>
+      <CommentUserName>Enviado por: {props.username}</CommentUserName>
 
       <div>
-        <p>{props.body}</p>
+        <CommentText>{props.body}</CommentText>
       </div>
 
       <BottomContainer>
         <VoteContainer>
-          {props.voteSum === null ? "0" : props.voteSum}
+          <VoteUp>
+            {props.userVote === 1 ? <BsShiftFill color="green"/> : <BsShift/>}
+          </VoteUp>
+          <CommentCount>{props.voteSum === null ? "0" : props.voteSum}</CommentCount>
+          <VoteDown>
+            {props.userVote === -1 ? <BsShiftFill color="red"/> : <BsShift/>}
+          </VoteDown>
         </VoteContainer>
       </BottomContainer>
     </PostListContainer >

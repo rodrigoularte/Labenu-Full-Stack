@@ -5,6 +5,7 @@ import useForm from "../../hooks/useForm"
 
 import { GradientButton1, InputField } from "../../styles/styledDefault"
 import { signUp } from "../../services/users"
+import { BlueText, BlackText, Label, TextContainer } from "./styled"
 
 const SignUpForm = () => {
 
@@ -47,13 +48,13 @@ const SignUpForm = () => {
         placeholder="Senha"
         required
       />
-      <div>
-        <p>Ao continuar, você concorda com o nosso Contrato de usuário e nossa Política de Privacidade</p>
+      <TextContainer>
+        <BlackText>Ao continuar, você concorda com o nosso <BlueText>Contrato de usuário</BlueText> e nossa <BlueText>Política de Privacidade</BlueText></BlackText>
         <div>
           <input type="checkbox" name="Teste" />
-          <label> Eu concordo em receber e-mails sobre coisas legais no Labeddit</label>
+          <Label> Eu concordo em receber e-mails sobre coisas legais no Labeddit</Label>
         </div>
-      </div>
+      </TextContainer>
 
       <GradientButton1>Cadastrar</GradientButton1>
     </form>

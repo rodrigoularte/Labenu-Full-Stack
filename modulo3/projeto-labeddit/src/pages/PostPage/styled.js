@@ -17,6 +17,9 @@ export const Comment = styled.textarea`
 
   color: #6F6F6F;
   font-size: 18px;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
 
   background-color: #EDEDED;
   border: none;

@@ -18,17 +18,65 @@ export const PostListContainer = styled.div`
   margin-bottom: 10px;
 `
 
+export const CommentUserName = styled.p`
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  font-size: 12px;
+
+  color: #6F6F6F;
+`
+
+export const CommentText = styled.p`
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  font-size: 18px;
+`
+
 export const BottomContainer = styled.div`
   display: flex;
   gap: 16px;
+
+  height: 30px;
 `
 
 export const VoteContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 
   width: 100px;
 
   border: 1px solid #ECECEC;
   border-radius: 28px;
+`
+
+export const CommentCount = styled.p`
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  font-size: 12px;
+
+  color: #6F6F6F;
+`
+
+export const VoteUp = styled.button`
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 18px;
+  border: none;
+  background-color: #FBFBFB;
+`
+
+export const VoteDown = styled.button`
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 18px;
+  border: none;
+  background-color: #FBFBFB;
+  transform: rotate(180deg);
 `

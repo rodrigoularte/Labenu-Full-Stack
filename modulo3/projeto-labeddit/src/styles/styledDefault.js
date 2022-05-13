@@ -27,6 +27,11 @@ export const InputField = styled.input`
 
   border: 1px solid #D5D8DE;
   border-radius: 4px;
+
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
 `
 
 
@@ -38,6 +43,9 @@ export const GradientButton1 = styled.button`
   
   font-size: 18px;
   color: white;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
   
   background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
   border: none;
@@ -50,6 +58,9 @@ export const CreateAccountButton = styled.button`
   
   font-size: 18px;
   color: #FE7E02;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
   
   background-color: white;
   border: 1px solid #FE7E02;
@@ -63,6 +74,9 @@ export const GradientButton2 = styled.button`
 
   font-size: 18px;
   color: white;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
   
   background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
   border: none;

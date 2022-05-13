@@ -16,6 +16,9 @@ export const PostTitle = styled.input`
 
   color: #6F6F6F;
   font-size: 18px;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
 
   background-color: #EDEDED;
   border: none;
@@ -30,6 +33,9 @@ export const Post = styled.textarea`
 
   color: #6F6F6F;
   font-size: 18px;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
 
   background-color: #EDEDED;
   border: none;

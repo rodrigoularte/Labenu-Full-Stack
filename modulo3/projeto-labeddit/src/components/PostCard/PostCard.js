@@ -4,7 +4,7 @@ import axios from "axios"
 
 import { BASE_URL } from "../../constants/urls"
 import { goToPostPage } from "../../routes/coordinator"
-import { CommentContainer, PostListContainer, BottomContainer, VoteContainer, VoteUp, VoteDown} from "./styled"
+import { CommentContainer, PostListContainer, BottomContainer, VoteContainer, VoteUp, VoteDown, UserName, TitleAndPost, VoteSum, CommentCount} from "./styled"
 import {BiCommentDetail} from "react-icons/bi"
 import {BsShift, BsShiftFill} from "react-icons/bs"
 
@@ -69,12 +69,12 @@ const PostCard = (props) => {
       key={props.id}
     >
       <div onClick={() => goToPostPage(navigate, props.id)}>
-        <p>Enviado por: {props.username}</p>
+        <UserName>Enviado por: {props.username}</UserName>
 
-        <div>
+        <TitleAndPost>
           <h3>{props.title}</h3>
           <p>{props.body}</p>
-        </div>
+        </TitleAndPost>
       </div>
 
       <BottomContainer>
@@ -82,14 +82,14 @@ const PostCard = (props) => {
           <VoteUp onClick={() => UpVote(props.id, props.userVote)}>
             {props.userVote === 1 ? <BsShiftFill color="green"/> : <BsShift/>}
           </VoteUp>
-            <strong>{props.voteSum === null ? "0" : props.voteSum}</strong>
+            <VoteSum>{props.voteSum === null ? "0" : props.voteSum}</VoteSum>
           <VoteDown onClick={() => DownVote(props.id, props.userVote)}>
             {props.userVote === -1 ? <BsShiftFill color="red"/> : <BsShift/>}
           </VoteDown>
         </VoteContainer>
         <CommentContainer>
-          <BiCommentDetail/>
-          {props.commentCount === null ? "0" : props.commentCount}
+          <BiCommentDetail color="black"/>
+          <CommentCount>{props.commentCount === null ? "0" : props.commentCount}</CommentCount>
         </CommentContainer>
       </BottomContainer>
     </PostListContainer >

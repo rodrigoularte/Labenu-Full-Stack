@@ -3,6 +3,7 @@ import React from "react"
 import { useUnprotectedPage } from "../../hooks/useUnprotectedPage"
 import { ContentContainer } from "../../styles/styledDefault"
 import SignUpForm from "./SignUpForm"
+import { WelcomeTitle } from "./styled"
 
 const SignUpPage = () => {
 
@@ -10,7 +11,7 @@ const SignUpPage = () => {
   
   return(
     <ContentContainer>
-      <h1>Olá, boas vindas ao LabEddit ;)</h1>
+      <WelcomeTitle>Olá, boas vindas ao LabEddit ;)</WelcomeTitle>
 
       <SignUpForm/>
 
