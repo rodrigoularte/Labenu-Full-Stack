@@ -1,44 +1,29 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useContext, useEffect} from "react"
 
 import { useProtectedPage } from "../../hooks/useProtectedPage "
-import { BASE_URL } from "../../constants/urls"
 import { BodyContainer, ContentContainer, Line } from "../../styles/styledDefault"
 import PostForm from "./PostForm"
 import PostCard from "../../components/PostCard/PostCard"
+import GlobalStateContext from "../../global/GlobalStateContext"
 
 const FeedPage = () => {
 
   useProtectedPage()
-  const navigate = useNavigate()
 
-  const [posts, setPosts] = useState([])
+  const { states, setters, requests } = useContext(GlobalStateContext)
 
+  useEffect(() => { requests.getPosts() }, [requests])
 
-  const getPosts = () => {
-    const token = localStorage.getItem("token")
-    const headers = { headers: { Authorization: token } }
-
-    axios
-      .get(`${BASE_URL}/posts`, headers)
-      .then((res) => {
-        setPosts(res.data)
-      })
-      .catch((err) => { console.log(err.response) })
-  }
-
-  useEffect(() => { getPosts() }, [getPosts])
 
   return (
     <BodyContainer>
       <ContentContainer>
 
-        <PostForm getPosts={getPosts} />
+        <PostForm getPosts={requests.getPosts} />
 
         <Line />
 
-        {posts.map((post) => {
+        {states.posts.map((post) => {
           return (
             <PostCard
               key={post.id}
@@ -52,7 +37,6 @@ const FeedPage = () => {
             />
           )
         })}
-
       </ContentContainer>
     </BodyContainer>
   )

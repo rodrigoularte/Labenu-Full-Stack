@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 
@@ -9,49 +9,27 @@ import PostCard from "../../components/PostCard/PostCard"
 import { BodyContainer, ContentContainer, Line } from "../../styles/styledDefault"
 import CommentCard from "../../components/CommentCard/CommentCard"
 import CommentForm from "./CommentForm"
+import GlobalStateContext from "../../global/GlobalStateContext"
 
 const PostPage = () => {
 
   useProtectedPage()
+
   const pathParams = useParams()
+  const { states, setters, requests } = useContext(GlobalStateContext)
+  
 
-  const [posts, setPosts] = useState([])
-  const [comments, setComments] = useState([])
-
-
-  const getPosts = () => {
-    const token = localStorage.getItem("token")
-    const headers = { headers: { Authorization: token } }
-
-    axios
-      .get(`${BASE_URL}/posts`, headers)
-      .then((res) => {
-        setPosts(res.data)
-      })
-      .catch((err) => { console.log(err.response) })
-  }
-
-  useEffect(() => { getPosts() }, [])
-
-
-  const filterPost = posts.filter((post) => {
+  const filterPost = states.posts.filter((post) => {
     return post.id === pathParams.id
   })
+  
+  
+  useEffect(() => {
+    requests.getPosts()
+    requests.getPostComments(pathParams.id)
+  }, [requests])
 
-
-  const getPostComments = () => {
-    const token = localStorage.getItem("token")
-    const headers = { headers: { Authorization: token } }
-
-    axios
-      .get(`${BASE_URL}/posts/${pathParams.id}/comments`, headers)
-      .then((res) => setComments(res.data))
-      .catch((err) => { console.log(err.response) })
-  }
-
-  useEffect(() => { getPostComments() }, [getPostComments])
-
-
+  
   return (
     <BodyContainer>
       <ContentContainer>
@@ -72,12 +50,12 @@ const PostPage = () => {
 
         <CommentForm
           id={pathParams.id}
-          getPostComments={getPostComments}
+          getPostComments={requests.getPostComments}
         />
 
         <Line />
 
-        {comments.map((comment) => {
+        {states.comments.map((comment) => {
           return (
             <CommentCard
               key={comment.id}

@@ -1,10 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import axios from "axios"
 
 import useForm from "../../hooks/useForm"
-import { BASE_URL } from "../../constants/urls"
-import { goToFeedPage} from "../../routes/coordinator"
 import { GradientButton1, InputField } from "../../styles/styledDefault"
 import { login } from "../../services/users"
 
