@@ -2,7 +2,7 @@ import React from "react"
 import axios from "axios"
 
 import { BASE_URL } from "../../constants/urls"
-import { PostListContainer, CommentUserName, CommentText, BottomContainer, VoteContainer, CommentCount, VoteUp, VoteDown } from "./styled"
+import { PostListContainer, CommentUserName, CommentContainer, CommentText, BottomContainer, VoteContainer, CommentCount, VoteUp, VoteDown } from "./styled"
 import { BsShift, BsShiftFill } from "react-icons/bs"
 
 
@@ -84,9 +84,9 @@ const CommentCard = (props) => {
     >
       <CommentUserName>Enviado por: {props.username}</CommentUserName>
 
-      <div>
+      <CommentContainer>
         <CommentText>{props.body}</CommentText>
-      </div>
+      </CommentContainer>
 
       <BottomContainer>
         <VoteContainer>

@@ -18,6 +18,13 @@ export const PostListContainer = styled.div`
   margin-bottom: 10px;
 `
 
+export const PostContainer = styled.div`
+  width: 100%;
+  :hover{
+    cursor: pointer;
+  }
+`
+
 export const UserName = styled.p`
   margin-bottom: 18px;
 

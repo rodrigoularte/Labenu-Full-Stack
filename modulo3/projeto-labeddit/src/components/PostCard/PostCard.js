@@ -4,7 +4,7 @@ import axios from "axios"
 
 import { BASE_URL } from "../../constants/urls"
 import { goToPostPage } from "../../routes/coordinator"
-import { CommentContainer, PostListContainer, BottomContainer, VoteContainer, VoteUp, VoteDown, UserName, TitleAndPost, VoteSum, CommentCount} from "./styled"
+import { CommentContainer, PostListContainer, BottomContainer, VoteContainer, VoteUp, VoteDown, UserName, TitleAndPost, VoteSum, CommentCount, PostContainer} from "./styled"
 import {BiCommentDetail} from "react-icons/bi"
 import {BsShift, BsShiftFill} from "react-icons/bs"
 
@@ -92,14 +92,14 @@ const PostCard = (props) => {
     <PostListContainer
       key={props.id}
     >
-      <div onClick={() => goToPostPage(navigate, props.id)}>
+      <PostContainer onClick={() => goToPostPage(navigate, props.id)}>
         <UserName>Enviado por: {props.username}</UserName>
 
         <TitleAndPost>
           <h3>{props.title}</h3>
           <p>{props.body}</p>
         </TitleAndPost>
-      </div>
+      </PostContainer>
 
       <BottomContainer>
         <VoteContainer>

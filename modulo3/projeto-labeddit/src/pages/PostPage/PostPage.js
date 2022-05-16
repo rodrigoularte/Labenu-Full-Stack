@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useState } from "react"
-import axios from "axios"
+import React, { useContext, useEffect} from "react"
 import { useParams } from "react-router-dom"
 
-
-import { BASE_URL } from "../../constants/urls"
 import { useProtectedPage } from "../../hooks/useProtectedPage "
 import PostCard from "../../components/PostCard/PostCard"
 import { BodyContainer, ContentContainer, Line } from "../../styles/styledDefault"
@@ -27,7 +24,7 @@ const PostPage = () => {
   useEffect(() => {
     requests.getPosts()
     requests.getPostComments(pathParams.id)
-  }, [requests])
+  }, [requests.getPosts, requests.getPostComments])
 
   
   return (

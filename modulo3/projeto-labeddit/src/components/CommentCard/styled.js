@@ -26,10 +26,17 @@ export const CommentUserName = styled.p`
   color: #6F6F6F;
 `
 
+export const CommentContainer = styled.div`
+  display: flex;
+  overflow-wrap: break-word;
+  width: 100%;
+`
 export const CommentText = styled.p`
   font-family: 'IBM Plex Sans';
   font-weight: 400;
   font-size: 18px;
+  max-width: 100%;
+  overflow-wrap: break-word;
 `
 
 export const BottomContainer = styled.div`

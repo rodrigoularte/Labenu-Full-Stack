@@ -12,7 +12,13 @@ export const ContentContainer = styled.div`
   align-items: center;
   padding: 30px;
 
-  width: 500px;
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    width: 100%;
+  }
+
+  @media screen and (min-device-width : 501px) {
+    max-width: 500px;
+  }
 `
 
 export const Line = styled.hr`
