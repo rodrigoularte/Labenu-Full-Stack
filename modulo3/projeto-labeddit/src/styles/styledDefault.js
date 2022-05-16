@@ -17,7 +17,7 @@ export const ContentContainer = styled.div`
   }
 
   @media screen and (min-device-width : 501px) {
-    max-width: 500px;
+    width: 500px;
   }
 `
 
