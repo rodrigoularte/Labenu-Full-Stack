@@ -23,7 +23,7 @@ const infoColaboradores = [
 ]
 
 function retornaMarketing(infos: Colaboradores[]): Colaboradores[] {
-  const marketing = infos.filter((info: any) => {
+  const marketing: Colaboradores[] = infos.filter((info: any) => {
     return info.setor === SETOR.MARKETING && info.presencial === true
   })
 
