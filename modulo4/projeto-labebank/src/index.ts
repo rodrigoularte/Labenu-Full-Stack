@@ -45,18 +45,26 @@ app.post("/users", (req, res) => {
 
     checkAge(birthDate)
 
+    //verifica se o CPF passado já não está atrelado a alguma conta existente
+    const userIndex = users.findIndex(user => user.cpf === cpf)
 
-    const newUser: User = {
-      name,
-      cpf,
-      birthDate,
-      balance: 0,
-      statement: []
+    if(userIndex < 0) {
+      const newUser: User = {
+        name,
+        cpf,
+        birthDate,
+        balance: 0,
+        statement: []
+      }
+  
+      users.push(newUser)
+      
+      res.status(201).send("Account created successfully")
+    } else {
+      errorCode = 409
+      throw new Error("Cpf already registered.")
     }
 
-    users.push(newUser)
-    
-    res.status(201).send("Account created successfully")
   } catch (error: any) {
     res.status(errorCode).send({ message: error.message })
   }
