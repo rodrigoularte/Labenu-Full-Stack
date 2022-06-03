@@ -62,9 +62,31 @@ app.post("/users", (req, res) => {
       res.status(201).send("Account created successfully")
     } else {
       errorCode = 409
-      throw new Error("Cpf already registered.")
+      throw new Error("CPF already registered.")
     }
 
+  } catch (error: any) {
+    res.status(errorCode).send({ message: error.message })
+  }
+})
+
+
+//Crie um endpoint get que receba um CPF como parâmetro e retorne o saldo da conta do usuário dono daquele CPF. A informação deve ser igual ao que estiver salvo no sistema. Se for diferente, exiba uma mensagem de erro.
+app.get("/users/:cpf", (req,res) => {
+  let errorCode: number = 500
+  try {
+    const cpf: string = req.params.cpf
+
+    const userIndex = users.findIndex(user => user.cpf === cpf)
+    
+    if(userIndex < 0) {
+      errorCode = 404
+      throw new Error("User not found. Invalid CPF.")
+    } else {
+      res.status(200).send({balance: users[userIndex].balance})
+    }
+
+    
   } catch (error: any) {
     res.status(errorCode).send({ message: error.message })
   }
