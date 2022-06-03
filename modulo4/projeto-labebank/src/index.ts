@@ -91,3 +91,43 @@ app.get("/users/:cpf", (req,res) => {
     res.status(errorCode).send({ message: error.message })
   }
 })
+
+
+//Altere o endpoint de adicionar saldo para que ela adicione um item ao extrato da conta do usuário: indicando o valor e a data da transação. A descrição para este tipo de item deve ser sempre a mesma ("Depósito de dinheiro"). A data pode ser salva como timestamp ou string.
+app.put("/users", (req,res) => {
+  let errorCode: number = 500
+  try {
+    const {name, cpf, value} = req.body
+
+    if(typeof value !== "number") {
+      throw new Error("Value is not a number.")
+
+    }
+
+    const userIndex = users.findIndex(user => user.cpf === cpf && user.name === name)
+    
+    if(userIndex < 0) {
+      errorCode = 404
+      throw new Error("User not found. Invalid name or CPF.")
+    } else {
+      const currentDate = new Date()
+      const date = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`
+      const newBalance: number = users[userIndex].balance + value
+      
+      const newTransaction: Transaction = {
+        value,
+        date,
+        description: "Depósito de dinheiro"
+      }
+      
+      users[userIndex].balance = newBalance
+      users[userIndex].statement.push(newTransaction)
+
+      res.status(200).send({message: "Transaction completed"})
+    }
+
+  } catch (error: any) {
+    res.status(errorCode).send({ message: error.message })
+    
+  }
+})

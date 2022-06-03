@@ -20,21 +20,21 @@ export let users: User[] = [
     name: "Gabriel Barbosa",
     cpf: "615.457.630-09",
     birthDate: "09/09/1999",
-    balance: 1500099,
+    balance: 1500000,
     statement: []
   },
   {
     name: "Bruno Henrique",
     cpf: "865.745.653-27",
     birthDate: "27/11/1987",
-    balance: 800027,
+    balance: 800000,
     statement: []
   },
   {
     name: "Everton Ribeiro",
     cpf: "462.351.058-07",
     birthDate: "07/07/1987",
-    balance: 1900607,
+    balance: 1900000,
     statement: []
   },
 ]
