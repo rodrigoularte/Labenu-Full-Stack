@@ -4,6 +4,8 @@ import cors from "cors"
 import createUser from "./endpoint/createUser"
 import getUserById from "./endpoint/getUserById"
 import editUser from "./endpoint/editUser"
+import createTask from "./endpoint/createTask"
+import getTaskById from "./endpoint/getTaskById"
 
 const app = express()
 
@@ -22,3 +24,9 @@ app.get("/user/:id", getUserById)
 
 // Endpoint 3
 app.put("/user/edit/:id", editUser)
+
+// Endpoint 4 - Criar tarefa
+app.post("/task", createTask)
+
+// Endpoint 5 - Pegar tarefa pelo id
+app.get("/task/:id", getTaskById)
