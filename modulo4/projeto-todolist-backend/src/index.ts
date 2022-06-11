@@ -3,6 +3,7 @@ import cors from "cors"
 
 import createUser from "./endpoint/createUser"
 import getUserById from "./endpoint/getUserById"
+import editUser from "./endpoint/editUser"
 
 const app = express()
 
@@ -18,3 +19,6 @@ app.post("/user", createUser)
 
 // Endpoint 2
 app.get("/user/:id", getUserById)
+
+// Endpoint 3
+app.put("/user/edit/:id", editUser)
