@@ -2,6 +2,7 @@ import express, {Request, Response} from "express"
 import cors from "cors"
 
 import createUser from "./endpoint/createUser"
+import getUserById from "./endpoint/getUserById"
 
 const app = express()
 
@@ -14,3 +15,6 @@ app.listen(3003, () => {
 
 // Endpoint 1
 app.post("/user", createUser)
+
+// Endpoint 2
+app.get("/user/:id", getUserById)
