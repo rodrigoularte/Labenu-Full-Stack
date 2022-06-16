@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# LabeX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🛠️ Tecnologias/ferramentas utilizadas
 
-## Available Scripts
+- React
+- JavaScript
+- HTML 5
+- Styled-Components
+- Hooks
+- Axios
 
-In the project directory, you can run:
+## 💻 Projeto
 
-### `npm start`
+O LabeX é um projeto individual do bootcamp Web Full-Stack da Labenu. É um website responsável pelo gerenciamento de viagens espaciais e contém uma parte privada, em que somente o admin tem acesso, e uma parte pública, em que é possível visualizar a lista de viagens e uma página com formulário para se inscrever em uma viagem da lista.
+O website também tem layout reponsivo para mobile.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Deploy da aplicação
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Você pode visualizar o projeto pelo seguinte link: [https://labex-viagens-espaciais.surge.sh/](https://labex-viagens-espaciais.surge.sh/)
 
-### `npm test`
+## 🚀 Como executar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clonar o repositório:
 
-### `npm run build`
+- $ git clone https://github.com/rodrigoularte/Labenu-Full-Stack.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Acessar o diretório:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- $ cd modulo3 
+- $ cd projeto-labex 
+- $ cd labex
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✒️ Autor
 
-### `npm run eject`
+- Rodrigo Goularte https://github.com/rodrigoularte
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🖼️ Telas (parte pública)
+![Captura de tela 2022-06-16 101750](https://user-images.githubusercontent.com/88721328/174079059-73ee7a4a-f6c0-47d8-bc92-5f1356a38875.png)
+![Captura da Web_16-6-2022_101858_labex-viagens-espaciais surge sh](https://user-images.githubusercontent.com/88721328/174079104-ed08cc33-ab77-4425-8494-b695942023df.jpeg)
+![Captura da Web_16-6-2022_10202_labex-viagens-espaciais surge sh](https://user-images.githubusercontent.com/88721328/174079097-354f2c71-a88e-4def-8194-6a940a4d076c.jpeg)
+![Captura da Web_16-6-2022_102252_labex-viagens-espaciais surge sh](https://user-images.githubusercontent.com/88721328/174079552-7d9a7f5a-9fee-4538-be70-d1fcd86f1f7b.jpeg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🖼️ Telas (parte privada)
+![Captura da Web_16-6-2022_102437_labex-viagens-espaciais surge sh](https://user-images.githubusercontent.com/88721328/174079992-afa15706-dc5d-4973-b717-9ad617ff8f0e.jpeg)
+![Captura da Web_16-6-2022_102454_labex-viagens-espaciais surge sh](https://user-images.githubusercontent.com/88721328/174080011-e7da9a3b-4690-43dc-81de-7d69ba237b53.jpeg)
+![Captura da Web_16-6-2022_102515_labex-viagens-espaciais surge sh](https://user-images.githubusercontent.com/88721328/174080055-212dd93e-f610-4bdb-8e5a-67a3d611e930.jpeg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
