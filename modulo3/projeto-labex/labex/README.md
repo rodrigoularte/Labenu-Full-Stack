@@ -18,6 +18,9 @@ O website também tem layout reponsivo para mobile.
 
 Você pode visualizar o projeto pelo seguinte link: [https://labex-viagens-espaciais.surge.sh/](https://labex-viagens-espaciais.surge.sh/)
 
+- Login admin: rodrigo-goularte@labenu.com.br
+- Senha: 123456
+
 ## 🚀 Como executar
 
 Clonar o repositório:
