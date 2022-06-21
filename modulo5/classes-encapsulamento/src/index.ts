@@ -28,8 +28,8 @@ class UserAccount {
     }
   }
 
-  public setTransaction(transaction: Transaction[]) {
-    this.transactions = transaction
+  public setTransaction(transaction: Transaction): void {
+    this.transactions = [...this.transactions, transaction]
   }
 }
 
@@ -70,18 +70,22 @@ class Transaction {
     this.date = date
   }
 
-  public getTransaction(): object {
-    return {
-      description: this.description,
-      value: this.value,
-      date: this.date
-    }
+  public getDescription(): string {
+    return this.description
+  }
+
+  public getValue(): number {
+    return this.value
+  }
+
+  public getDate(): string {
+    return this.date
   }
 }
 
 const transaction1: Transaction = new Transaction("transferencia", 500, "20/06/2022")
 
-user1.setTransaction([transaction1])
+user1.setTransaction(transaction1)
 
 // -------------------------------------------------------------------------------------------------------------------------
 
@@ -95,8 +99,12 @@ class Bank {
   constructor(accounts: UserAccount[]) {
     this.accounts = accounts
   }
+
+  public getAccounts(): UserAccount[] {
+    return this.accounts
+  }
 }
 
 const bank1: Bank = new Bank([user1])
 
-console.log(bank1)
+// console.log(bank1.getAccounts())
