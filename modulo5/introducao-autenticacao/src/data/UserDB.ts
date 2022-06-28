@@ -23,3 +23,13 @@ export const selectUserByEmail = async (email: string) => {
 
   return result[0]
 }
+
+export const selectUserById = async (id: string): Promise<any> => {
+
+  const result = await connection(userTableName)
+    .select("*")
+    .from(userTableName)
+    .where({ id })
+
+  return result[0]
+}
