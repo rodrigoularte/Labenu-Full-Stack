@@ -3,13 +3,14 @@ import connection from "./connection"
 
 const userTableName = "User"
 
-export const insertUser = async(id: string, email: string, password: string): Promise<void> => {
+export const insertUser = async(id: string, email: string, password: string, role: string): Promise<void> => {
 
   await connection(userTableName)
     .insert({
       id,
       email,
       password,
+      role
     })
     .into(userTableName)
 }

@@ -20,9 +20,15 @@ export const getUserById = async (req: Request, res: Response): Promise<void> =>
 
     const user = await selectUserById(authenticationData.id)
 
+    if(user.role !== "normal") {
+      errorCode = 401
+      throw new Error("Somente um usuário normal pode acessar esta funcionalidade.")
+    }
+
     res.status(200).send({
       id: user.id,
-      email: user.email
+      email: user.email,
+      role: user.role
     })
 
   } catch (error: any) {

@@ -28,7 +28,7 @@ export const getUserByEmail = async (req: Request, res: Response): Promise<void>
       throw new Error("Senha incorreta.")
     }
 
-    const token: string = generateToken({ id })
+    const token: string = generateToken({ id, role: user.role })
 
     res.status(200).send({ token })
 

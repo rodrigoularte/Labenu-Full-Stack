@@ -9,11 +9,13 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
   let errorCode: number = 400
 
   try {
+    
+    const { email, password, role } = req.body
+    
     const id: string = generateId()
 
-    const token: string = generateToken({ id })
+    const token: string = generateToken({ id, role })
 
-    const { email, password } = req.body
 
     if(!email || email.indexOf("@") === -1 ) {
       errorCode = 422
@@ -31,7 +33,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
     const hash = await hashManage.hash(password)
 
 
-    await insertUser(id, email, hash)
+    await insertUser(id, email, hash, role)
 
 
     res.status(201).send({ token })
