@@ -1,8 +1,6 @@
 import { Request, Response } from "express"
 import UserDB from "../data/UserDB"
-import { User } from "../model/User"
 import { Authenticator } from "../services/Authenticator"
-import { GenerateId } from "../services/GenerateId"
 import HashManager from "../services/HashManager"
 
 export const login = async (req: Request, res: Response): Promise<void> => {
