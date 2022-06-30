@@ -35,20 +35,20 @@ class RecipeDB extends BaseDatabase {
     }
   }
 
-  // public selectUserById = async (id: string): Promise<User> => {
+  public selectRecipeById = async (id: string): Promise<Recipe> => {
 
-  //   try {
-  //     const user = await BaseDatabase.connection(userTableName)
-  //       .select("*")
-  //       .from(userTableName)
-  //       .where({ id })
+    try {
+      const recipe = await BaseDatabase.connection(recipeTableName)
+        .select("*")
+        .from(recipeTableName)
+        .where({ id })
 
-  //     return user[0] && User.toUserModel(user[0])
+      return recipe[0] && Recipe.toRecipeModel(recipe[0])
 
-  //   } catch (error: any) {
-  //     throw new Error(error.message || error.sqlMessage)
-  //   }
-  // }
+    } catch (error: any) {
+      throw new Error(error.message || error.sqlMessage)
+    }
+  }
 
 }
 
