@@ -1,10 +1,8 @@
 import { Request, Response } from "express"
 import RecipeDB from "../data/RecipeDB"
 import { Recipe } from "../model/Recipe"
-import { User } from "../model/User"
 import { Authenticator } from "../services/Authenticator"
 import { GenerateId } from "../services/GenerateId"
-import HashManager from "../services/HashManager"
 
 export const createRecipe = async (req: Request, res: Response): Promise<void> => {
   let errorCode: number = 400
