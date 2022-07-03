@@ -4,16 +4,12 @@
 
 ### Link da Documentação
 
-Link
+https://documenter.getpostman.com/view/20353976/UzJFuy5H
 
 ### O que Funciona
 
 - Endpoints GET(getOwnProfile, getProfileById, getRecipeById)
 - POST(signUp, login, createRecipe)
-
-### O que Não Funciona
-
-nada
 
 ### Autor
 
