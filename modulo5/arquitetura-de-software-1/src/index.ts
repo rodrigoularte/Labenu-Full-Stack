@@ -1,6 +1,6 @@
-import { app } from "./app"
-import { signUp } from "./controller/signUp"
-// import { signUp } from "./endpoints/signUp"
+import { app } from "./controller/app"
+import { UserController } from "./controller/UserController"
 
+const userController = new UserController()
 
-app.post("/signup", signUp)
+app.post("/signup", userController.signUp)

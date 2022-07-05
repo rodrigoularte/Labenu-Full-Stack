@@ -3,6 +3,13 @@ export enum USER_ROLES {
   ADMIN = "ADMIN"
 }
 
+export interface UserInput {
+  name: string
+  email: string
+  password: string
+  role: USER_ROLES
+}
+
 export class User {
 
   constructor(
