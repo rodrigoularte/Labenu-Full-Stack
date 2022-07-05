@@ -1,2 +1,6 @@
+import { app } from "./controller/app"
+import UserController from "./controller/UserController"
 
-console.log("teste")
+const userController = new UserController
+
+app.post("/signup", userController.signUp)
