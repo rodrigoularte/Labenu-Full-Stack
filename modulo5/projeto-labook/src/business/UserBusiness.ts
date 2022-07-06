@@ -6,6 +6,13 @@ import HashManager from "../services/HashManager"
 
 class UserBusiness {
 
+  constructor(
+    private userDB: UserDB,
+    private generateId: GenerateId,
+    private hashManager: HashManager,
+    private authenticator: Authenticator
+  ) {}
+
   public signUp = async (user: UserInput): Promise<string> => {
 
     try {
@@ -20,8 +27,7 @@ class UserBusiness {
       }
 
       //verifica se o email passado já existe no banco de dados
-      const userDB = new UserDB()
-      const verifyEmail = await userDB.selectUserByEmail(email)
+      const verifyEmail = await this.userDB.selectUserByEmail(email)
 
       if(verifyEmail) {
         errorCode = 409
@@ -29,20 +35,17 @@ class UserBusiness {
       }
 
       //cria um id
-      const generateId = new GenerateId()
-      const id = generateId.generate()
+      const id = this.generateId.generate()
 
       //criptografa a senha
-      const hashManager: HashManager = new HashManager()
-      const hashPassword = await hashManager.hash(password)
+      const hashPassword = await this.hashManager.hash(password)
 
       //cria o usuário
       const newUser: User = new User(id, name, email, hashPassword)
-      await userDB.insertUser(newUser)
+      await this.userDB.insertUser(newUser)
 
       //gera o token
-      const authenticator = new Authenticator()
-      const token: string = authenticator.generate({id})
+      const token: string = this.authenticator.generate({id})
 
       return token
 

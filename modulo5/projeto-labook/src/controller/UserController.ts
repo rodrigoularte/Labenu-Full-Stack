@@ -5,22 +5,24 @@ import { UserInput } from "../model/User"
 
 class UserController {
 
+  constructor(
+    private userBusiness: UserBusiness
+  ) {}
+
   public signUp = async (req: Request, res: Response): Promise<void> => {
 
     let errorCode: number = 400
 
+    const { name, email, password } = req.body
+
+    const input: UserInput = {
+      name,
+      email,
+      password
+    }
+
     try {
-
-      const { name, email, password } = req.body
-
-      const input: UserInput = {
-        name,
-        email,
-        password
-      }
-
-      const createUser = new UserBusiness()
-      const token = await createUser.signUp(input)
+      const token = await this.userBusiness.signUp(input)
 
       res.status(201).send({ access_token: token })
 

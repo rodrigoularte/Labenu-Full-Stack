@@ -1,14 +1,14 @@
 import { User } from "../model/User"
 import BaseDatabase from "./BaseDatabase"
 
-const userTableName = "labook_users"
-
 class UserDB extends BaseDatabase {
+
+  protected TABLE_NAME = "labook_users"
 
   public insertUser = async (user: User): Promise<void> => {
 
     try {
-      await BaseDatabase.connection(userTableName)
+      await BaseDatabase.connection(this.TABLE_NAME)
         .insert({
           id: user.getId(),
           name: user.getName(),
@@ -24,7 +24,7 @@ class UserDB extends BaseDatabase {
   public selectUserByEmail = async (email: string): Promise<User> => {
 
     try {
-      const user = await BaseDatabase.connection(userTableName)
+      const user = await BaseDatabase.connection(this.TABLE_NAME)
         .select("*")
         .where({email})
       
