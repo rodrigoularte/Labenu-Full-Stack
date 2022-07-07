@@ -1,6 +1,9 @@
+import PostBusiness from "./business/PostBusiness"
 import UserBusiness from "./business/UserBusiness"
 import { app } from "./controller/app"
+import PostController from "./controller/PostController"
 import UserController from "./controller/UserController"
+import PostDB from "./data/PostDB"
 import UserDB from "./data/UserDB"
 import { Authenticator } from "./services/Authenticator"
 import { GenerateId } from "./services/GenerateId"
@@ -15,5 +18,15 @@ const userController = new UserController(
   )
 )
 
+const postController = new PostController(
+  new PostBusiness(
+    new PostDB(),
+    new GenerateId(),
+    new HashManager(),
+    new Authenticator()
+  )
+)
+
 app.post("/signup", userController.signUp)
 app.post("/login", userController.login)
+app.post("/post", postController.createPost)

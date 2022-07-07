@@ -16,13 +16,11 @@ class UserBusiness {
   public signUp = async (user: UserSignUpInput): Promise<string> => {
 
     try {
-      let errorCode: number = 400
       
       const {name, email, password} = user
 
       //verifica se algum campo do body está vazio
       if(!name || !email || !password) {
-        errorCode = 422
         throw new Error ("Insira corretamente as informações. Nenhum campo pode ficar vazio.")
       }
 
@@ -30,7 +28,6 @@ class UserBusiness {
       const verifyEmail = await this.userDB.selectUserByEmail(email)
 
       if(verifyEmail) {
-        errorCode = 409
         throw new Error("Esse email já está cadastrado.")
       }
 
@@ -50,20 +47,18 @@ class UserBusiness {
       return token
 
     } catch (error: any) {
-      throw new Error(error.message || "Erro ao criar um usuário.")
+      throw new Error(error.sqlMessage || error.message)
     }
   }
 
   public login = async (user: UserLoginInput) => {
 
     try {
-      let errorCode: number = 400
 
       const {email, password} = user
 
       //verifica se algum campo do body está vazio
       if(!email || !password) {
-        errorCode = 422
         throw new Error ("Insira corretamente as informações. Nenhum campo pode ficar vazio.")
       }
 
@@ -71,7 +66,6 @@ class UserBusiness {
       const verifyEmail = await this.userDB.selectUserByEmail(email)
 
       if(!verifyEmail) {
-        errorCode = 409
         throw new Error("Email incorreto.")
       }
 
@@ -79,7 +73,6 @@ class UserBusiness {
       const comparePassword: boolean = await this.hashManager.compare(password, verifyEmail.getPassword())
 
       if(comparePassword === false) {
-        errorCode = 401
         throw new Error ("Senha incorreta.")
       }
 
@@ -89,7 +82,7 @@ class UserBusiness {
       return token
 
     } catch (error: any) {
-      throw new Error(error.message || "Erro ao fazer login.")
+      throw new Error(error.sqlMessage || error.message)
     }
   }
 }

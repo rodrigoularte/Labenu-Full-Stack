@@ -7,11 +7,9 @@ class UserController {
 
   constructor(
     private userBusiness: UserBusiness
-  ) {}
+  ) { }
 
   public signUp = async (req: Request, res: Response): Promise<void> => {
-
-    let errorCode: number = 400
 
     const { name, email, password } = req.body
 
@@ -27,15 +25,17 @@ class UserController {
       res.status(201).send({ access_token: token })
 
     } catch (error: any) {
-      res.status(errorCode).send({ message: error.message } || { message: error.sqlMessage })
+      if (res.statusCode === 200) {
+        res.status(500).send({ message: error.message })
+      } else {
+        res.status(res.statusCode).send({ message: error.sqlMessage || error.message })
+      }
     }
   }
 
-  public login = async (req: Request, res: Response) => {
+  public login = async (req: Request, res: Response): Promise<void> => {
 
-    let errorCode: number = 400
-
-    const {email, password} = req.body
+    const { email, password } = req.body
 
     const input: UserLoginInput = {
       email,
@@ -48,7 +48,11 @@ class UserController {
       res.status(200).send({ access_token: token })
 
     } catch (error: any) {
-      res.status(errorCode).send({ message: error.message } || { message: error.sqlMessage })
+      if (res.statusCode === 200) {
+        res.status(500).send({ message: error.message })
+      } else {
+        res.status(res.statusCode).send({ message: error.sqlMessage || error.message })
+      }
     }
   }
 }
