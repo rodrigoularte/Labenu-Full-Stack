@@ -16,3 +16,4 @@ const userController = new UserController(
 )
 
 app.post("/signup", userController.signUp)
+app.post("/login", userController.login)

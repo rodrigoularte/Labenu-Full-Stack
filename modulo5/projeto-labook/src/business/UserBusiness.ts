@@ -1,5 +1,5 @@
 import UserDB from "../data/UserDB"
-import { User, UserInput } from "../model/User"
+import { User, UserLoginInput, UserSignUpInput } from "../model/User"
 import { Authenticator } from "../services/Authenticator"
 import { GenerateId } from "../services/GenerateId"
 import HashManager from "../services/HashManager"
@@ -13,7 +13,7 @@ class UserBusiness {
     private authenticator: Authenticator
   ) {}
 
-  public signUp = async (user: UserInput): Promise<string> => {
+  public signUp = async (user: UserSignUpInput): Promise<string> => {
 
     try {
       let errorCode: number = 400
@@ -51,6 +51,45 @@ class UserBusiness {
 
     } catch (error: any) {
       throw new Error(error.message || "Erro ao criar um usuário.")
+    }
+  }
+
+  public login = async (user: UserLoginInput) => {
+
+    try {
+      let errorCode: number = 400
+
+      const {email, password} = user
+
+      //verifica se algum campo do body está vazio
+      if(!email || !password) {
+        errorCode = 422
+        throw new Error ("Insira corretamente as informações. Nenhum campo pode ficar vazio.")
+      }
+
+      //verifica se o email passado já existe no banco de dados
+      const verifyEmail = await this.userDB.selectUserByEmail(email)
+
+      if(!verifyEmail) {
+        errorCode = 409
+        throw new Error("Email incorreto.")
+      }
+
+      //verifica se a senha passada corresponde à senha do banco
+      const comparePassword: boolean = await this.hashManager.compare(password, verifyEmail.getPassword())
+
+      if(comparePassword === false) {
+        errorCode = 401
+        throw new Error ("Senha incorreta.")
+      }
+
+      //gera o token
+      const token: string = this.authenticator.generate({id: verifyEmail.getId()})
+
+      return token
+
+    } catch (error: any) {
+      throw new Error(error.message || "Erro ao fazer login.")
     }
   }
 }

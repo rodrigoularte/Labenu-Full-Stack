@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import UserBusiness from "../business/UserBusiness"
-import { UserInput } from "../model/User"
+import { UserLoginInput, UserSignUpInput } from "../model/User"
 
 
 class UserController {
@@ -15,7 +15,7 @@ class UserController {
 
     const { name, email, password } = req.body
 
-    const input: UserInput = {
+    const input: UserSignUpInput = {
       name,
       email,
       password
@@ -29,7 +29,27 @@ class UserController {
     } catch (error: any) {
       res.status(errorCode).send({ message: error.message } || { message: error.sqlMessage })
     }
+  }
 
+  public login = async (req: Request, res: Response) => {
+
+    let errorCode: number = 400
+
+    const {email, password} = req.body
+
+    const input: UserLoginInput = {
+      email,
+      password
+    }
+
+    try {
+      const token = await this.userBusiness.login(input)
+
+      res.status(200).send({ access_token: token })
+
+    } catch (error: any) {
+      res.status(errorCode).send({ message: error.message } || { message: error.sqlMessage })
+    }
   }
 }
 
