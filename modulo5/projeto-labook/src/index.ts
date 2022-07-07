@@ -27,6 +27,10 @@ const postController = new PostController(
   )
 )
 
+//endpoints de usuário
 app.post("/signup", userController.signUp)
 app.post("/login", userController.login)
-app.post("/post", postController.createPost)
+
+//endpoints de post
+app.post("/posts", postController.createPost)
+app.get("/posts/:id", postController.getPostById)

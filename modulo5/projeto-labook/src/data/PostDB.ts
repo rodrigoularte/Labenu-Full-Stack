@@ -22,6 +22,20 @@ class PostDB extends BaseDatabase {
     }
   }
 
+  public selectPostById = async (id: string) => {
+
+    try {
+      const post = await BaseDatabase.connection(this.TABLE_NAME)
+        .select("*")
+        .where({id})
+
+      return post[0] && Post.toPostModel(post[0])
+
+    } catch (error: any) {
+      throw new Error (error.message || error.sqlMessage)
+    }
+  }
+
 }
 
 export default PostDB

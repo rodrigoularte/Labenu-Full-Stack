@@ -57,6 +57,34 @@ class PostBusiness {
     }
   }
 
+  public getPostById = async (id: string, token: string) => {
+
+    try {
+      
+      if (!token) {
+        throw new Error("Não autorizado. O endpoint precisa receber um token.")
+      }
+
+      const tokenData = this.authenticator.getTokenData(token)
+
+      if (!tokenData) {
+        throw new Error("Não autorizado. O token não tem permissão para acessar o banco de dados.")
+      }
+
+      //passa o id do path params para a função com a query do banco de dados
+      const post = await this.postDB.selectPostById(id)
+
+      if(post === undefined) {
+        throw new Error("Id incorreto.")
+      }
+
+      return post
+
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message)
+    }
+  }
+
 }
 
 export default PostBusiness
