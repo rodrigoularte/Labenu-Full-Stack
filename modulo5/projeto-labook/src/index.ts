@@ -1,8 +1,11 @@
+import FriendshipBusiness from "./business/FriendshipBusiness"
 import PostBusiness from "./business/PostBusiness"
 import UserBusiness from "./business/UserBusiness"
 import { app } from "./controller/app"
+import FriendshipController from "./controller/FriendshipController"
 import PostController from "./controller/PostController"
 import UserController from "./controller/UserController"
+import FriendshipDB from "./data/FriendshipDB"
 import PostDB from "./data/PostDB"
 import UserDB from "./data/UserDB"
 import { Authenticator } from "./services/Authenticator"
@@ -22,7 +25,13 @@ const postController = new PostController(
   new PostBusiness(
     new PostDB(),
     new GenerateId(),
-    new HashManager(),
+    new Authenticator()
+  )
+)
+
+const friendshipController = new FriendshipController(
+  new FriendshipBusiness(
+    new FriendshipDB(),
     new Authenticator()
   )
 )
@@ -34,3 +43,6 @@ app.post("/login", userController.login)
 //endpoints de post
 app.post("/posts", postController.createPost)
 app.get("/posts/:id", postController.getPostById)
+
+//endpoint de amizade
+app.post("/users/:id", friendshipController.makeFriendship)

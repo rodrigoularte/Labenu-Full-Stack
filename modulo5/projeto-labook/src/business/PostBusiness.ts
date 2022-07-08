@@ -2,14 +2,12 @@ import PostDB from "../data/PostDB"
 import { Post, PostInput, POST_TYPE } from "../model/Post"
 import { Authenticator } from "../services/Authenticator"
 import { GenerateId } from "../services/GenerateId"
-import HashManager from "../services/HashManager"
 
 class PostBusiness {
 
   constructor(
     private postDB: PostDB,
     private generateId: GenerateId,
-    private hashManager: HashManager,
     private authenticator: Authenticator
   ) { }
 
