@@ -7,4 +7,8 @@ export const HeaderContainer = styled.div`
   background-color: #5C16C5;
   color: white;
   align-items: center;
+
+  :hover{
+    cursor: pointer;
+  }
 `

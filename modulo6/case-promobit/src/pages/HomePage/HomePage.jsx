@@ -17,7 +17,7 @@ const HomePage = () => {
 
   const getMovies = () => {
     axios
-      .get(`https://api.themoviedb.org/3/movie/popular?${api_key}`)
+      .get(`https://api.themoviedb.org/3/movie/popular?${api_key}&language=pt-BR`)
       .then((res) => {
         setMovies(res.data.results)
 

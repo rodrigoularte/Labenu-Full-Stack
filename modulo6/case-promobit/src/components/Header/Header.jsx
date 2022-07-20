@@ -1,14 +1,15 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
+import { goToHomePage } from "../../routes/coordinator"
 import { HeaderContainer } from "./styled"
 
 const Header = () => {
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return(
     <HeaderContainer>
-      <h2>TMDB</h2>
+      <h2 onClick={() => goToHomePage(navigate)}>TMDB</h2>
     </HeaderContainer>
   )
 }
