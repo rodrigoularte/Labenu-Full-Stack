@@ -1,9 +1,12 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import CastCard from "../../components/CastCard/CastCard"
 import Header from "../../components/Header/Header"
+import MovieCard from "../../components/MovieCard/MovieCard"
 import { api_key } from "../../constants/apiKey"
-import { CastContainer, MovieDetailContainer, MoviePoster, RecomendationsContainer, TrailerContainer } from "./styled"
+import { goToMovieDetailPage } from "../../routes/coordinator"
+import { CastContainer, CastMenu, MovieDetailContainer, MoviePoster, Recommendations, RecommendationsContainer, TrailerContainer } from "./styled"
 
 const MovieDetailPage = () => {
 
@@ -12,41 +15,127 @@ const MovieDetailPage = () => {
   const [movieDetails, setMovieDetails] = useState({})
   const [genres, setGenres] = useState([])
   const [movieYear, setMovieYear] = useState("")
+  const [movieCast, setMovieCast] = useState([])
+  const [movieTrailerLink, setMovieTrailerLink] = useState("")
+  const [recommendationList, setRecommendationList] = useState([])
 
   const pathParams = useParams()
+
 
   const getMovieDetail = async () => {
     try {
       const res = await axios
         .get(`https://api.themoviedb.org/3/movie/${pathParams.id}?${api_key}&language=pt-BR`)
-        setMovieDetails(res.data)
-        setGenres(res.data.genres)
-        setMovieYear(res.data.release_date)
+      setMovieDetails(res.data)
+      setGenres(res.data.genres)
+      setMovieYear(res.data.release_date)
 
     } catch (error) { console.log(error) }
   }
 
-  
-  useEffect(() => { getMovieDetail() }, [])
+  const getCast = async () => {
+    try {
+      const res = await axios
+        .get(`https://api.themoviedb.org/3/movie/${pathParams.id}/credits?${api_key}&language=pt-BR`)
+        // console.log(res.data)
+        .then((res) => {
+          let cast = []
+          let credits = res.data.cast
 
-  const poster = `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`
-  
+          for (let i = 0; i < 10; i++) {
+            cast.push(credits[i])
+          }
+
+          setMovieCast(cast)
+        })
+        .catch((err) => { console.log(err) })
+
+
+    } catch (error) { console.log(error) }
+  }
+
+  const getMovieTrailerLink = async () => {
+    try {
+      const res = await axios
+        .get(`https://api.themoviedb.org/3/movie/${pathParams.id}/videos?${api_key}&language=pt-BR`)
+      setMovieTrailerLink(res.data.results[0].key)
+
+    } catch (error) { console.log(error) }
+  }
+
+  const getRecommendationList = () => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${pathParams.id}/recommendations?${api_key}&language=pt-BR&page=1`)
+      .then((res) => {
+        let recommendations = []
+        let movies = res.data.results
+
+        for (let i = 0; i < 5; i++) {
+          recommendations.push(movies[i])
+        }
+
+        setRecommendationList(recommendations)
+      })
+      .catch((err) => { console.log(err) })
+  }
+
+
+  useEffect(() => {
+    getMovieDetail()
+    getCast()
+    getMovieTrailerLink()
+    getRecommendationList()
+  }, [pathParams.id])
+
+  const poster = `https://image.tmdb.org/t/p/w400${movieDetails.poster_path}`
+
   const movieGenres = (genres.length > 0) ?
     movieDetails.genres.map((genre) => {
       return (
         ` ${genre.name}`
       )
     }) : "Carregando..."
-  
-  console.log(movieDetails)
+
+  const castlist = (movieCast.length > 0) ?
+    movieCast.map((person) => {
+      const path = `https://image.tmdb.org/t/p/w200${person.profile_path}`
+
+      return (
+        <CastCard id={person.id}
+          path={path}
+          name={person.name}
+          character={person.character}
+        />
+      )
+    }) : <h1>Nenhum filme encontrado</h1>
+
+  const movieTrailer = (movieTrailerLink.length > 0) ?
+    <iframe width="720" height="405" src={`https://www.youtube.com/embed/${movieTrailerLink}`} title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :
+    <h2>Não foi possível carregar o trailer</h2>
+
+  const recommendation = (recommendationList.length > 0) ?
+    recommendationList.map((movie) => {
+      const poster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+
+      return (
+        <MovieCard id={movie.id}
+          poster={poster}
+          title={movie.title}
+          releaseDate={movie.release_date}
+          goToMovieDetailPage={() => goToMovieDetailPage(navigate, movie.id)}
+        />
+      )
+    }) : <h1>Nenhum filme encontrado</h1>
+
 
   return (
     <div>
-      <Header/>
+      <Header />
       <MovieDetailContainer>
         <div>
           <h1>
-            {(movieYear.length > 0) ? `${movieDetails.title} (${movieYear.slice(0,4)})` : "Carregando..." }
+            {(movieYear.length > 0) ? `${movieDetails.title} (${movieYear.slice(0, 4)})` : "Carregando..."}
           </h1>
           <p>{`${movieDetails.release_date} | ${movieGenres} | ${movieDetails.runtime} min`}</p>
           <p>{movieDetails.vote_average} Avaliação dos usuários</p>
@@ -61,15 +150,22 @@ const MovieDetailPage = () => {
 
       <CastContainer>
         <h2>Elenco original</h2>
+        <CastMenu>
+          {castlist}
+        </CastMenu>
       </CastContainer>
 
       <TrailerContainer>
         <h2>Trailer</h2>
+        {movieTrailer}
       </TrailerContainer>
 
-      <RecomendationsContainer>
+      <RecommendationsContainer>
         <h2>Recomendações</h2>
-      </RecomendationsContainer>
+        <Recommendations>
+          {recommendation}
+        </Recommendations>
+      </RecommendationsContainer>
     </div>
   )
 }
