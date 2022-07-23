@@ -8,8 +8,8 @@ export const FilterButton = styled.button `
 
   height: 40px;
 
-  background-color: white;
-  color: #323232;
+  background-color: ${(p) => p.select ? "#D18000" : "white"};
+  color: ${(p) => p.select ? "white" : "#323232"};
   border: none;
   border-radius: 4px;
 
