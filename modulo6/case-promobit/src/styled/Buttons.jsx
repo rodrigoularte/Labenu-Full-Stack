@@ -22,4 +22,11 @@ export const FilterButton = styled.button `
   :hover {
     cursor: pointer;
   }
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    height: 32px;
+
+    font-size: 14px;
+    line-height: 20px;
+  }
 `

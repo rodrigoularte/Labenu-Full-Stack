@@ -9,7 +9,7 @@ const Header = () => {
 
   return(
     <HeaderContainer>
-      <h2 onClick={() => goToHomePage(navigate)}>TMDB</h2>
+      <h2 onClick={() => goToHomePage(navigate)}>T M D B</h2>
     </HeaderContainer>
   )
 }

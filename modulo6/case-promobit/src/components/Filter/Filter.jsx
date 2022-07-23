@@ -1,5 +1,5 @@
 import React from "react"
-import { ButtonsContainer, FilterContainer } from "./styled"
+import { ButtonsContainer, FilterContainer, Title } from "./styled"
 import { FilterButton } from "../../styled/Buttons"
 
 const Filter = (props) => {
@@ -21,7 +21,7 @@ const Filter = (props) => {
 
   return (
     <FilterContainer>
-      <h1>Milhões de filmes, séries e pessoas para descobrir. Explore já.</h1>
+      <Title>Milhões de filmes, séries e pessoas para descobrir. Explore já.</Title>
       <p>FILTRE POR:</p>
       <ButtonsContainer>
         {genreButtons}

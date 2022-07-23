@@ -1,5 +1,5 @@
 import React from "react"
-import { MovieCardContainer } from "./styled"
+import { BottomContainer, MovieCardContainer, MovieReleaseDate, Poster } from "./styled"
 
 const MovieCard = (props) => {
 
@@ -8,11 +8,11 @@ const MovieCard = (props) => {
       key={props.id}
       onClick={props.goToMovieDetailPage}
     >
-      <img src={props.poster} alt="" />
-      <div>
+      <Poster src={props.poster} alt={props.title} />
+      <BottomContainer>
         <h4>{props.title}</h4>
-        <p>{props.releaseDate}</p>
-      </div>
+        <MovieReleaseDate>{props.releaseDate}</MovieReleaseDate>
+      </BottomContainer>
     </MovieCardContainer>
   )
 }
