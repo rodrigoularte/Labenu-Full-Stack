@@ -9,6 +9,7 @@ import { HomeContainer } from "./styled"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import { goToMovieDetailPage } from "../../routes/coordinator"
 import { genresList } from "../../constants/genresList"
+import MoviesPagination from "../../components/MoviesPagination/MoviesPagination"
 
 const HomePage = () => {
 
@@ -17,22 +18,26 @@ const HomePage = () => {
   const [movies, setMovies] = useState([])
   const [genres, setGenres] = useState([])
   const [allGenres, setAllGenres] = useState(genresList)
+  const [page, setPage] = useState(1)
 
-  console.log(genres)
+
+  // console.log(genres)
   // console.log(movies)
+  console.log(page)
 
   const getMovies = () => {
     axios
-      .get(`https://api.themoviedb.org/3/movie/popular?${api_key}&language=pt-BR`)
+      .get(`https://api.themoviedb.org/3/movie/popular?${api_key}&language=pt-BR&page=${page}`)
       .then((res) => {
         setMovies(res.data.results)
+        console.log(res.data)
       })
       .catch((err) => { console.log(err) })
   }
 
   useEffect(() => {
     getMovies()
-  }, [])
+  }, [page])
 
 
 
@@ -99,6 +104,11 @@ const HomePage = () => {
     }
   }
 
+  const changePage = (event, value) => {
+    setPage(value)
+    window.scrollTo(0, 0)
+  }
+
   return (
     <div>
       <Header />
@@ -106,6 +116,7 @@ const HomePage = () => {
       <HomeContainer>
         {movieList}
       </HomeContainer>
+      <MoviesPagination page={page} changePage={changePage}/>
     </div>
   )
 }
