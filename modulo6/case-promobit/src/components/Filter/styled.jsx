@@ -50,6 +50,4 @@ export const ButtonsContainer = styled.div `
 
   max-width: 90%;
   gap: 12px;
-  
-  /* padding: 16px; */
 `

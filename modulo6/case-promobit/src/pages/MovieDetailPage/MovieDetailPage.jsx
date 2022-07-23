@@ -33,11 +33,11 @@ const MovieDetailPage = () => {
     } catch (error) { console.log(error) }
   }
 
+
   const getCast = async () => {
     try {
-      const res = await axios
+      await axios
         .get(`https://api.themoviedb.org/3/movie/${pathParams.id}/credits?${api_key}&language=pt-BR`)
-        // console.log(res.data)
         .then((res) => {
           let cast = []
           let credits = res.data.cast
@@ -54,6 +54,7 @@ const MovieDetailPage = () => {
     } catch (error) { console.log(error) }
   }
 
+
   const getMovieTrailerLink = async () => {
     try {
       const res = await axios
@@ -62,6 +63,7 @@ const MovieDetailPage = () => {
 
     } catch (error) { console.log(error) }
   }
+
 
   const getRecommendationList = () => {
     axios
@@ -87,7 +89,9 @@ const MovieDetailPage = () => {
     getRecommendationList()
   }, [pathParams.id])
 
+
   const poster = `https://image.tmdb.org/t/p/w400${movieDetails.poster_path}`
+
 
   const movieGenres = (genres.length > 0) ?
     movieDetails.genres.map((genre) => {
@@ -96,12 +100,13 @@ const MovieDetailPage = () => {
       )
     }) : "Carregando..."
 
+
   const castlist = (movieCast.length > 0) ?
     movieCast.map((person) => {
       const path = `https://image.tmdb.org/t/p/w200${person.profile_path}`
 
       return (
-        <CastCard id={person.id}
+        <CastCard key={person.id} id={person.id}
           path={path}
           name={person.name}
           character={person.character}
@@ -109,17 +114,20 @@ const MovieDetailPage = () => {
       )
     }) : <h1>Nenhum filme encontrado</h1>
 
+
   const movieTrailer = (movieTrailerLink.length > 0) ?
     <Trailer src={`https://www.youtube.com/embed/${movieTrailerLink}`} title="YouTube video player" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Trailer> :
     <h2>Não foi possível carregar o trailer</h2>
 
+    
   const recommendation = (recommendationList.length > 0) ?
     recommendationList.map((movie) => {
       const poster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`
 
       return (
-        <MovieCard id={movie.id}
+        <MovieCard key={movie.id}
+          id={movie.id}
           poster={poster}
           title={movie.title}
           releaseDate={movie.release_date}

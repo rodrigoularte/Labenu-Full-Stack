@@ -21,24 +21,19 @@ const HomePage = () => {
   const [page, setPage] = useState(1)
 
 
-  // console.log(genres)
-  // console.log(movies)
-  console.log(page)
-
   const getMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/popular?${api_key}&language=pt-BR&page=${page}`)
       .then((res) => {
         setMovies(res.data.results)
-        console.log(res.data)
       })
       .catch((err) => { console.log(err) })
   }
 
+
   useEffect(() => {
     getMovies()
   }, [page])
-
 
 
   const movieList = (movies.length > 0) ?
@@ -104,11 +99,13 @@ const HomePage = () => {
     }
   }
 
+
   const changePage = (event, value) => {
     setPage(value)
     window.scrollTo(0, 0)
   }
 
+  
   return (
     <div>
       <Header />
