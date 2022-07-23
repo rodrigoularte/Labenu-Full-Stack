@@ -6,7 +6,7 @@ import Header from "../../components/Header/Header"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import { api_key } from "../../constants/apiKey"
 import { goToMovieDetailPage } from "../../routes/coordinator"
-import { CastContainer, CastMenu, MovieDetailContainer, MoviePoster, Recommendations, RecommendationsContainer, TrailerContainer } from "./styled"
+import { CastContainer, CastMenu, MovieDetailContainer, MoviePoster, MoviePosterContainer, OverviewContainer, Recommendations, RecommendationsContainer, Title, TopContainer, Trailer, TrailerContainer } from "./styled"
 
 const MovieDetailPage = () => {
 
@@ -110,8 +110,8 @@ const MovieDetailPage = () => {
     }) : <h1>Nenhum filme encontrado</h1>
 
   const movieTrailer = (movieTrailerLink.length > 0) ?
-    <iframe width="720" height="405" src={`https://www.youtube.com/embed/${movieTrailerLink}`} title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :
+    <Trailer src={`https://www.youtube.com/embed/${movieTrailerLink}`} title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Trailer> :
     <h2>Não foi possível carregar o trailer</h2>
 
   const recommendation = (recommendationList.length > 0) ?
@@ -133,20 +133,22 @@ const MovieDetailPage = () => {
     <div>
       <Header />
       <MovieDetailContainer>
-        <div>
-          <h1>
+        <MoviePosterContainer>
+          <MoviePoster src={poster} alt="" />
+        </MoviePosterContainer>
+        <TopContainer>
+          <Title>
             {(movieYear.length > 0) ? `${movieDetails.title} (${movieYear.slice(0, 4)})` : "Carregando..."}
-          </h1>
-          <p>{`${movieDetails.release_date} | ${movieGenres} | ${movieDetails.runtime} min`}</p>
-          <p>{movieDetails.vote_average} Avaliação dos usuários</p>
-        </div>
-        <div>
+          </Title>
+          <p>{`${movieDetails.release_date}  •  ${movieGenres}  •  ${movieDetails.runtime} min`}</p>
+          <p>{`${movieDetails.vote_average * 10} %`} Avaliação dos usuários</p>
+        </TopContainer>
+        <OverviewContainer>
           <h3>Sinopse</h3>
           <p>{movieDetails.overview}</p>
-        </div>
+        </OverviewContainer>
       </MovieDetailContainer>
 
-      <MoviePoster src={poster} alt="" />
 
       <CastContainer>
         <h2>Elenco original</h2>
