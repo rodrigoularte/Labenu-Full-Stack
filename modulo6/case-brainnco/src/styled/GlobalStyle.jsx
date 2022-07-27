@@ -11,5 +11,8 @@ export const GlobalStyle = createGlobalStyle`
 export const ContainerApp = styled.div`
   max-width: 100vw;
   min-height: 100vh;
+
   font-family: 'Montserrat', sans-serif;
+
+  background-color: #EFEFEF;
 ` 
