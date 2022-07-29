@@ -5,6 +5,12 @@ export const NameContainer = styled.div `
   align-items: center;
 
   gap: 32px;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    flex-direction: column;
+
+    gap: 4px;
+  }
 `
 
 export const Logo = styled.img `

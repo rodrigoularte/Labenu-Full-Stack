@@ -12,7 +12,7 @@ const GlobalState = (props) => {
   const [numbers, setNumbers] = useState([])
   const [apiDate, setApiDate] = useState("")
 
-  console.log(lotteries)
+  // console.log(lotteries)
   // console.log(lotteryId)
   // console.log(contests)
   // console.log(contestData)

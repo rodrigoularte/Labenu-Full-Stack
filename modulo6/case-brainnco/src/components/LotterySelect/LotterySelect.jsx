@@ -1,5 +1,7 @@
 import React, { useContext } from "react"
 import GlobalContext from "../../global/GlobalContext"
+import { Select } from "./styled"
+
 
 const LotterySelect = (props) => {
   
@@ -12,10 +14,10 @@ const LotterySelect = (props) => {
 
   return(
     <div>
-      <select name="SelectLottery" id="SelectLottery" onChange={props.onChangeLottery}>
+      <Select name="SelectLottery" id="SelectLottery" onChange={props.onChangeLottery}>
         <option value="7">Escolha a loteria</option>
         {lotteryOption}
-      </select>
+      </Select>
     </div>
   )
 }

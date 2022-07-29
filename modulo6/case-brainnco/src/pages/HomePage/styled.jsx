@@ -5,6 +5,10 @@ export const PageContainer = styled.div `
 
   width: 100%;
   height: 100vh;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    flex-direction: column;
+  }
  
 `
 
@@ -21,6 +25,17 @@ export const SideContainer = styled.div `
   color: white;
 
   background: radial-gradient(50% 140% at right, #efefef 50%, ${(p) => p.select} 50.1%);
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    align-items: center;
+
+    width: 100%;
+    height: 40vh;
+
+    padding: 12px 12px 40px 12px;
+
+    background: radial-gradient(140% 30% at bottom, #efefef 50%, ${(p) => p.select} 50.1%);
+  }
 `
 
 export const MainContainer = styled.div `
@@ -30,18 +45,23 @@ export const MainContainer = styled.div `
   justify-content: space-between;
   flex-grow: 1;
 
-  /* width: 30vw;
-  height: 100%; */
+  /* /* width: 30vw; */
+  /* height: 100%; */
 
   padding: 64px;
 
   color: black;
 
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    padding: 12px;
+  }
+
 `
 
 export const FooterMessage = styled.div `
-  position: absolute;
-  bottom: 8%;
+  /* position: absolute;
+  bottom: 8%; */
+  flex-grow: 1;
 
   text-align: center;
 
@@ -51,4 +71,12 @@ export const FooterMessage = styled.div `
   line-height: 20px;
 
   color: black;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    bottom: 4%;
+
+    font-size: 12px;
+    line-height: 16px;
+
+  }
 `

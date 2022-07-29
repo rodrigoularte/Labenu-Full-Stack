@@ -58,9 +58,10 @@ const HomePage = () => {
       <MainContainer>
         <Numbers />
 
-        <FooterMessage>
+        {lotteryId !== "7" && <FooterMessage>
           Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
-        </FooterMessage>
+        </FooterMessage>}
+        
       </MainContainer>
     </PageContainer>
   )
