@@ -6,15 +6,17 @@ const GlobalState = (props) => {
 
   const [lotteries, setLotteries] = useState([])
   const [lotteryId, setLotteryId] = useState(0)
+  const [lotteryName, setLotteryName] = useState("")
   const [contests, setContests] = useState([])
   // const [contestId, setContestId] = useState("2359")
   const [contestData, setContestData] = useState({})
   const [numbers, setNumbers] = useState([])
+  const [apiDate, setApiDate] = useState("")
 
   // console.log(lotteries)
   // console.log(lotteryId)
-  // console.log(contestData)
-  console.log(numbers)
+  console.log(contestData)
+  // console.log(numbers)
 
 
   const getLotteries = () => {
@@ -34,8 +36,6 @@ const GlobalState = (props) => {
 
   const getContestData = () => {
 
-    console.log(contests, lotteryId)
-
     const contestId = contests?.find((lottery) => {
       return lottery.loteriaId === Number(lotteryId)
     })
@@ -45,6 +45,7 @@ const GlobalState = (props) => {
      .then( res => {
       setContestData(res.data)
       setNumbers(res.data.numeros)
+      setApiDate(res.data.data)
     })
      .catch( err => console.log(err.response))
   }
@@ -55,8 +56,8 @@ const GlobalState = (props) => {
     getContestData()
   }, [lotteryId])
 
-  const states = {lotteries, lotteryId, contests, contestData, numbers}
-  const setters = {setLotteries, setLotteryId, setContests, setContestData, setNumbers}
+  const states = {lotteries, lotteryId, lotteryName, contests, contestData, numbers, apiDate}
+  const setters = {setLotteries, setLotteryId, setLotteryName, setContests, setContestData, setNumbers}
   const requests = {getLotteries, getContests, getContestData}
 
   return(

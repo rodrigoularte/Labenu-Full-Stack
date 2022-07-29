@@ -10,7 +10,7 @@ const LotterySelect = (props) => {
   // console.log(lotteries)
 
   const lotteryOption = lotteries.map((lottery) => {
-    return <option key={lottery.id} value={lottery.id}>{lottery.nome}</option>
+    return <option key={lottery.id} value={lottery.id} id={lottery.nome}>{lottery.nome}</option>
   })
 
   return(

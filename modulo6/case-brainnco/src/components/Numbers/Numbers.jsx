@@ -5,14 +5,12 @@ import { NumberCircle, NumbersContainer } from "./styled"
 const Numbers = () => {
 
   const { states } = useContext(GlobalContext)
-  const { numbers } = states  
-
-  console.log(numbers)
+  const { numbers } = states
 
   return (
     <NumbersContainer>
       {numbers ?
-        numbers.map(number => <NumberCircle>{number}</NumberCircle>) :
+        numbers.map(number => <NumberCircle key={number}>{number}</NumberCircle>) :
         <p>carregando</p>}
     </NumbersContainer>
   )
