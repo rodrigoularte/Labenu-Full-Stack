@@ -8,34 +8,35 @@ import { SideContainer, PageContainer, MainContainer, FooterMessage } from "./st
 const HomePage = () => {
 
   const { states, setters } = useContext(GlobalContext)
-  const { lotteries, contests, contestData, apiDate } = states
+  const { lotteryId, contests, contestData, apiDate } = states
   const { setLotteryId } = setters
 
-  // const nome = contests.length > 0 ?
-  // lotteries.find((lottery) => {
-  //   return lottery.
-  // })
+  // console.log(lotteryId)
 
-  // const name = contests?.find((lottery) => {
-  //   return lottery.loteriaId === Number(lotteryId)
-  // })
-
-  // const contestInfo = apiDate.length > 0 &&
-  // `${contestData.id} - ${apiDate.slice(8,10)}/${apiDate.slice(5,7)}/${apiDate.slice(0,4)}`
-  // console.log(contestInfo)
-
-  // const contestInfo = (date, id) => {
-  //   if (date.length > 0) {
-  //     return (
-  //       <div>
-  //         <p>Concurso</p>
-  //         <span>
-  //           {`${id} - ${date.slice(8, 10)}/${date.slice(5, 7)}/${date.slice(0, 4)}`}
-  //         </span>
-  //       </div>
-  //     )
-  //   }
-  // }
+  let color
+  switch (lotteryId) {
+    case "0":
+      color = "#6BEFA3"
+      break
+    case "1":
+      color = "#8666EF"
+      break
+    case "2":
+      color = "#DD7AC6"
+      break
+    case "3":
+      color = "#FFAB64"
+      break
+    case "4":
+      color = "#5AAD7D"
+      break
+    case "5":
+      color = "#BFAF83"
+      break
+    default:
+      color = "#717171"
+      break;
+  }
 
   const onChangeLottery = (event) => {
     setLotteryId(event.target.value)
@@ -43,7 +44,7 @@ const HomePage = () => {
 
   return (
     <PageContainer>
-      <SideContainer>
+      <SideContainer select={color}>
         <div>
           <LotterySelect onChangeLottery={onChangeLottery} />
         </div>
@@ -53,8 +54,6 @@ const HomePage = () => {
         </div> */}
 
         <ContestInfo date={apiDate} id={contestData.id} />
-
-        {/* {contestInfo(apiDate, contestData.id)} */}
       </SideContainer>
 
       <MainContainer>

@@ -15,7 +15,7 @@ const GlobalState = (props) => {
 
   // console.log(lotteries)
   // console.log(lotteryId)
-  console.log(contestData)
+  // console.log(contestData)
   // console.log(numbers)
 
 

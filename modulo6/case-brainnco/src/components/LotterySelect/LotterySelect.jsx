@@ -3,14 +3,11 @@ import GlobalContext from "../../global/GlobalContext"
 
 const LotterySelect = (props) => {
   
-  const {states, setters} = useContext(GlobalContext)
-
-  const lotteries = states.lotteries
-
-  // console.log(lotteries)
+  const {states} = useContext(GlobalContext)
+  const {lotteries} = states
 
   const lotteryOption = lotteries.map((lottery) => {
-    return <option key={lottery.id} value={lottery.id} id={lottery.nome}>{lottery.nome}</option>
+    return <option key={lottery.id} value={lottery.id} id={lottery.nome}> {lottery.nome} </option>
   })
 
   return(
@@ -21,7 +18,6 @@ const LotterySelect = (props) => {
       </select>
     </div>
   )
-
 }
 
 export default LotterySelect

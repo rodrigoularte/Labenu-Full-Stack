@@ -18,12 +18,9 @@ export const SideContainer = styled.div `
 
   padding: 64px;
 
-  /* background-color: #6BEFA3; */
   color: white;
 
-  background: radial-gradient(50% 140% at right, #efefef 50%, #6BEFA3 50.1%);
-
-
+  background: radial-gradient(50% 140% at right, #efefef 50%, ${(p) => p.select} 50.1%);
 `
 
 export const MainContainer = styled.div `
