@@ -1,27 +1,29 @@
 import React, { useContext, useEffect } from "react"
+import LotterySelect from "../../components/LotterySelect/LotterySelect"
+import Numbers from "../../components/Numbers/Numbers"
 import GlobalContext from "../../global/GlobalContext"
 import { SideContainer, PageContainer, MainContainer, FooterMessage } from "./styled"
 
-const MegaSenaPage = () => {
+const HomePage = () => {
 
-  const {requests} = useContext(GlobalContext)
+  const {states, setters} = useContext(GlobalContext)
+  const {lotteries, contests, contestData} = states
+  const {setLotteryId} = setters
 
-  useEffect(() => {
-    requests.getLotteries()
-  }, [])
+  // const nome = contests.length > 0 ?
+  // lotteries.find((lottery) => {
+  //   return lottery.
+  // })
+
+  const onChangeLottery = (event) => {  
+    setLotteryId(event.target.value)
+  }
 
   return(
     <PageContainer>
       <SideContainer>
         <div>
-          <select>
-            <option value="megaSena">MEGA-SENA</option>
-            <option value="quina">QUINA</option>
-            <option value="lotoFacil">LOTOFÁCIL</option>
-            <option value="lotoMania">MEGA-SENA</option>
-            <option value="timeMania">TIMEMANIA</option>
-            <option value="diaDeSorte">DIA DE SORTE</option>
-          </select>
+          <LotterySelect onChangeLottery={onChangeLottery}/>
         </div>
 
         <div>
@@ -35,6 +37,7 @@ const MegaSenaPage = () => {
       </SideContainer>
 
       <MainContainer>
+        <Numbers/>
 
         <FooterMessage>
           Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
@@ -44,4 +47,4 @@ const MegaSenaPage = () => {
   )
 }
 
-export default MegaSenaPage
+export default HomePage

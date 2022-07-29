@@ -1,12 +1,12 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import MegaSenaPage from "../pages/MegaSenaPage/MegaSenaPage"
+import HomePage from "../pages/HomePage/HomePage"
 
 const Router = () => {
 
   return(
     <BrowserRouter>
       <Routes>
-        <Route index element={<MegaSenaPage/>}/>
+        <Route index element={<HomePage/>}/>
       </Routes>
     </BrowserRouter>
   )

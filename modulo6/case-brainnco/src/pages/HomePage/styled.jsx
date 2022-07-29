@@ -13,13 +13,16 @@ export const SideContainer = styled.div `
   flex-direction: column;
   justify-content: space-between;
 
-  width: 30vw;
+  width: 40vw;
   height: 100%;
 
   padding: 64px;
 
-  background-color: #6BEFA3;
+  /* background-color: #6BEFA3; */
   color: white;
+
+  background: radial-gradient(50% 140% at right, #efefef 50%, #6BEFA3 50.1%);
+
 
 `
 
