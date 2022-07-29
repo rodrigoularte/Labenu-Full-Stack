@@ -13,7 +13,7 @@ const LotterySelect = (props) => {
   return(
     <div>
       <select name="SelectLottery" id="SelectLottery" onChange={props.onChangeLottery}>
-        <option>Escolha a loteria</option>
+        <option value="7">Escolha a loteria</option>
         {lotteryOption}
       </select>
     </div>

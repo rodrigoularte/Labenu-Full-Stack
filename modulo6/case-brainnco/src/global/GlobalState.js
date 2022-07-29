@@ -5,16 +5,16 @@ import GlobalContext from "./GlobalContext"
 const GlobalState = (props) => {
 
   const [lotteries, setLotteries] = useState([])
-  const [lotteryId, setLotteryId] = useState(0)
+  const [lotteryId, setLotteryId] = useState("")
   const [lotteryName, setLotteryName] = useState("")
   const [contests, setContests] = useState([])
-  // const [contestId, setContestId] = useState("2359")
   const [contestData, setContestData] = useState({})
   const [numbers, setNumbers] = useState([])
   const [apiDate, setApiDate] = useState("")
 
-  // console.log(lotteries)
+  console.log(lotteries)
   // console.log(lotteryId)
+  // console.log(contests)
   // console.log(contestData)
   // console.log(numbers)
 

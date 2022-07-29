@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import ContestInfo from "../../components/ContestInfo/ContestInfo"
+import LotteryName from "../../components/LotteryName/LotteryName"
 import LotterySelect from "../../components/LotterySelect/LotterySelect"
 import Numbers from "../../components/Numbers/Numbers"
 import GlobalContext from "../../global/GlobalContext"
@@ -8,7 +9,7 @@ import { SideContainer, PageContainer, MainContainer, FooterMessage } from "./st
 const HomePage = () => {
 
   const { states, setters } = useContext(GlobalContext)
-  const { lotteryId, contests, contestData, apiDate } = states
+  const { lotteryId, contestData, apiDate } = states
   const { setLotteryId } = setters
 
   // console.log(lotteryId)
@@ -49,11 +50,9 @@ const HomePage = () => {
           <LotterySelect onChangeLottery={onChangeLottery} />
         </div>
 
-        {/* <div>
-          <h1>MEGA-SENA</h1>
-        </div> */}
+        <LotteryName/>
 
-        <ContestInfo date={apiDate} id={contestData.id} />
+        <ContestInfo date={apiDate} id={contestData.id} lotteryId={lotteryId} />
       </SideContainer>
 
       <MainContainer>
