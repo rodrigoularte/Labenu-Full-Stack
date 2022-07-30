@@ -1,70 +1,85 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">
+     Case Brainnco
+</h1>
 
-In the project directory, you can run:
+<h4 align="left">
+    O objetivo é construir uma aplicação web front-end que mostre os Resultados das Loterias.
+</h4>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  🕵 Sobre
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O objetivo é construir uma aplicação web front-end que mostre os Resultados das Loterias.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  🧑‍💻 Autor
 
-### `npm run build`
+- [Rodrigo Goularte](https://github.com/rodrigoularte)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+##  🔠 Conteúdos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!--ts-->
+   * [Sobre](#sobre)
+   * [Autor](#autor)
+   * [Status](#status)
+   * [Objetivo do Projeto](#objetivo-do-projeto)
+   * [Requisitos de Funcionalidade](#requisitos-de-funcionalidade)
+   * [Concepção do Projeto](#concepcao-do-projeto)
+   * [Link para Acessar](#link-para-acessar)
+   * [Rodando o Projeto](#rodando-o-projeto)
+<!--te-->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+---
+##  🧭 Status do Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- ⌛ Feito
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##  🎯Objetivo do Projeto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Este é um projeto de Front-end , desenvolvido na etapa final do bootcamp da Labenu, cujo o principal objetivo é estudar e praticar: Javascript; React; Hooks; GlobalState; React router; Styled-components; Responsividade.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ☑️Requisitos de Funcionalidade
 
-### Code Splitting
+- [x] Suporte para 6 loterias
+- [x] Select com as opções de loterias
+- [x] Ao mudar a loteria, mudam: o tema do sorteio, número do sorteio, data do sorteio e números sorteados
+- [x] Responsividade para celulares
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+![Captura da Web_30-7-2022_132516_loto-rodrigo surge sh](https://user-images.githubusercontent.com/88721328/181926332-ffebfe51-0710-4a1b-bb88-e62bb19bde95.jpeg)
+![Captura da Web_30-7-2022_132341_loto-rodrigo surge sh](https://user-images.githubusercontent.com/88721328/181926335-b1d5fedf-1a45-4dc2-b223-095f1ba8dda4.jpeg)
+![Captura de tela 2022-07-30 132911](https://user-images.githubusercontent.com/88721328/181926641-8aa19eb4-aa66-4051-b9c0-32770fa50ece.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 💡Concepção do Projeto
 
-### Advanced Configuration
+- **Link do Figma:** https://www.figma.com/file/H2qrYBCFMf4didYmxRwTxP/Brainn-Frontend-Challenge
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🔗Link para Acessar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Link do Surge:** https://loto-rodrigo.surge.sh/
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## 🛰Rodando o Projeto
+
+Para Rodar o projeto, siga as seguintes etapas no seu terminal :
+
+- git clone
+- dentro da pasta do projeto: npm install
+- npm run start

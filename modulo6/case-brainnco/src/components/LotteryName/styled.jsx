@@ -15,6 +15,10 @@ export const NameContainer = styled.div `
 
 export const Logo = styled.img `
   width: 50px;
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+    width: 40px;
+  }
 `
 
 export const Name = styled.h1 `
