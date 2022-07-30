@@ -14,11 +14,20 @@ export const Select = styled.select`
   border-radius: 10px;
 
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
 
   :hover{
     cursor: pointer;
+  }
+
+  @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
+
+    height: 28px;
+    width: 180px;
+    
+    font-size: 12px;
+
   }
 `

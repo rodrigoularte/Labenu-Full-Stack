@@ -8,12 +8,14 @@ export const NumbersContainer = styled.div `
   align-content: center;
 
   width: 100%;
-  height: 90%;
+  height: 95%;
 
   gap: 32px;
 
   @media screen and (min-device-width : 300px) and (max-device-width : 500px) {
     width: 100%;
+
+    gap: 16px;
   }
 `
 
@@ -36,6 +38,6 @@ export const NumberCircle = styled.div `
     width: 50px;
     height: 50px;
 
-    font-size: 20px;
+    font-size: 16px;
   }
 `

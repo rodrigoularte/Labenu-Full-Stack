@@ -35,7 +35,7 @@ const HomePage = () => {
       color = "#BFAF83"
       break
     default:
-      color = "#717171"
+      color = "#9f9f9f"
       break;
   }
 
